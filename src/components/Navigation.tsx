@@ -38,7 +38,7 @@ export function Navigation() {
             <img
               src={gsaLogo}
               alt="GSA Logo"
-              className="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+              className="h-16 md:h-20 lg:h-24 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </a>
 

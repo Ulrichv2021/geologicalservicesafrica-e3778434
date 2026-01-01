@@ -42,9 +42,9 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="relative py-24 lg:py-32 section-dark overflow-hidden">
+    <section id="about" className="relative py-24 lg:py-32 bg-secondary overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 grid-pattern opacity-10" />
+      <div className="absolute inset-0 grid-pattern opacity-5" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
@@ -104,12 +104,11 @@ export function About() {
             className="space-y-6"
           >
             <h3 className="font-display text-2xl md:text-3xl">
-              Uniting Legacy Brands Under One Vision
+              A Unified Vision for Excellence
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Geological Services Africa represents the harmonized expertise of B&S Geological, 
-              aGISs, GeoFocus, and Van Zyl Drilling. Together, we bring decades of combined 
-              experience in exploration geology, geophysics, drilling, and digital innovation.
+              Geological Services Africa brings together decades of combined expertise in 
+              exploration geology, geophysics, drilling, and digital innovation under one roof.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Our integrated approach eliminates the fragmentation typical in exploration projects, 

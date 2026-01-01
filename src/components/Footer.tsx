@@ -24,12 +24,12 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative py-16 bg-obsidian-light border-t border-border/50">
+    <footer className="relative py-16 bg-slate-100 border-t border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <img src={gsaLogo} alt="GSA Logo" className="h-12 w-auto mb-4" />
+            <img src={gsaLogo} alt="GSA Logo" className="h-16 w-auto mb-4" />
             <p className="text-sm text-muted-foreground mb-4">
               Your Mineral Exploration Partner. De-risking investments through 
               data integrity and innovation.

@@ -5,20 +5,20 @@ import heroImage from "@/assets/hero-mining.jpg";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="Open pit mine aerial view"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </div>
 
       {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 grid-pattern opacity-20" />
+      <div className="absolute inset-0 grid-pattern opacity-10" />
 
       {/* Radial Glow */}
       <div className="absolute inset-0 section-glow" />
