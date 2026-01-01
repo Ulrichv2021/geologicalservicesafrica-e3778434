@@ -34,7 +34,7 @@ export function Process() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-secondary/30">
+    <section className="relative py-24 lg:py-32 overflow-hidden bg-secondary">
       {/* Background Elements */}
       <div className="absolute inset-0 grid-pattern opacity-5" />
       

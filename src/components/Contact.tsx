@@ -18,10 +18,10 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden section-dark">
+    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden bg-background">
       {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-10" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 grid-pattern opacity-5" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
         {/* Section Header */}

@@ -103,9 +103,9 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="services" className="relative py-24 lg:py-32 overflow-hidden bg-background">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
       <div className="absolute inset-0 grid-pattern opacity-5" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>

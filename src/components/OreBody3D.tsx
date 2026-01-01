@@ -3,104 +3,110 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Float } from "@react-three/drei";
 import * as THREE from "three";
 
-function WireframeOreBody() {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const glowRef = useRef<THREE.Mesh>(null);
+const RealisticGeologySection = () => {
+  const groupRef = useRef<THREE.Group>(null);
 
-  // Create an irregular ore body shape
-  const geometry = useMemo(() => {
-    const geo = new THREE.IcosahedronGeometry(2, 2);
-    const positions = geo.attributes.position.array as Float32Array;
-    
-    // Deform to create organic ore body shape
-    for (let i = 0; i < positions.length; i += 3) {
-      const x = positions[i];
-      const y = positions[i + 1];
-      const z = positions[i + 2];
-      
-      const noise = Math.sin(x * 2) * 0.3 + Math.cos(y * 3) * 0.2 + Math.sin(z * 1.5) * 0.25;
-      const scale = 1 + noise;
-      
-      positions[i] *= scale;
-      positions[i + 1] *= scale * 0.8;
-      positions[i + 2] *= scale;
-    }
-    
-    geo.computeVertexNormals();
-    return geo;
-  }, []);
+  // Create realistic layered geology with natural colors
+  const layers = useMemo(() => [
+    { y: 1.8, color: "#6B4423", height: 0.25, name: "Topsoil" },
+    { y: 1.45, color: "#8B6914", height: 0.3, name: "Alluvium" },
+    { y: 1.0, color: "#A67B5B", height: 0.35, name: "Saprolite" },
+    { y: 0.5, color: "#808080", height: 0.45, name: "Weathered Bedrock" },
+    { y: -0.1, color: "#505050", height: 0.5, name: "Fresh Bedrock" },
+    { y: -0.75, color: "#2563eb", height: 0.35, name: "Mineralized Zone" },
+    { y: -1.3, color: "#3d3d3d", height: 0.5, name: "Basement" },
+  ], []);
 
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.15;
-      meshRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
-    }
-    if (glowRef.current) {
-      glowRef.current.rotation.y = state.clock.elapsedTime * 0.15;
-      glowRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.12;
     }
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-      <group>
-        {/* Main wireframe */}
-        <mesh ref={meshRef} geometry={geometry}>
-          <meshBasicMaterial
-            color="#3b82f6"
-            wireframe
-            transparent
-            opacity={0.8}
-          />
-        </mesh>
-        
-        {/* Inner glow layer */}
-        <mesh ref={glowRef} geometry={geometry} scale={0.95}>
-          <meshBasicMaterial
-            color="#60a5fa"
-            wireframe
-            transparent
-            opacity={0.3}
-          />
+    <Float speed={1.5} rotationIntensity={0.08} floatIntensity={0.3}>
+      <group ref={groupRef}>
+        {/* Main geological layers */}
+        {layers.map((layer, index) => (
+          <mesh key={index} position={[0, layer.y, 0]}>
+            <boxGeometry args={[2.8, layer.height, 2]} />
+            <meshStandardMaterial
+              color={layer.color}
+              roughness={0.85}
+              metalness={0.05}
+            />
+          </mesh>
+        ))}
+
+        {/* Realistic fold structure in middle layers */}
+        <mesh position={[0, 0.2, 0]} rotation={[0, 0, 0.08]}>
+          <boxGeometry args={[2.7, 0.1, 1.9]} />
+          <meshStandardMaterial color="#707070" roughness={0.8} transparent opacity={0.7} />
         </mesh>
 
-        {/* Core points representing ore deposits */}
-        <points geometry={geometry}>
-          <pointsMaterial
-            color="#93c5fd"
-            size={0.05}
-            transparent
-            opacity={0.6}
-            sizeAttenuation
+        {/* Drill holes with realistic appearance */}
+        {[
+          { x: -0.8, z: 0.5, angle: -0.05 },
+          { x: 0.3, z: 0.2, angle: 0 },
+          { x: 1.0, z: -0.3, angle: 0.08 },
+        ].map((pos, i) => (
+          <group key={`drill-${i}`} position={[pos.x, 1.2, pos.z]} rotation={[0, 0, pos.angle]}>
+            {/* Collar */}
+            <mesh position={[0, 0.7, 0]}>
+              <cylinderGeometry args={[0.06, 0.06, 0.1, 12]} />
+              <meshStandardMaterial color="#4b5563" metalness={0.7} roughness={0.3} />
+            </mesh>
+            {/* Drill trace */}
+            <mesh position={[0, -1.0, 0]}>
+              <cylinderGeometry args={[0.025, 0.025, 3.5, 12]} />
+              <meshStandardMaterial 
+                color="#1d4ed8" 
+                emissive="#3b82f6" 
+                emissiveIntensity={0.2}
+                transparent 
+                opacity={0.85} 
+              />
+            </mesh>
+          </group>
+        ))}
+
+        {/* Ore body with glow effect */}
+        <mesh position={[0, -0.75, 0]}>
+          <boxGeometry args={[1.8, 0.38, 1.2]} />
+          <meshStandardMaterial
+            color="#2563eb"
+            emissive="#1e40af"
+            emissiveIntensity={0.15}
+            roughness={0.5}
+            metalness={0.2}
           />
-        </points>
+        </mesh>
       </group>
     </Float>
   );
-}
+};
 
-function GridFloor() {
+const GridFloor = () => {
   return (
     <gridHelper
-      args={[20, 20, "#1e3a8a", "#1e3a5a"]}
-      position={[0, -3, 0]}
-      rotation={[0, 0, 0]}
+      args={[15, 15, "#e5e7eb", "#d1d5db"]}
+      position={[0, -2, 0]}
     />
   );
-}
+};
 
 export function OreBody3D() {
   return (
     <div className="w-full h-full min-h-[400px] md:min-h-[500px]">
       <Canvas
-        camera={{ position: [5, 3, 5], fov: 45 }}
+        camera={{ position: [4, 3, 4], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
       >
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} color="#3b82f6" />
-        <pointLight position={[-10, -10, -10]} intensity={0.5} color="#60a5fa" />
+        <ambientLight intensity={0.7} />
+        <directionalLight position={[8, 10, 5]} intensity={1} />
+        <pointLight position={[-5, 5, -5]} intensity={0.5} color="#3b82f6" />
         
-        <WireframeOreBody />
+        <RealisticGeologySection />
         <GridFloor />
         
         <OrbitControls
