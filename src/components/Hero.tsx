@@ -1,19 +1,23 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { OreBody3D } from "./OreBody3D";
-import heroImage from "@/assets/hero-mining.jpg";
+import miningVideo from "@/assets/mining-operations.mp4";
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
-      {/* Background Image with Overlay */}
+      {/* Video Background with Overlay */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Open pit mine aerial view"
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-30"
+        >
+          <source src={miningVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       </div>
 
