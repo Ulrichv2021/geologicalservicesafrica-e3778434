@@ -5,20 +5,22 @@ import miningVideo from "@/assets/mining-operations.mp4";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-background">
-      {/* Video Background with Overlay */}
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Video Background with Dark Obsidian Overlay */}
       <div className="absolute inset-0">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover"
         >
           <source src={miningVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        {/* Dark obsidian overlay with transparency */}
+        <div className="absolute inset-0 bg-slate-900/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-800/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-slate-900/40" />
       </div>
 
       {/* Grid Pattern Overlay */}
