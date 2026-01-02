@@ -4,6 +4,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Float } from "@react-three/drei";
 import * as THREE from "three";
 import { Box, Layers, Eye, Download } from "lucide-react";
+import coreAnalysisVideo from "@/assets/core-analysis.mp4";
 
 const GeologicalLayers = () => {
   const groupRef = useRef<THREE.Group>(null);
@@ -26,24 +27,6 @@ const GeologicalLayers = () => {
       groupRef.current.rotation.y = state.clock.elapsedTime * 0.08;
     }
   });
-
-  // Create folded layer geometry
-  const createFoldedLayer = (baseY: number, amplitude: number, frequency: number, thickness: number) => {
-    const shape = new THREE.Shape();
-    const width = 3;
-    const depth = 2;
-    const segments = 32;
-    
-    const points: THREE.Vector3[] = [];
-    
-    for (let i = 0; i <= segments; i++) {
-      const x = (i / segments) * width - width / 2;
-      const fold = Math.sin(x * frequency) * amplitude + Math.cos(x * frequency * 0.5) * amplitude * 0.5;
-      points.push(new THREE.Vector3(x, baseY + fold, 0));
-    }
-    
-    return points;
-  };
 
   return (
     <Float speed={1} rotationIntensity={0.05} floatIntensity={0.2}>
@@ -159,12 +142,21 @@ export function Models3D() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="3d-models" className="relative py-24 lg:py-32 overflow-hidden bg-slate-50">
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-5" />
-      
-      {/* Subtle Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+    <section id="3d-models" className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Video Background with Dark Overlay */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src={coreAnalysisVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-slate-900/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-800/70 to-slate-900/90" />
+      </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
         {/* Section Header */}
@@ -175,10 +167,10 @@ export function Models3D() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">Interactive Visualization</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 mb-6 text-foreground">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 mb-6 text-white drop-shadow-lg">
             3D Geological <span className="text-gradient">Models</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-white/80">
             Experience your geological data with realistic cross-sections showing 
             folding, faulting, and drill hole trajectories.
           </p>
@@ -192,7 +184,7 @@ export function Models3D() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="glass-card p-4 aspect-square lg:aspect-[4/3] bg-gradient-to-br from-slate-100 to-white">
+            <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-2xl p-4 aspect-square lg:aspect-[4/3]">
               <Canvas camera={{ position: [5, 4, 5], fov: 45 }}>
                 <ambientLight intensity={0.6} />
                 <directionalLight position={[5, 8, 5]} intensity={1} castShadow />
@@ -214,27 +206,27 @@ export function Models3D() {
               </Canvas>
               
               {/* Legend */}
-              <div className="absolute bottom-4 left-4 glass-card p-3 text-xs space-y-1 bg-white/90">
+              <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-sm border border-white/10 rounded-lg p-3 text-xs space-y-1">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded" style={{ backgroundColor: '#8B7355' }} />
-                  <span className="text-muted-foreground">Overburden</span>
+                  <span className="text-white/70">Overburden</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded" style={{ backgroundColor: '#696969' }} />
-                  <span className="text-muted-foreground">Host Rock</span>
+                  <span className="text-white/70">Host Rock</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded bg-primary" />
-                  <span className="text-muted-foreground">Ore Body</span>
+                  <span className="text-white/70">Ore Body</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded bg-red-500" />
-                  <span className="text-muted-foreground">Fault Zone</span>
+                  <span className="text-white/70">Fault Zone</span>
                 </div>
               </div>
             </div>
             
-            <p className="text-center text-sm text-muted-foreground mt-4">
+            <p className="text-center text-sm text-white/60 mt-4">
               Drag to rotate • Scroll to zoom
             </p>
           </motion.div>
@@ -246,10 +238,10 @@ export function Models3D() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-6"
           >
-            <h3 className="font-display text-2xl text-foreground">
+            <h3 className="font-display text-2xl text-white">
               Transform Data Into <span className="text-gradient">Insight</span>
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-white/75">
               Our 3D modeling capabilities integrate seamlessly with your exploration workflow, 
               providing real-time visualization of geological structures including realistic 
               folding, faulting, and drill hole intercepts.
@@ -262,13 +254,13 @@ export function Models3D() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  className="glass-card-hover p-4 group bg-white"
+                  className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-4 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-3 group-hover:bg-primary/30 transition-colors">
                     <feature.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h4 className="font-medium mb-1 text-foreground">{feature.title}</h4>
-                  <p className="text-xs text-muted-foreground">{feature.description}</p>
+                  <h4 className="font-medium mb-1 text-white">{feature.title}</h4>
+                  <p className="text-xs text-white/60">{feature.description}</p>
                 </motion.div>
               ))}
             </div>

@@ -104,21 +104,21 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* Video Background */}
+    <section id="services" className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Video Background with Dark Overlay */}
       <div className="absolute inset-0">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover"
         >
           <source src={coreAnalysisVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+        <div className="absolute inset-0 bg-slate-900/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-800/60 to-slate-900/80" />
       </div>
-      <div className="absolute inset-0 grid-pattern opacity-5" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
         {/* Section Header */}
@@ -129,10 +129,10 @@ export function Services() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">Integrated Service Pillars</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 mb-6 text-white drop-shadow-lg">
             Your <span className="text-gradient">One-Stop-Shop</span> for Exploration
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-white/80">
             From geophysical reconnaissance to bankable feasibility studies, 
             we deliver end-to-end solutions tailored to your project needs.
           </p>
@@ -151,8 +151,8 @@ export function Services() {
               onClick={() => setActiveService(pillar)}
               className={`group flex items-center gap-2 px-5 py-3 rounded-lg transition-all duration-300 ${
                 activeService.id === pillar.id
-                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
-                  : "glass-card hover:bg-muted/50"
+                  ? "bg-primary text-white shadow-lg shadow-primary/30"
+                  : "bg-slate-800/60 backdrop-blur-md border border-white/10 text-white/80 hover:bg-slate-700/60 hover:text-white"
               }`}
             >
               <pillar.icon className="w-5 h-5" />
@@ -174,30 +174,30 @@ export function Services() {
             {/* Left - Image or Gradient */}
             <div className="relative">
               {activeService.image ? (
-                <div className="relative overflow-hidden rounded-2xl">
+                <div className="relative overflow-hidden rounded-2xl border border-white/10">
                   <img
                     src={activeService.image}
                     alt={activeService.title}
                     className="w-full h-auto object-cover aspect-[4/3]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
                 </div>
               ) : (
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-secondary to-background aspect-[4/3] flex items-center justify-center">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-slate-800 to-slate-900 border border-white/10 aspect-[4/3] flex items-center justify-center">
                   <activeService.icon className="w-24 h-24 text-primary/50" />
                 </div>
               )}
               
               {/* Info Card */}
-              <div className="absolute -bottom-6 left-6 right-6 glass-card p-6">
-                <h3 className="font-display text-xl mb-2">{activeService.title}</h3>
-                <p className="text-sm text-muted-foreground">{activeService.tagline}</p>
+              <div className="absolute -bottom-6 left-6 right-6 bg-slate-800/90 backdrop-blur-md border border-white/10 rounded-xl p-6">
+                <h3 className="font-display text-xl mb-2 text-white">{activeService.title}</h3>
+                <p className="text-sm text-white/60">{activeService.tagline}</p>
               </div>
             </div>
 
             {/* Right - Service List */}
             <div className="space-y-6 pt-8 lg:pt-0">
-              <p className="text-muted-foreground">{activeService.description}</p>
+              <p className="text-white/75">{activeService.description}</p>
               
               <div className="space-y-4">
                 {activeService.services.map((service, index) => (
@@ -206,17 +206,17 @@ export function Services() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="glass-card-hover p-4 flex items-start gap-4 group"
+                    className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-4 flex items-start gap-4 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
                       <service.icon className="w-5 h-5 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-medium mb-1 flex items-center gap-2">
+                      <h4 className="font-medium mb-1 flex items-center gap-2 text-white">
                         {service.name}
                         <ChevronRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                       </h4>
-                      <p className="text-sm text-muted-foreground">{service.description}</p>
+                      <p className="text-sm text-white/60">{service.description}</p>
                     </div>
                   </motion.div>
                 ))}
