@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Send, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import miningVideo from "@/assets/mining-operations.mp4";
 
 export function Contact() {
   const ref = useRef(null);
@@ -18,10 +19,21 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-5" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
+    <section id="contact" className="relative py-24 lg:py-32 overflow-hidden">
+      {/* Video Background with Dark Overlay */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src={miningVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-slate-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-800/60 to-slate-900/90" />
+      </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
         {/* Section Header */}
@@ -32,10 +44,10 @@ export function Contact() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary text-sm font-semibold uppercase tracking-wider">Get In Touch</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 mb-6 text-white drop-shadow-lg">
             Start Your <span className="text-gradient">Exploration Journey</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-white/80">
             Ready to unlock the potential of your mineral assets? 
             Our team of experts is here to help.
           </p>
@@ -50,53 +62,53 @@ export function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="font-display text-2xl mb-6">Our Offices</h3>
+              <h3 className="font-display text-2xl mb-6 text-white">Our Offices</h3>
               
               <div className="space-y-6">
-                <div className="glass-card p-6 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-6 flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium mb-1">Headquarters</h4>
-                    <p className="text-muted-foreground text-sm">Hout Bay, Cape Town</p>
-                    <p className="text-muted-foreground text-sm">South Africa</p>
+                    <h4 className="font-medium mb-1 text-white">Headquarters</h4>
+                    <p className="text-white/60 text-sm">Hout Bay, Cape Town</p>
+                    <p className="text-white/60 text-sm">South Africa</p>
                   </div>
                 </div>
 
-                <div className="glass-card p-6 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-6 flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
                     <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium mb-1">Phone</h4>
-                    <p className="text-muted-foreground text-sm">+27 (0) 21 790 5050</p>
+                    <h4 className="font-medium mb-1 text-white">Phone</h4>
+                    <p className="text-white/60 text-sm">+27 (0) 21 790 5050</p>
                   </div>
                 </div>
 
-                <div className="glass-card p-6 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-6 flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium mb-1">Email</h4>
-                    <p className="text-muted-foreground text-sm">info@geologicalservicesafrica.com</p>
+                    <h4 className="font-medium mb-1 text-white">Email</h4>
+                    <p className="text-white/60 text-sm">info@geologicalservicesafrica.com</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Compliance Badge */}
-            <div className="glass-card p-6">
-              <h4 className="font-display text-lg mb-3">Compliance & Accreditation</h4>
+            <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-6">
+              <h4 className="font-display text-lg mb-3 text-white">Compliance & Accreditation</h4>
               <div className="flex flex-wrap gap-3">
-                <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium">
                   SAMREC Compliant
                 </span>
-                <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium">
                   ISO 9001:2015
                 </span>
-                <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                <span className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium">
                   SACNASP Registered
                 </span>
               </div>
@@ -109,52 +121,52 @@ export function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="glass-card p-8">
-              <h3 className="font-display text-xl mb-6">Request a Consultation</h3>
+            <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-2xl p-8">
+              <h3 className="font-display text-xl mb-6 text-white">Request a Consultation</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Name</label>
+                    <label className="text-sm text-white/70 mb-2 block">Name</label>
                     <Input
                       placeholder="Your name"
-                      className="bg-secondary/50 border-border focus:border-primary"
+                      className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
                       required
                     />
                   </div>
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Company</label>
+                    <label className="text-sm text-white/70 mb-2 block">Company</label>
                     <Input
                       placeholder="Company name"
-                      className="bg-secondary/50 border-border focus:border-primary"
+                      className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">Email</label>
+                  <label className="text-sm text-white/70 mb-2 block">Email</label>
                   <Input
                     type="email"
                     placeholder="your@email.com"
-                    className="bg-secondary/50 border-border focus:border-primary"
+                    className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">Project Location</label>
+                  <label className="text-sm text-white/70 mb-2 block">Project Location</label>
                   <Input
                     placeholder="Country / Region"
-                    className="bg-secondary/50 border-border focus:border-primary"
+                    className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
                   />
                 </div>
                 
                 <div>
-                  <label className="text-sm text-muted-foreground mb-2 block">Message</label>
+                  <label className="text-sm text-white/70 mb-2 block">Message</label>
                   <Textarea
                     placeholder="Tell us about your project..."
                     rows={4}
-                    className="bg-secondary/50 border-border focus:border-primary resize-none"
+                    className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary resize-none"
                     required
                   />
                 </div>
