@@ -22,6 +22,7 @@ import {
 import geophysicsSurvey from "@/assets/geophysics-survey.jpg";
 import drillingRig from "@/assets/drilling-rig.jpg";
 import modeling3d from "@/assets/3d-modeling.jpg";
+import coreAnalysisVideo from "@/assets/core-analysis.mp4";
 
 const servicePillars = [
   {
@@ -104,8 +105,19 @@ export function Services() {
 
   return (
     <section id="services" className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
+      {/* Video Background */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-15"
+        >
+          <source src={coreAnalysisVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
+      </div>
       <div className="absolute inset-0 grid-pattern opacity-5" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
