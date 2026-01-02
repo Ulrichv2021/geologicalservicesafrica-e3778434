@@ -72,7 +72,7 @@ const servicePillars = [
     id: "digital",
     icon: Laptop,
     title: "Digital Transformation",
-    tagline: "aGISs/MIS Solutions",
+    tagline: "Cloud GIS Solutions",
     description: "Custom digital solutions to control information overload and enable data-driven decisions.",
     image: null,
     services: [
