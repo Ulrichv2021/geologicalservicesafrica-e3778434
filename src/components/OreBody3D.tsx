@@ -1,97 +1,147 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Float } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
-const RealisticGeologySection = () => {
+// Leapfrog-style block model with distinct geological units
+const LeapfrogBlockModel = () => {
   const groupRef = useRef<THREE.Group>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
 
-  // Create realistic layered geology with natural colors
-  const layers = useMemo(() => [
-    { y: 1.8, color: "#6B4423", height: 0.25, name: "Topsoil" },
-    { y: 1.45, color: "#8B6914", height: 0.3, name: "Alluvium" },
-    { y: 1.0, color: "#A67B5B", height: 0.35, name: "Saprolite" },
-    { y: 0.5, color: "#808080", height: 0.45, name: "Weathered Bedrock" },
-    { y: -0.1, color: "#505050", height: 0.5, name: "Fresh Bedrock" },
-    { y: -0.75, color: "#2563eb", height: 0.35, name: "Mineralized Zone" },
-    { y: -1.3, color: "#3d3d3d", height: 0.5, name: "Basement" },
-  ], []);
+  // Define block grid with Leapfrog-style coloring
+  const blocks = useMemo(() => {
+    const blockData: Array<{
+      position: [number, number, number];
+      color: string;
+      name: string;
+      opacity: number;
+    }> = [];
+
+    const blockSize = 0.28;
+    const gap = 0.02;
+    const spacing = blockSize + gap;
+
+    // Grid dimensions
+    const xBlocks = 8;
+    const yLayers = 7;
+    const zBlocks = 6;
+
+    // Geological layer colors (Leapfrog style - vivid distinct colors)
+    const layerColors = [
+      { color: "#8B4513", name: "Overburden", yRange: [6, 6] },
+      { color: "#D2691E", name: "Oxidized Zone", yRange: [5, 5] },
+      { color: "#FFD700", name: "Transitional", yRange: [4, 4] },
+      { color: "#32CD32", name: "Fresh Sulphide", yRange: [3, 3] },
+      { color: "#00CED1", name: "High Grade Ore", yRange: [2, 2] },
+      { color: "#9932CC", name: "Mineralized Host", yRange: [1, 1] },
+      { color: "#4169E1", name: "Basement Rock", yRange: [0, 0] },
+    ];
+
+    // Ore body shape function (creates an irregular ore lens)
+    const isOreZone = (x: number, y: number, z: number) => {
+      const centerX = xBlocks / 2;
+      const centerZ = zBlocks / 2;
+      const distFromCenter = Math.sqrt(
+        Math.pow((x - centerX) / (xBlocks / 2), 2) +
+        Math.pow((z - centerZ) / (zBlocks / 2), 2)
+      );
+      
+      // Create irregular ore body shape
+      if (y >= 1 && y <= 3) {
+        const threshold = 0.7 + Math.sin(x * 0.8 + z * 0.6) * 0.15;
+        return distFromCenter < threshold;
+      }
+      return false;
+    };
+
+    for (let y = 0; y < yLayers; y++) {
+      for (let x = 0; x < xBlocks; x++) {
+        for (let z = 0; z < zBlocks; z++) {
+          // Find layer color
+          const layer = layerColors.find(l => y >= l.yRange[0] && y <= l.yRange[1]);
+          
+          let color = layer?.color || "#808080";
+          let name = layer?.name || "Unknown";
+          let opacity = 0.85;
+
+          // Override for ore zone
+          if (isOreZone(x, y, z)) {
+            if (y === 2) {
+              color = "#FF1493"; // Hot pink for high grade
+              name = "High Grade Core";
+              opacity = 0.95;
+            } else if (y === 1 || y === 3) {
+              color = "#FF6347"; // Tomato red for medium grade
+              name = "Medium Grade";
+              opacity = 0.9;
+            }
+          }
+
+          // Add some randomness to colors for natural look
+          const colorVariation = new THREE.Color(color);
+          const hsl = { h: 0, s: 0, l: 0 };
+          colorVariation.getHSL(hsl);
+          colorVariation.setHSL(
+            hsl.h + (Math.random() - 0.5) * 0.02,
+            hsl.s * (0.9 + Math.random() * 0.2),
+            hsl.l * (0.9 + Math.random() * 0.2)
+          );
+
+          blockData.push({
+            position: [
+              (x - xBlocks / 2 + 0.5) * spacing,
+              (y - yLayers / 2 + 0.5) * spacing,
+              (z - zBlocks / 2 + 0.5) * spacing,
+            ],
+            color: `#${colorVariation.getHexString()}`,
+            name,
+            opacity,
+          });
+        }
+      }
+    }
+
+    return blockData;
+  }, []);
 
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.12;
+      // Gentle continuous rotation
+      groupRef.current.rotation.y += 0.002;
     }
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.08} floatIntensity={0.3}>
-      <group ref={groupRef}>
-        {/* Main geological layers */}
-        {layers.map((layer, index) => (
-          <mesh key={index} position={[0, layer.y, 0]}>
-            <boxGeometry args={[2.8, layer.height, 2]} />
-            <meshStandardMaterial
-              color={layer.color}
-              roughness={0.85}
-              metalness={0.05}
-            />
-          </mesh>
-        ))}
-
-        {/* Realistic fold structure in middle layers */}
-        <mesh position={[0, 0.2, 0]} rotation={[0, 0, 0.08]}>
-          <boxGeometry args={[2.7, 0.1, 1.9]} />
-          <meshStandardMaterial color="#707070" roughness={0.8} transparent opacity={0.7} />
-        </mesh>
-
-        {/* Drill holes with realistic appearance */}
-        {[
-          { x: -0.8, z: 0.5, angle: -0.05 },
-          { x: 0.3, z: 0.2, angle: 0 },
-          { x: 1.0, z: -0.3, angle: 0.08 },
-        ].map((pos, i) => (
-          <group key={`drill-${i}`} position={[pos.x, 1.2, pos.z]} rotation={[0, 0, pos.angle]}>
-            {/* Collar */}
-            <mesh position={[0, 0.7, 0]}>
-              <cylinderGeometry args={[0.06, 0.06, 0.1, 12]} />
-              <meshStandardMaterial color="#4b5563" metalness={0.7} roughness={0.3} />
-            </mesh>
-            {/* Drill trace */}
-            <mesh position={[0, -1.0, 0]}>
-              <cylinderGeometry args={[0.025, 0.025, 3.5, 12]} />
-              <meshStandardMaterial 
-                color="#1d4ed8" 
-                emissive="#3b82f6" 
-                emissiveIntensity={0.2}
-                transparent 
-                opacity={0.85} 
-              />
-            </mesh>
-          </group>
-        ))}
-
-        {/* Ore body with glow effect */}
-        <mesh position={[0, -0.75, 0]}>
-          <boxGeometry args={[1.8, 0.38, 1.2]} />
+    <group ref={groupRef}>
+      {blocks.map((block, index) => (
+        <mesh
+          key={index}
+          position={block.position}
+          onPointerOver={() => setHovered(block.name)}
+          onPointerOut={() => setHovered(null)}
+        >
+          <boxGeometry args={[0.26, 0.26, 0.26]} />
           <meshStandardMaterial
-            color="#2563eb"
-            emissive="#1e40af"
-            emissiveIntensity={0.15}
-            roughness={0.5}
-            metalness={0.2}
+            color={block.color}
+            roughness={0.6}
+            metalness={0.1}
+            transparent
+            opacity={hovered === block.name ? 1 : block.opacity}
           />
         </mesh>
-      </group>
-    </Float>
-  );
-};
-
-const GridFloor = () => {
-  return (
-    <gridHelper
-      args={[15, 15, "#e5e7eb", "#d1d5db"]}
-      position={[0, -2, 0]}
-    />
+      ))}
+      
+      {/* Wireframe outline for block model effect */}
+      <mesh>
+        <boxGeometry args={[2.5, 2.2, 1.9]} />
+        <meshBasicMaterial
+          color="#ffffff"
+          wireframe
+          transparent
+          opacity={0.15}
+        />
+      </mesh>
+    </group>
   );
 };
 
@@ -99,25 +149,51 @@ export function OreBody3D() {
   return (
     <div className="w-full h-full min-h-[400px] md:min-h-[500px]">
       <Canvas
-        camera={{ position: [4, 3, 4], fov: 45 }}
+        camera={{ position: [4, 3, 4], fov: 40 }}
         gl={{ antialias: true, alpha: true }}
       >
-        <ambientLight intensity={0.7} />
-        <directionalLight position={[8, 10, 5]} intensity={1} />
-        <pointLight position={[-5, 5, -5]} intensity={0.5} color="#3b82f6" />
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[10, 10, 5]} intensity={1.2} />
+        <directionalLight position={[-5, 5, -5]} intensity={0.4} />
+        <pointLight position={[0, 5, 0]} intensity={0.3} color="#ffffff" />
         
-        <RealisticGeologySection />
-        <GridFloor />
+        <LeapfrogBlockModel />
         
         <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.5}
-          minPolarAngle={Math.PI / 4}
-          maxPolarAngle={Math.PI / 2}
+          enableZoom={true}
+          enablePan={true}
+          autoRotate={false}
+          minDistance={3}
+          maxDistance={10}
+          minPolarAngle={Math.PI / 6}
+          maxPolarAngle={Math.PI / 1.5}
         />
       </Canvas>
+      
+      {/* Legend overlay */}
+      <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-sm rounded-lg p-3 text-xs space-y-1">
+        <div className="text-white/80 font-medium mb-2">Geological Units</div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "#8B4513" }} />
+          <span className="text-white/70">Overburden</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "#FFD700" }} />
+          <span className="text-white/70">Transitional</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "#32CD32" }} />
+          <span className="text-white/70">Fresh Sulphide</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "#FF1493" }} />
+          <span className="text-white/70">High Grade Core</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: "#4169E1" }} />
+          <span className="text-white/70">Basement</span>
+        </div>
+      </div>
     </div>
   );
 }
