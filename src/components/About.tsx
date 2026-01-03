@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Globe, Cpu, Building2, Leaf, Target, Shield } from "lucide-react";
-import corePhotography from "@/assets/core-photography.jpg";
+import rockLayers from "@/assets/rock-layers.jpg";
 import coreAnalysisVideo from "@/assets/core-analysis.mp4";
 
 const differentiators = [
@@ -89,8 +89,8 @@ export function About() {
           >
             <div className="relative overflow-hidden rounded-2xl border border-white/10">
               <img
-                src={corePhotography}
-                alt="Core samples being photographed by automated camera system"
+                src={rockLayers}
+                alt="Natural rock face showing geological layering and stratification"
                 className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
