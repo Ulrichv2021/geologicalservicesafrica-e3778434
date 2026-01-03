@@ -23,6 +23,7 @@ import geophysicsSurvey from "@/assets/geophysics-survey.jpg";
 import drillingRig from "@/assets/drilling-rig.jpg";
 import modeling3d from "@/assets/3d-modeling.jpg";
 import coreAnalysisVideo from "@/assets/core-analysis.mp4";
+import tabletDataEntry from "@/assets/tablet-data-entry.jpg";
 
 const servicePillars = [
   {
@@ -183,8 +184,13 @@ export function Services() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
                 </div>
               ) : (
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-slate-800 to-slate-900 border border-white/10 aspect-[4/3] flex items-center justify-center">
-                  <activeService.icon className="w-24 h-24 text-primary/50" />
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-slate-800 to-slate-900 border border-white/10 aspect-[4/3]">
+                  <img 
+                    src={tabletDataEntry} 
+                    alt="Geologist entering data on tablet" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
                 </div>
               )}
               
