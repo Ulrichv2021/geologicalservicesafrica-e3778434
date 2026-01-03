@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Globe, Cpu, Building2, Leaf, Target, Shield } from "lucide-react";
-import coreSamples from "@/assets/core-samples.jpg";
+import corePhotography from "@/assets/core-photography.jpg";
 import coreAnalysisVideo from "@/assets/core-analysis.mp4";
 
 const differentiators = [
@@ -89,8 +89,8 @@ export function About() {
           >
             <div className="relative overflow-hidden rounded-2xl border border-white/10">
               <img
-                src={coreSamples}
-                alt="Geological core samples"
+                src={corePhotography}
+                alt="Core samples being photographed by automated camera system"
                 className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
