@@ -1,32 +1,36 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { BookOpen, HelpCircle, Lightbulb, RefreshCw, ArrowRight } from "lucide-react";
+import { Search, Database, BarChart3, FileCheck, ArrowRight } from "lucide-react";
 import miningVideo from "@/assets/mining-operations.mp4";
 
-const steps = [
+const phases = [
   {
-    icon: BookOpen,
-    title: "Learn & Understand",
-    description: "Deep dive into your project's geological context, objectives, and constraints.",
-    color: "from-blue-500 to-blue-600",
+    icon: Search,
+    phase: "Phase 1",
+    title: "Data Review & Reconnaissance",
+    description: "Systematic assessment of existing geological data, remote sensing interpretation, and target generation for exploration programs.",
+    deliverables: ["Data compilation", "Target ranking", "Program design"],
   },
   {
-    icon: HelpCircle,
-    title: "Question & Think",
-    description: "Challenge assumptions, identify knowledge gaps, and develop testable hypotheses.",
-    color: "from-cyan-500 to-cyan-600",
+    icon: Database,
+    phase: "Phase 2",
+    title: "Field Programs & Data Acquisition",
+    description: "Execution of drilling, sampling, and geophysical surveys with rigorous QAQC protocols ensuring data integrity.",
+    deliverables: ["Drill core/chips", "Assay results", "Survey data"],
   },
   {
-    icon: Lightbulb,
-    title: "Solve & Share",
-    description: "Apply innovative solutions and communicate findings transparently.",
-    color: "from-primary to-gsa-blue-glow",
+    icon: BarChart3,
+    phase: "Phase 3",
+    title: "Modelling & Resource Estimation",
+    description: "Geostatistical analysis and 3D geological modelling leading to JORC/SAMREC-compliant resource statements.",
+    deliverables: ["Block models", "Resource reports", "Technical opinions"],
   },
   {
-    icon: RefreshCw,
-    title: "Repeat & Refine",
-    description: "Iterate based on new data, continuously improving understanding and outcomes.",
-    color: "from-indigo-500 to-indigo-600",
+    icon: FileCheck,
+    phase: "Phase 4",
+    title: "Feasibility & Investment Decision",
+    description: "Technical and economic studies supporting PFS, BFS, and project financing requirements.",
+    deliverables: ["Feasibility studies", "CPR documents", "Due diligence support"],
   },
 ];
 
@@ -35,7 +39,7 @@ export function Process() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-28 lg:py-36 overflow-hidden">
       {/* Video Background with Dark Overlay */}
       <div className="absolute inset-0">
         <video
@@ -47,8 +51,8 @@ export function Process() {
         >
           <source src={miningVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-slate-900/80" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-800/60 to-slate-900/90" />
+        <div className="absolute inset-0 bg-slate-900/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-800/70 to-slate-900/90" />
       </div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
@@ -57,51 +61,63 @@ export function Process() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-4xl mx-auto mb-20"
         >
-          <span className="text-primary text-sm font-semibold uppercase tracking-wider">Our Methodology</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 mb-6 text-white drop-shadow-lg">
-            The GSA <span className="text-gradient">Process</span>
+          <span className="text-primary text-sm font-semibold uppercase tracking-widest">Project Lifecycle</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
+            Structured <span className="text-gradient">Methodology</span>
           </h2>
-          <p className="text-lg text-white/80">
-            A scientific approach to exploration that maximizes discovery potential 
-            while minimizing risk.
+          <p className="text-xl text-white/80 leading-relaxed">
+            A systematic approach to geological consulting, from initial data review 
+            through to investment-grade feasibility studies.
           </p>
         </motion.div>
 
-        {/* Process Steps */}
+        {/* Process Phases */}
         <div className="relative">
           {/* Connection Line */}
-          <div className="absolute top-1/2 left-0 right-0 h-px bg-white/20 hidden lg:block" />
+          <div className="absolute top-24 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent hidden lg:block" />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step, index) => (
+            {phases.map((phase, index) => (
               <motion.div
-                key={step.title}
+                key={phase.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
                 className="relative"
               >
-                {/* Step Card */}
-                <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-6 text-center group h-full flex flex-col hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
-                  {/* Step Number */}
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-slate-900 border border-white/20 flex items-center justify-center text-sm font-bold text-primary">
-                    {index + 1}
+                {/* Phase Card */}
+                <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-8 h-full flex flex-col hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300">
+                  {/* Phase Badge */}
+                  <div className="inline-flex items-center gap-2 bg-primary/20 rounded-full px-4 py-1.5 mb-6 w-fit">
+                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">{phase.phase}</span>
                   </div>
                   
                   {/* Icon */}
-                  <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center mx-auto mt-4 mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
-                    <step.icon className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6">
+                    <phase.icon className="w-8 h-8 text-primary" />
                   </div>
                   
                   {/* Content */}
-                  <h3 className="font-display text-xl mb-3 text-white">{step.title}</h3>
-                  <p className="text-sm text-white/60 flex-1">{step.description}</p>
+                  <h3 className="font-display text-xl mb-4 text-white">{phase.title}</h3>
+                  <p className="text-white/60 mb-6 flex-1">{phase.description}</p>
+                  
+                  {/* Deliverables */}
+                  <div className="pt-4 border-t border-white/10">
+                    <div className="text-xs text-white/50 uppercase tracking-wider mb-3">Key Deliverables</div>
+                    <div className="flex flex-wrap gap-2">
+                      {phase.deliverables.map((item) => (
+                        <span key={item} className="text-xs bg-white/10 text-white/70 rounded px-2 py-1">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                   
                   {/* Arrow (except last) */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 z-10">
+                  {index < phases.length - 1 && (
+                    <div className="hidden lg:block absolute -right-4 top-24 z-10">
                       <ArrowRight className="w-6 h-6 text-primary" />
                     </div>
                   )}
