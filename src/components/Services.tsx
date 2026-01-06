@@ -17,7 +17,9 @@ import {
   FileText,
   Database,
   BarChart3,
-  Recycle
+  Recycle,
+  Target,
+  Shield
 } from "lucide-react";
 import geophysicsSurvey from "@/assets/geophysics-survey.jpg";
 import drillingRig from "@/assets/drilling-rig.jpg";
@@ -29,72 +31,72 @@ const servicePillars = [
   {
     id: "geophysics",
     icon: Radio,
-    title: "Advanced Geophysics",
-    tagline: "Seeing Through the Overburden",
-    description: "State-of-the-art geophysical surveys that reveal subsurface structures with unprecedented clarity.",
+    title: "Geophysical Surveys",
+    tagline: "Subsurface Characterization",
+    description: "Non-invasive geophysical methods providing defensible structural and lithological interpretations for drill targeting and resource delineation.",
     image: geophysicsSurvey,
     services: [
-      { icon: Waves, name: "Ground Penetrating Radar (GPR)", description: "High-resolution subsurface imaging for shallow investigations" },
-      { icon: Plane, name: "UAV Magnetics", description: "Drone-based magnetic surveys for rapid coverage of large areas" },
-      { icon: Mountain, name: "LiDAR Scanning", description: "Precise topographic mapping and structural analysis" },
-      { icon: Zap, name: "Induced Polarization (IP)", description: "Detecting disseminated sulphide mineralization at depth" },
-      { icon: Droplets, name: "Ground Gravity", description: "Density contrast mapping for deep geological structures" },
+      { icon: Waves, name: "Ground Penetrating Radar (GPR)", description: "High-resolution shallow subsurface imaging for alluvial and near-surface investigations" },
+      { icon: Plane, name: "Airborne & UAV Magnetics", description: "Rapid coverage magnetic surveys for structural mapping and target generation" },
+      { icon: Mountain, name: "LiDAR & Topographic Surveys", description: "Precision topographic mapping for pit design and volumetric calculations" },
+      { icon: Zap, name: "Induced Polarization (IP/Res)", description: "Detection of disseminated sulphide mineralization and resistivity contrasts" },
+      { icon: Droplets, name: "Gravity & Ground Magnetics", description: "Density and magnetic susceptibility mapping for deep geological structures" },
     ],
   },
   {
     id: "drilling",
     icon: Drill,
-    title: "Precision Drilling",
+    title: "Drilling & Sampling",
     tagline: "Core Recovery Excellence",
-    description: "Comprehensive drilling solutions delivering quality samples for accurate resource assessment.",
+    description: "QAQC-compliant drilling programs delivering representative samples for accurate resource assessment and grade estimation.",
     image: drillingRig,
     services: [
-      { icon: Drill, name: "Sonic Drilling", description: "100% core recovery in unconsolidated materials" },
-      { icon: Hammer, name: "Percussion Drilling", description: "Efficient penetration in hard rock formations" },
-      { icon: Droplets, name: "Water Borehole Drilling", description: "Residential and commercial water supply solutions" },
-      { icon: FileText, name: "Core Logging & Management", description: "Detailed geological documentation and secure storage" },
+      { icon: Drill, name: "Diamond Core Drilling", description: "HQ/NQ core recovery for detailed lithological logging and assay sampling" },
+      { icon: Hammer, name: "Reverse Circulation (RC) Drilling", description: "Cost-effective grade control and resource definition programs" },
+      { icon: FileText, name: "Core Logging & Photography", description: "Systematic geological documentation with digital capture workflows" },
+      { icon: Target, name: "Downhole Surveys", description: "Gyroscopic and magnetic deviation surveys for hole trajectory verification" },
     ],
   },
   {
     id: "modeling",
     icon: Box,
-    title: "3D Modelling & BFS",
-    tagline: "From Data to Decisions",
-    description: "SAMREC-compliant resource estimation and comprehensive feasibility studies.",
+    title: "Resource Estimation & BFS",
+    tagline: "Investment-Grade Outputs",
+    description: "JORC/SAMREC-compliant resource estimation and feasibility studies meeting international banking and investment standards.",
     image: modeling3d,
     services: [
-      { icon: Box, name: "Resource Estimation", description: "SAMREC-compliant mineral resource statements" },
-      { icon: Mountain, name: "Target Generation", description: "AI-assisted prospectivity mapping and drill targeting" },
-      { icon: BarChart3, name: "2D/3D Inversion", description: "Advanced geophysical data processing and interpretation" },
-      { icon: FileText, name: "Bankable Feasibility Studies", description: "Investment-grade technical reports" },
+      { icon: Box, name: "Mineral Resource Estimation", description: "Geostatistical modelling with full uncertainty quantification" },
+      { icon: Shield, name: "Competent Persons Reports", description: "JORC/SAMREC-compliant CPRs for listing and financing purposes" },
+      { icon: BarChart3, name: "Pre-Feasibility Studies (PFS)", description: "Technical and economic assessments for project advancement" },
+      { icon: FileText, name: "Bankable Feasibility Studies", description: "Investment-grade technical reports for project financing" },
     ],
   },
   {
     id: "digital",
     icon: Laptop,
-    title: "Digital Transformation",
-    tagline: "Cloud GIS Solutions",
-    description: "Custom digital solutions to control information overload and enable data-driven decisions.",
-    image: null,
+    title: "Digital Solutions",
+    tagline: "Data-Driven Workflows",
+    description: "Integrated digital platforms enabling real-time data capture, validation, and visualization for operational efficiency.",
+    image: tabletDataEntry,
     services: [
-      { icon: Database, name: "Mobile Data Capture", description: "Real-time field data collection and validation" },
-      { icon: BarChart3, name: "Operational Dashboards", description: "Live project monitoring and KPI tracking" },
-      { icon: Laptop, name: "Management Information Systems", description: "Integrated data management platforms" },
-      { icon: Box, name: "3D Visualization Platforms", description: "Interactive geological model viewers" },
+      { icon: Database, name: "Mobile Data Capture", description: "Field data collection with built-in validation and QAQC checks" },
+      { icon: BarChart3, name: "Operational Dashboards", description: "Real-time project monitoring and KPI tracking platforms" },
+      { icon: Laptop, name: "Cloud GIS Platforms", description: "Centralized spatial data management and multi-user access" },
+      { icon: Box, name: "3D Model Visualization", description: "Interactive geological model viewers for stakeholder presentations" },
     ],
   },
   {
     id: "environmental",
     icon: Leaf,
-    title: "Environmental & Advisory",
-    tagline: "Sustainable Exploration",
-    description: "Comprehensive environmental services ensuring responsible resource development.",
+    title: "Environmental & Closure",
+    tagline: "ESG Compliance",
+    description: "Environmental management and mine closure planning aligned with regulatory requirements and ESG expectations.",
     image: null,
     services: [
-      { icon: FileText, name: "Environmental Management Plans", description: "Regulatory-compliant EMP development" },
-      { icon: Recycle, name: "Mine Closure Planning", description: "Sustainable decommissioning strategies" },
-      { icon: Leaf, name: "Rehabilitation Services", description: "Land restoration and ecosystem recovery" },
-      { icon: Droplets, name: "Groundwater Dynamics", description: "Hydrogeological assessments and monitoring" },
+      { icon: FileText, name: "Environmental Management Plans", description: "Regulatory-compliant EMP development and implementation" },
+      { icon: Recycle, name: "Mine Closure Planning", description: "Progressive rehabilitation and closure cost estimation" },
+      { icon: Leaf, name: "Rehabilitation Monitoring", description: "Land restoration progress tracking and reporting" },
+      { icon: Droplets, name: "Hydrogeological Studies", description: "Groundwater assessments and water management planning" },
     ],
   },
 ];
@@ -105,7 +107,7 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="services" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Video Background with Dark Overlay */}
       <div className="absolute inset-0">
         <video
@@ -117,8 +119,8 @@ export function Services() {
         >
           <source src={coreAnalysisVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-slate-900/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-800/60 to-slate-900/80" />
+        <div className="absolute inset-0 bg-slate-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/75 via-slate-800/65 to-slate-900/85" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
@@ -127,15 +129,15 @@ export function Services() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-4xl mx-auto mb-20"
         >
-          <span className="text-primary text-sm font-semibold uppercase tracking-wider">Integrated Service Pillars</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 mb-6 text-white drop-shadow-lg">
-            Your <span className="text-gradient">One-Stop-Shop</span> for Exploration
+          <span className="text-primary text-sm font-semibold uppercase tracking-widest">Technical Capabilities</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
+            Full Lifecycle <span className="text-gradient">Technical Support</span>
           </h2>
-          <p className="text-lg text-white/80">
-            From geophysical reconnaissance to bankable feasibility studies, 
-            we deliver end-to-end solutions tailored to your project needs.
+          <p className="text-xl text-white/80 leading-relaxed">
+            From early-stage reconnaissance through to bankable feasibility studies, 
+            GSA delivers integrated geological services tailored to your project stage and investment requirements.
           </p>
         </motion.div>
 
@@ -144,20 +146,20 @@ export function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-3 mb-16"
         >
           {servicePillars.map((pillar) => (
             <button
               key={pillar.id}
               onClick={() => setActiveService(pillar)}
-              className={`group flex items-center gap-2 px-5 py-3 rounded-lg transition-all duration-300 ${
+              className={`group flex items-center gap-2 px-6 py-4 rounded-xl transition-all duration-300 ${
                 activeService.id === pillar.id
                   ? "bg-primary text-white shadow-lg shadow-primary/30"
                   : "bg-slate-800/60 backdrop-blur-md border border-white/10 text-white/80 hover:bg-slate-700/60 hover:text-white"
               }`}
             >
               <pillar.icon className="w-5 h-5" />
-              <span className="font-medium text-sm">{pillar.title}</span>
+              <span className="font-medium">{pillar.title}</span>
             </button>
           ))}
         </motion.div>
@@ -170,40 +172,29 @@ export function Services() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="grid lg:grid-cols-2 gap-12 items-start"
+            className="grid lg:grid-cols-2 gap-16 items-start"
           >
             {/* Left - Image or Gradient */}
             <div className="relative">
-              {activeService.image ? (
-                <div className="relative overflow-hidden rounded-2xl border border-white/10">
-                  <img
-                    src={activeService.image}
-                    alt={activeService.title}
-                    className="w-full h-auto object-cover aspect-[4/3]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-                </div>
-              ) : (
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 via-slate-800 to-slate-900 border border-white/10 aspect-[4/3]">
-                  <img 
-                    src={tabletDataEntry} 
-                    alt="Geologist entering data on tablet" 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-                </div>
-              )}
+              <div className="relative overflow-hidden rounded-2xl border border-white/10">
+                <img
+                  src={activeService.image || tabletDataEntry}
+                  alt={activeService.title}
+                  className="w-full h-auto object-cover aspect-[4/3]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+              </div>
               
               {/* Info Card */}
-              <div className="absolute -bottom-6 left-6 right-6 bg-slate-800/90 backdrop-blur-md border border-white/10 rounded-xl p-6">
-                <h3 className="font-display text-xl mb-2 text-white">{activeService.title}</h3>
-                <p className="text-sm text-white/60">{activeService.tagline}</p>
+              <div className="absolute -bottom-6 left-6 right-6 bg-slate-800/95 backdrop-blur-md border border-white/10 rounded-xl p-6">
+                <h3 className="font-display text-2xl mb-2 text-white">{activeService.title}</h3>
+                <p className="text-white/60">{activeService.tagline}</p>
               </div>
             </div>
 
             {/* Right - Service List */}
-            <div className="space-y-6 pt-8 lg:pt-0">
-              <p className="text-white/75">{activeService.description}</p>
+            <div className="space-y-8 pt-8 lg:pt-0">
+              <p className="text-lg text-white/75 leading-relaxed">{activeService.description}</p>
               
               <div className="space-y-4">
                 {activeService.services.map((service, index) => (
@@ -212,17 +203,17 @@ export function Services() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-4 flex items-start gap-4 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
+                    className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-5 flex items-start gap-4 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
-                      <service.icon className="w-5 h-5 text-primary" />
+                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
+                      <service.icon className="w-6 h-6 text-primary" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-medium mb-1 flex items-center gap-2 text-white">
+                      <h4 className="font-medium text-lg mb-1 flex items-center gap-2 text-white">
                         {service.name}
                         <ChevronRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                       </h4>
-                      <p className="text-sm text-white/60">{service.description}</p>
+                      <p className="text-white/60">{service.description}</p>
                     </div>
                   </motion.div>
                 ))}

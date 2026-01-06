@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Float } from "@react-three/drei";
 import * as THREE from "three";
-import { Box, Layers, Eye, Download } from "lucide-react";
+import { Box, Layers, Eye, Download, FileCheck } from "lucide-react";
 import coreAnalysisVideo from "@/assets/core-analysis.mp4";
 
 const GeologicalLayers = () => {
@@ -117,23 +117,23 @@ const GeologicalLayers = () => {
 const features = [
   {
     icon: Layers,
-    title: "Stratigraphic Modeling",
-    description: "Visualize geological layers with realistic folding and structural relationships",
+    title: "Geological Modelling",
+    description: "3D stratigraphic models with structural complexity and grade interpolation",
   },
   {
     icon: Box,
     title: "Block Models",
-    description: "Grade distribution and resource estimation visualization",
+    description: "JORC/SAMREC-compliant resource estimation with uncertainty analysis",
   },
   {
     icon: Eye,
-    title: "Virtual Core Logging",
-    description: "Interactive exploration of drill hole data and core samples",
+    title: "Drill Hole Visualization",
+    description: "Interactive exploration of lithology, assay, and geotechnical data",
   },
   {
-    icon: Download,
-    title: "Export Capabilities",
-    description: "Compatible with industry-standard mining software",
+    icon: FileCheck,
+    title: "Reporting Integration",
+    description: "Export capabilities for Competent Persons Reports and technical documents",
   },
 ];
 
@@ -142,7 +142,7 @@ export function Models3D() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="3d-models" className="relative py-24 lg:py-32 overflow-hidden">
+    <section id="3d-models" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Video Background with Dark Overlay */}
       <div className="absolute inset-0">
         <video
@@ -154,8 +154,8 @@ export function Models3D() {
         >
           <source src={coreAnalysisVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-slate-900/85" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-800/70 to-slate-900/90" />
+        <div className="absolute inset-0 bg-slate-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-800/75 to-slate-900/95" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
@@ -164,19 +164,19 @@ export function Models3D() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-4xl mx-auto mb-20"
         >
-          <span className="text-primary text-sm font-semibold uppercase tracking-wider">Interactive Visualization</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl mt-4 mb-6 text-white drop-shadow-lg">
-            3D Geological <span className="text-gradient">Models</span>
+          <span className="text-primary text-sm font-semibold uppercase tracking-widest">Geological Visualization</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
+            3D Block <span className="text-gradient">Modelling</span>
           </h2>
-          <p className="text-lg text-white/80">
-            Experience your geological data with realistic cross-sections showing 
-            folding, faulting, and drill hole trajectories.
+          <p className="text-xl text-white/80 leading-relaxed">
+            Advanced geological interpretation and resource modelling capabilities 
+            supporting defensible mineral resource statements.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* 3D Viewer */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -184,7 +184,7 @@ export function Models3D() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-2xl p-4 aspect-square lg:aspect-[4/3]">
+            <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-4 aspect-square lg:aspect-[4/3]">
               <Canvas camera={{ position: [5, 4, 5], fov: 45 }}>
                 <ambientLight intensity={0.6} />
                 <directionalLight position={[5, 8, 5]} intensity={1} castShadow />
@@ -206,7 +206,8 @@ export function Models3D() {
               </Canvas>
               
               {/* Legend */}
-              <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-sm border border-white/10 rounded-lg p-3 text-xs space-y-1">
+              <div className="absolute bottom-4 left-4 bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-xs space-y-2">
+                <div className="text-white/50 uppercase tracking-wider text-[10px] mb-2">Model Legend</div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded" style={{ backgroundColor: '#8B7355' }} />
                   <span className="text-white/70">Overburden</span>
@@ -226,8 +227,8 @@ export function Models3D() {
               </div>
             </div>
             
-            <p className="text-center text-sm text-white/60 mt-4">
-              Drag to rotate • Scroll to zoom
+            <p className="text-center text-sm text-white/50 mt-4">
+              Drag to rotate • Scroll to zoom • Interactive geological cross-section
             </p>
           </motion.div>
 
@@ -236,15 +237,15 @@ export function Models3D() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-8"
           >
-            <h3 className="font-display text-2xl text-white">
-              Transform Data Into <span className="text-gradient">Insight</span>
+            <h3 className="font-display text-2xl md:text-3xl text-white">
+              Transform Data Into <span className="text-gradient">Investment Decisions</span>
             </h3>
-            <p className="text-white/75">
-              Our 3D modeling capabilities integrate seamlessly with your exploration workflow, 
-              providing real-time visualization of geological structures including realistic 
-              folding, faulting, and drill hole intercepts.
+            <p className="text-lg text-white/75 leading-relaxed">
+              Our 3D modelling capabilities integrate seamlessly with resource estimation workflows, 
+              providing visual validation of geological interpretations and grade distributions 
+              for stakeholder presentations and technical review.
             </p>
             
             <div className="grid sm:grid-cols-2 gap-4 pt-4">
@@ -254,13 +255,13 @@ export function Models3D() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-4 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
+                  className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-5 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-3 group-hover:bg-primary/30 transition-colors">
-                    <feature.icon className="w-5 h-5 text-primary" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
+                    <feature.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h4 className="font-medium mb-1 text-white">{feature.title}</h4>
-                  <p className="text-xs text-white/60">{feature.description}</p>
+                  <h4 className="font-medium text-lg mb-2 text-white">{feature.title}</h4>
+                  <p className="text-sm text-white/60">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -269,9 +270,9 @@ export function Models3D() {
               href="#contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="btn-hero inline-flex mt-6"
+              className="btn-hero inline-flex mt-8"
             >
-              Request a Demo
+              Request Technical Demo
             </motion.a>
           </motion.div>
         </div>
