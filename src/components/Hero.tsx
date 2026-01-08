@@ -26,7 +26,7 @@ export function Hero() {
           delay: 0.2
         }} className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 mb-10">
             <Shield className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium text-white/90 tracking-wide">JORC & SAMREC  Compliant</span>
+            <span className="text-sm font-medium text-white/90 tracking-wide">JORC & SAMREC Compliant</span>
           </motion.div>
 
           {/* Main Headline - Larger Typography */}
@@ -40,7 +40,7 @@ export function Hero() {
           duration: 0.8,
           delay: 0.3
         }} className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] text-balance text-white mb-8">
-            <span className="block">Investment - Grade</span>
+            <span className="block">Investment-Grade</span>
             <span className="block text-gradient">Geological Intelligence</span>
           </motion.h1>
 
@@ -54,7 +54,7 @@ export function Hero() {
         }} transition={{
           duration: 0.6,
           delay: 0.5
-        }} className="text-xl md:text-2xl lg:text-2xl text-white/85 max-w-3xl mx-auto leading-relaxed mb-12">De - risking mineral investments through rigorous data integrity, defensible resource estimation, and bankable feasibility studies across Africa's most prospective terranes.</motion.p>
+        }} className="text-xl md:text-2xl lg:text-2xl text-white/85 max-w-3xl mx-auto leading-relaxed mb-12">De-risking mineral investments through rigorous data integrity, defensible resource estimation, and bankable feasibility studies across Africa's most prospective terranes.</motion.p>
 
           {/* CTAs */}
           <motion.div initial={{
@@ -99,7 +99,7 @@ export function Hero() {
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
               <FileCheck className="w-8 h-8 text-primary mx-auto mb-4" />
               <div className="text-lg font-display font-semibold text-white mb-2">Bankable Studies</div>
-              <div className="text-sm text-white/60">Pre - Feasibility & Bankable Feasibility Studies to international standards</div>
+              <div className="text-sm text-white/60">Pre-Feasibility & Bankable Feasibility Studies to international standards</div>
             </div>
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
               <TrendingUp className="w-8 h-8 text-primary mx-auto mb-4" />
