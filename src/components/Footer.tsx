@@ -110,7 +110,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/50">
-            © {new Date().getFullYear()} Geological Services Africa (Pty) Ltd. All rights reserved. Est. 2016.
+            © 2019 Geological Services Africa (Pty) Ltd. All rights reserved. Est. 2019.
           </p>
           <div className="flex items-center gap-6">
             {footerLinks.compliance.map(link => <a key={link.name} href={link.href} className="text-xs text-white/50 hover:text-primary transition-colors">
