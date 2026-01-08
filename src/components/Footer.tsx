@@ -49,7 +49,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <img src={gsaLogo} alt="GSA Logo" className="h-16 w-auto mb-6" />
-            <p className="text-white/60 mb-6 leading-relaxed">Investment-grade geological consulting across Africa. De - risking mineral investments through data integrity and technical excellence.</p>
+            <p className="text-white/60 mb-6 leading-relaxed">Investment-grade geological consulting across Africa. De-risking mineral investments through data integrity and technical excellence.</p>
             <div className="space-y-3">
               <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="flex items-center gap-3 text-white/60 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4" />
