@@ -5,17 +5,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import miningVideo from "@/assets/mining-operations.mp4";
-
 export function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-100px"
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
     const formData = new FormData(e.currentTarget);
     const data = {
       name: formData.get('name'),
@@ -24,9 +24,9 @@ export function Contact() {
       phone: formData.get('phone'),
       projectType: formData.get('projectType'),
       location: formData.get('location'),
-      message: formData.get('message'),
+      message: formData.get('message')
     };
-    
+
     // Create mailto link for form submission
     const subject = `GSA Consultation Request - ${data.company || data.name}`;
     const body = `
@@ -40,25 +40,15 @@ Location: ${data.location}
 Message:
 ${data.message}
     `.trim();
-    
     window.location.href = `mailto:ulrichvanderheyde90@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
     setIsSubmitting(false);
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
   };
-
-  return (
-    <section id="contact" className="relative py-28 lg:py-36 overflow-hidden">
+  return <section id="contact" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Video Background with Subtle Motion */}
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
           <source src={miningVideo} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-slate-900/85" />
@@ -67,12 +57,15 @@ ${data.message}
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto mb-20"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 0.6
+      }} className="text-center max-w-4xl mx-auto mb-20">
           <span className="text-primary text-sm font-semibold uppercase tracking-widest">Get Started</span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
             Request a <span className="text-gradient">Consultation</span>
@@ -85,12 +78,16 @@ ${data.message}
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: -30
+        }} animate={isInView ? {
+          opacity: 1,
+          x: 0
+        } : {}} transition={{
+          duration: 0.6,
+          delay: 0.2
+        }} className="space-y-8">
             <div>
               <h3 className="font-display text-2xl md:text-3xl mb-8 text-white">Contact Details</h3>
               
@@ -101,7 +98,7 @@ ${data.message}
                   </div>
                   <div>
                     <h4 className="font-medium text-lg mb-1 text-white">Head Office</h4>
-                    <p className="text-white/60">Hout Bay, Cape Town</p>
+                    <p className="text-white/60">Durbanville Cape Town</p>
                     <p className="text-white/60">South Africa</p>
                   </div>
                 </div>
@@ -122,10 +119,7 @@ ${data.message}
                   </div>
                   <div>
                     <h4 className="font-medium text-lg mb-1 text-white">Email</h4>
-                    <a 
-                      href="mailto:ulrichv@geologicalservicesafrica.co.za" 
-                      className="text-primary hover:text-primary/80 transition-colors text-lg"
-                    >
+                    <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="text-primary hover:text-primary/80 transition-colors text-lg">
                       ulrichv@geologicalservicesafrica.co.za
                     </a>
                   </div>
@@ -158,11 +152,16 @@ ${data.message}
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: 30
+        }} animate={isInView ? {
+          opacity: 1,
+          x: 0
+        } : {}} transition={{
+          duration: 0.6,
+          delay: 0.3
+        }}>
             <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-8 lg:p-10">
               <h3 className="font-display text-xl md:text-2xl mb-8 text-white">Request Technical Consultation</h3>
               
@@ -170,91 +169,49 @@ ${data.message}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm text-white/70 mb-2 block">Full Name *</label>
-                    <Input
-                      name="name"
-                      placeholder="Your name"
-                      className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12"
-                      required
-                    />
+                    <Input name="name" placeholder="Your name" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12" required />
                   </div>
                   <div>
                     <label className="text-sm text-white/70 mb-2 block">Company</label>
-                    <Input
-                      name="company"
-                      placeholder="Company name"
-                      className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12"
-                    />
+                    <Input name="company" placeholder="Company name" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12" />
                   </div>
                 </div>
                 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm text-white/70 mb-2 block">Email *</label>
-                    <Input
-                      name="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12"
-                      required
-                    />
+                    <Input name="email" type="email" placeholder="your@email.com" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12" required />
                   </div>
                   <div>
                     <label className="text-sm text-white/70 mb-2 block">Phone</label>
-                    <Input
-                      name="phone"
-                      type="tel"
-                      placeholder="+27 ..."
-                      className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12"
-                    />
+                    <Input name="phone" type="tel" placeholder="+27 ..." className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12" />
                   </div>
                 </div>
                 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm text-white/70 mb-2 block">Project Type</label>
-                    <Input
-                      name="projectType"
-                      placeholder="e.g., Resource Estimation, BFS"
-                      className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12"
-                    />
+                    <Input name="projectType" placeholder="e.g., Resource Estimation, BFS" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12" />
                   </div>
                   <div>
                     <label className="text-sm text-white/70 mb-2 block">Project Location</label>
-                    <Input
-                      name="location"
-                      placeholder="Country / Region"
-                      className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12"
-                    />
+                    <Input name="location" placeholder="Country / Region" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-12" />
                   </div>
                 </div>
                 
                 <div>
                   <label className="text-sm text-white/70 mb-2 block">Project Details *</label>
-                  <Textarea
-                    name="message"
-                    placeholder="Please describe your project requirements, current stage, and any specific technical needs..."
-                    rows={5}
-                    className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary resize-none"
-                    required
-                  />
+                  <Textarea name="message" placeholder="Please describe your project requirements, current stage, and any specific technical needs..." rows={5} className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary resize-none" required />
                 </div>
                 
-                <Button
-                  type="submit"
-                  className="w-full btn-hero h-14 text-base"
-                  disabled={isSubmitted || isSubmitting}
-                >
-                  {isSubmitted ? (
-                    <>
+                <Button type="submit" className="w-full btn-hero h-14 text-base" disabled={isSubmitted || isSubmitting}>
+                  {isSubmitted ? <>
                       <CheckCircle className="mr-2 h-5 w-5" />
                       Request Sent
-                    </>
-                  ) : (
-                    <>
+                    </> : <>
                       <Send className="mr-2 h-5 w-5" />
                       Submit Consultation Request
-                    </>
-                  )}
+                    </>}
                 </Button>
                 
                 <p className="text-xs text-white/50 text-center">
@@ -265,6 +222,5 @@ ${data.message}
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
