@@ -11,7 +11,7 @@ const differentiators = [{
 }, {
   icon: Shield,
   title: "JORC & SAMREC Compliance",
-  description: "All resource estimations and technical reports adhere to JORC (2012) and SAMREC (2016) codes for Competent Persons' reporting."
+  description: "All resource estimations and technical reports adhere to JORC and SAMREC codes for Competent Persons' reporting."
 }, {
   icon: Cpu,
   title: "Digital Integration",
