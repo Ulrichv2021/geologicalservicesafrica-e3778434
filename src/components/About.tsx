@@ -70,7 +70,7 @@ export function About() {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
             Technical Excellence for <span className="text-gradient">Investment Decisions</span>
           </h2>
-          <p className="text-xl md:text-2xl text-white/80 leading-relaxed">Since 2016, Geological Services Africa has delivered cost-efficient, high-quality geological consulting across the continent — bridging rigorous field geology with advanced digital workflows to reduce risk and accelerate informed decision-making.</p>
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed">Since 2019, Geological Services Africa has delivered cost-efficient, high-quality geological consulting across the continent — bridging rigorous field geology with advanced digital workflows to reduce risk and accelerate informed decision-making.</p>
         </motion.div>
 
         {/* Content Grid */}
