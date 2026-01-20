@@ -45,18 +45,18 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map(link => <a key={link.name} href={link.href} className="text-sm font-medium text-white/80 hover:text-primary transition-colors duration-300">
+            {navLinks.map(link => <a key={link.name} href={link.href} className="text-2xl font-medium text-white/80 hover:text-primary transition-colors duration-300">
                 {link.name}
               </a>)}
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+27790450207" className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors">
-              <Phone className="w-4 h-4" />
+            <a href="tel:+27790450207" className="flex items-center gap-2 text-2xl text-white/70 hover:text-white transition-colors">
+              <Phone className="w-8 h-8" />
               <span>+27 79 045 0207</span>
             </a>
-            <a href="#contact" className="btn-hero text-xs px-6 py-3">
+            <a href="#contact" className="btn-hero text-xl px-8 py-4">
               Request Consultation
             </a>
           </div>
