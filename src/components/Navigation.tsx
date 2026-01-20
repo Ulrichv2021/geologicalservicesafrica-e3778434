@@ -40,7 +40,7 @@ export function Navigation() {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <img src={gsaLogo} alt="Geological Services Africa" className="h-48 md:h-64 lg:h-96 w-auto transition-transform duration-300 group-hover:scale-105" />
+            <img src={gsaLogo} alt="Geological Services Africa" className="h-20 md:h-24 lg:h-40 w-auto transition-transform duration-300 group-hover:scale-105" />
           </a>
 
           {/* Desktop Navigation */}
