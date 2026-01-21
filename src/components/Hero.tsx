@@ -96,20 +96,20 @@ export function Hero() {
           duration: 0.6,
           delay: 0.8
         }} className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-              <FileCheck className="w-8 h-8 text-primary mx-auto mb-4" />
-              <div className="text-lg font-display font-semibold text-white mb-2">Bankable Studies</div>
-              <div className="text-sm text-white/60">Pre-Feasibility & Bankable Feasibility Studies to international standards</div>
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center">
+              <FileCheck className="w-10 h-10 text-primary mx-auto mb-4" />
+              <div className="text-xl md:text-2xl font-display font-semibold text-white mb-3">Bankable Studies</div>
+              <div className="text-lg md:text-xl text-white/60 leading-relaxed">Pre-Feasibility & Bankable Feasibility Studies to international standards</div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-              <TrendingUp className="w-8 h-8 text-primary mx-auto mb-4" />
-              <div className="text-lg font-display font-semibold text-white mb-2">Risk Reduction</div>
-              <div className="text-sm text-white/60">Uncertainty management frameworks</div>
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center">
+              <TrendingUp className="w-10 h-10 text-primary mx-auto mb-4" />
+              <div className="text-xl md:text-2xl font-display font-semibold text-white mb-3">Risk Reduction</div>
+              <div className="text-lg md:text-xl text-white/60 leading-relaxed">Uncertainty management frameworks</div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center">
-              <Shield className="w-8 h-8 text-primary mx-auto mb-4" />
-              <div className="text-lg font-display font-semibold text-white mb-2">Defensible Data</div>
-              <div className="text-sm text-white/60">Auditable QA/QC protocols</div>
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center">
+              <Shield className="w-10 h-10 text-primary mx-auto mb-4" />
+              <div className="text-xl md:text-2xl font-display font-semibold text-white mb-3">Defensible Data</div>
+              <div className="text-lg md:text-xl text-white/60 leading-relaxed">Auditable QA/QC protocols</div>
             </div>
           </motion.div>
         </div>

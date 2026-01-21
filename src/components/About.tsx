@@ -102,11 +102,11 @@ export function About() {
             duration: 0.6,
             delay: 0.6
           }} className="absolute -bottom-8 -right-4 lg:-right-8 bg-slate-800/95 backdrop-blur-md border border-white/10 rounded-2xl p-6 max-w-xs">
-              <div className="text-sm text-white/60 uppercase tracking-wider mb-4">Accreditations</div>
+              <div className="text-base text-white/60 uppercase tracking-wider mb-4">Accreditations</div>
               <div className="flex flex-wrap gap-3">
-                {credentials.map(cred => <div key={cred.label} className="flex items-center gap-2 bg-primary/20 rounded-lg px-3 py-2">
-                    <cred.icon className="w-4 h-4 text-primary" />
-                    <span className="text-xs text-white font-medium">{cred.label}</span>
+                {credentials.map(cred => <div key={cred.label} className="flex items-center gap-2 bg-primary/20 rounded-lg px-4 py-3">
+                    <cred.icon className="w-5 h-5 text-primary" />
+                    <span className="text-base text-white font-medium">{cred.label}</span>
                   </div>)}
               </div>
             </motion.div>
@@ -126,7 +126,7 @@ export function About() {
             <h3 className="font-display text-3xl md:text-4xl text-white">
               Independent Technical Advisory
             </h3>
-            <div className="space-y-6 text-lg text-white/75 leading-relaxed">
+            <div className="space-y-6 text-xl md:text-2xl text-white/75 leading-relaxed">
               <p>
                 GSA provides independent geological consulting services to mining companies, 
                 investors, and financial institutions seeking defensible technical opinions 
@@ -169,12 +169,12 @@ export function About() {
           } : {}} transition={{
             duration: 0.5,
             delay: 0.5 + index * 0.1
-          }} className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-2xl p-8 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors">
-                  <item.icon className="w-7 h-7 text-primary" />
+           }} className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-2xl p-10 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors">
+                  <item.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h4 className="font-display text-xl mb-3 text-white">{item.title}</h4>
-                <p className="text-white/60 leading-relaxed">{item.description}</p>
+                <h4 className="font-display text-2xl mb-4 text-white">{item.title}</h4>
+                <p className="text-xl text-white/60 leading-relaxed">{item.description}</p>
               </motion.div>)}
           </div>
         </motion.div>
