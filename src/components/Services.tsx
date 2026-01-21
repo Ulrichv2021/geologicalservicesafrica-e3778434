@@ -375,11 +375,11 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto mb-20"
         >
-          <span className="text-primary text-sm font-semibold uppercase tracking-widest">Technical Capabilities</span>
+          <span className="text-primary text-base font-semibold uppercase tracking-widest">Technical Capabilities</span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
             Full Lifecycle <span className="text-gradient">Technical Support</span>
           </h2>
-          <p className="text-xl text-white/80 leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
             From early-stage reconnaissance through to bankable feasibility studies, 
             GSA delivers integrated geological services tailored to your project stage and investment requirements.
           </p>
@@ -396,14 +396,14 @@ export function Services() {
             <button
               key={pillar.id}
               onClick={() => setActiveService(pillar)}
-              className={`group flex items-center gap-2 px-6 py-4 rounded-xl transition-all duration-300 ${
+              className={`group flex items-center gap-3 px-8 py-5 rounded-xl transition-all duration-300 ${
                 activeService.id === pillar.id
                   ? "bg-primary text-white shadow-lg shadow-primary/30"
                   : "bg-slate-800/60 backdrop-blur-md border border-white/10 text-white/80 hover:bg-slate-700/60 hover:text-white"
               }`}
             >
-              <pillar.icon className="w-5 h-5" />
-              <span className="font-medium">{pillar.title}</span>
+              <pillar.icon className="w-6 h-6" />
+              <span className="font-medium text-lg">{pillar.title}</span>
             </button>
           ))}
         </motion.div>
@@ -420,7 +420,7 @@ export function Services() {
             {activeService.isTraining ? (
               // Training Content - Custom Layout
               <div className="space-y-12">
-                <p className="text-lg text-white/75 leading-relaxed max-w-4xl mx-auto text-center mb-12">
+                <p className="text-xl md:text-2xl text-white/75 leading-relaxed max-w-4xl mx-auto text-center mb-12">
                   {activeService.description}
                 </p>
                 
@@ -430,7 +430,7 @@ export function Services() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: streamIndex * 0.1 }}
-                    className="space-y-6"
+                    className="space-y-8"
                   >
                     <h3 className="font-display text-2xl md:text-3xl text-white border-b border-white/10 pb-4">
                       {stream.streamTitle}
@@ -438,25 +438,25 @@ export function Services() {
                     
                     {stream.isPackages ? (
                       // Package Layout
-                      <div className="grid md:grid-cols-3 gap-6">
+                      <div className="grid md:grid-cols-3 gap-8">
                         {stream.packages?.map((pkg, pkgIndex) => (
                           <motion.div
                             key={pkg.name}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: pkgIndex * 0.1 }}
-                            className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-xl p-6"
+                            className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-xl p-8"
                           >
-                            <div className="flex items-center gap-3 mb-4">
-                              <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center">
-                                <pkg.icon className="w-6 h-6 text-primary" />
+                            <div className="flex items-center gap-4 mb-6">
+                              <div className="w-14 h-14 rounded-xl bg-primary/30 flex items-center justify-center">
+                                <pkg.icon className="w-7 h-7 text-primary" />
                               </div>
-                              <h4 className="font-display text-lg text-white">{pkg.name}</h4>
+                              <h4 className="font-display text-xl text-white">{pkg.name}</h4>
                             </div>
-                            <ul className="space-y-2">
+                            <ul className="space-y-3">
                               {pkg.includes?.map((item, i) => (
-                                <li key={i} className="flex items-center gap-2 text-white/70">
-                                  <ChevronRight className="w-4 h-4 text-primary" />
+                                <li key={i} className="flex items-center gap-3 text-xl text-white/70">
+                                  <ChevronRight className="w-5 h-5 text-primary" />
                                   <span>{item}</span>
                                 </li>
                               ))}
@@ -466,40 +466,40 @@ export function Services() {
                       </div>
                     ) : stream.isSpecialModule ? (
                       // 3D Modelling Special Module
-                      <div className="space-y-8">
+                      <div className="space-y-10">
                         {stream.courses?.map((course) => (
-                          <div key={course.name} className="space-y-6">
-                            <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-6">
-                              <div className="flex items-start gap-4 mb-4">
-                                <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-                                  <course.icon className="w-7 h-7 text-primary" />
+                          <div key={course.name} className="space-y-8">
+                            <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8">
+                              <div className="flex items-start gap-5 mb-4">
+                                <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+                                  <course.icon className="w-8 h-8 text-primary" />
                                 </div>
                                 <div>
-                                  <h4 className="font-display text-xl text-white mb-2">{course.name}</h4>
-                                  <p className="text-white/70">{course.overview}</p>
+                                  <h4 className="font-display text-2xl text-white mb-3">{course.name}</h4>
+                                  <p className="text-xl text-white/70 leading-relaxed">{course.overview}</p>
                                 </div>
                               </div>
                             </div>
                             
-                            <div className="grid md:grid-cols-2 gap-4">
+                            <div className="grid md:grid-cols-2 gap-6">
                               {course.modules?.map((module, modIndex) => (
                                 <motion.div
                                   key={module.title}
                                   initial={{ opacity: 0, y: 10 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   transition={{ duration: 0.3, delay: modIndex * 0.05 }}
-                                  className="bg-slate-800/40 border border-white/10 rounded-xl p-5"
+                                  className="bg-slate-800/40 border border-white/10 rounded-xl p-8"
                                 >
-                                  <h5 className="font-medium text-white mb-3 flex items-center gap-2">
-                                    <span className="w-6 h-6 rounded-full bg-primary/30 text-primary text-sm flex items-center justify-center">
+                                  <h5 className="font-medium text-xl text-white mb-4 flex items-center gap-3">
+                                    <span className="w-8 h-8 rounded-full bg-primary/30 text-primary text-lg flex items-center justify-center">
                                       {modIndex + 1}
                                     </span>
                                     {module.title}
                                   </h5>
-                                  <ul className="space-y-1.5">
+                                  <ul className="space-y-3">
                                     {module.topics?.map((topic, i) => (
-                                      <li key={i} className="flex items-start gap-2 text-sm text-white/60">
-                                        <ChevronRight className="w-3 h-3 text-primary mt-1 shrink-0" />
+                                      <li key={i} className="flex items-start gap-3 text-lg text-white/60">
+                                        <ChevronRight className="w-4 h-4 text-primary mt-1.5 shrink-0" />
                                         <span>{topic}</span>
                                       </li>
                                     ))}
@@ -512,37 +512,37 @@ export function Services() {
                       </div>
                     ) : (
                       // Regular Course Layout
-                      <div className="grid gap-6">
+                      <div className="grid gap-8">
                         {stream.courses?.map((course, courseIndex) => (
                           <motion.div
                             key={course.name}
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: courseIndex * 0.1 }}
-                            className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
+                            className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
                           >
-                            <div className="flex items-start gap-4">
-                              <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-                                <course.icon className="w-7 h-7 text-primary" />
+                            <div className="flex items-start gap-5">
+                              <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+                                <course.icon className="w-8 h-8 text-primary" />
                               </div>
                               <div className="flex-1">
-                                <div className="flex flex-wrap items-center gap-3 mb-2">
-                                  <h4 className="font-display text-xl text-white">{course.name}</h4>
+                                <div className="flex flex-wrap items-center gap-4 mb-3">
+                                  <h4 className="font-display text-2xl text-white">{course.name}</h4>
                                   {course.prerequisite && (
-                                    <span className="text-xs px-2 py-1 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                                    <span className="text-base px-4 py-2 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
                                       Prerequisite: {course.prerequisite}
                                     </span>
                                   )}
                                 </div>
                                 {course.audience && (
-                                  <p className="text-sm text-primary/80 mb-2">Target Audience: {course.audience}</p>
+                                  <p className="text-lg text-primary/80 mb-3">Target Audience: {course.audience}</p>
                                 )}
-                                <p className="text-white/70 mb-4">{course.overview}</p>
+                                <p className="text-xl text-white/70 mb-6 leading-relaxed">{course.overview}</p>
                                 
-                                <div className="grid sm:grid-cols-2 gap-2">
+                                <div className="grid sm:grid-cols-2 gap-3">
                                   {course.topics?.map((topic, i) => (
-                                    <div key={i} className="flex items-start gap-2 text-sm text-white/60">
-                                      <ChevronRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                                    <div key={i} className="flex items-start gap-3 text-lg text-white/60">
+                                      <ChevronRight className="w-5 h-5 text-primary mt-0.5 shrink-0" />
                                       <span>{topic}</span>
                                     </div>
                                   ))}
@@ -571,34 +571,34 @@ export function Services() {
                   </div>
                   
                   {/* Info Card */}
-                  <div className="absolute -bottom-6 left-6 right-6 bg-slate-800/95 backdrop-blur-md border border-white/10 rounded-xl p-6">
-                    <h3 className="font-display text-2xl mb-2 text-white">{activeService.title}</h3>
-                    <p className="text-white/60">{activeService.tagline}</p>
+                  <div className="absolute -bottom-6 left-6 right-6 bg-slate-800/95 backdrop-blur-md border border-white/10 rounded-xl p-8">
+                    <h3 className="font-display text-2xl md:text-3xl mb-3 text-white">{activeService.title}</h3>
+                    <p className="text-xl text-white/60">{activeService.tagline}</p>
                   </div>
                 </div>
 
                 {/* Right - Service List */}
-                <div className="space-y-8 pt-8 lg:pt-0">
-                  <p className="text-lg text-white/75 leading-relaxed">{activeService.description}</p>
+                <div className="space-y-10 pt-8 lg:pt-0">
+                  <p className="text-xl md:text-2xl text-white/75 leading-relaxed">{activeService.description}</p>
                   
-                  <div className="space-y-4">
+                  <div className="space-y-5">
                     {activeService.services?.map((service, index) => (
                       <motion.div
                         key={service.name}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-5 flex items-start gap-4 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
+                        className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
                       >
-                        <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
-                          <service.icon className="w-6 h-6 text-primary" />
+                        <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/30 transition-colors">
+                          <service.icon className="w-7 h-7 text-primary" />
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-medium text-lg mb-1 flex items-center gap-2 text-white">
+                          <h4 className="font-medium text-xl md:text-2xl mb-2 flex items-center gap-2 text-white">
                             {service.name}
-                            <ChevronRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <ChevronRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                           </h4>
-                          <p className="text-white/60">{service.description}</p>
+                          <p className="text-lg md:text-xl text-white/60 leading-relaxed">{service.description}</p>
                         </div>
                       </motion.div>
                     ))}

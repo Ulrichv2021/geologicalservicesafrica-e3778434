@@ -67,7 +67,7 @@ export function Process() {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
             Structured <span className="text-gradient">Methodology</span>
           </h2>
-          <p className="text-xl text-white/80 leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
             A systematic approach to geological consulting, from initial data review 
             through to investment-grade feasibility studies.
           </p>
@@ -88,27 +88,27 @@ export function Process() {
                 className="relative"
               >
                 {/* Phase Card */}
-                <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-8 h-full flex flex-col hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300">
+                <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-10 h-full flex flex-col hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300">
                   {/* Phase Badge */}
-                  <div className="inline-flex items-center gap-2 bg-primary/20 rounded-full px-4 py-1.5 mb-6 w-fit">
-                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">{phase.phase}</span>
+                  <div className="inline-flex items-center gap-2 bg-primary/20 rounded-full px-5 py-2 mb-6 w-fit">
+                    <span className="text-base font-semibold text-primary uppercase tracking-wider">{phase.phase}</span>
                   </div>
                   
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6">
-                    <phase.icon className="w-8 h-8 text-primary" />
+                  <div className="w-18 h-18 rounded-xl bg-primary/20 flex items-center justify-center mb-6 p-4">
+                    <phase.icon className="w-10 h-10 text-primary" />
                   </div>
                   
                   {/* Content */}
-                  <h3 className="font-display text-xl mb-4 text-white">{phase.title}</h3>
-                  <p className="text-white/60 mb-6 flex-1">{phase.description}</p>
+                  <h3 className="font-display text-2xl mb-4 text-white">{phase.title}</h3>
+                  <p className="text-xl text-white/60 mb-6 flex-1 leading-relaxed">{phase.description}</p>
                   
                   {/* Deliverables */}
-                  <div className="pt-4 border-t border-white/10">
-                    <div className="text-xs text-white/50 uppercase tracking-wider mb-3">Key Deliverables</div>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="pt-6 border-t border-white/10">
+                    <div className="text-base text-white/50 uppercase tracking-wider mb-4">Key Deliverables</div>
+                    <div className="flex flex-wrap gap-3">
                       {phase.deliverables.map((item) => (
-                        <span key={item} className="text-xs bg-white/10 text-white/70 rounded px-2 py-1">
+                        <span key={item} className="text-base bg-white/10 text-white/70 rounded-lg px-4 py-2">
                           {item}
                         </span>
                       ))}

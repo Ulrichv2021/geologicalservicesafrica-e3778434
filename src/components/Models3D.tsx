@@ -170,7 +170,7 @@ export function Models3D() {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
             3D Block <span className="text-gradient">Modelling</span>
           </h2>
-          <p className="text-xl text-white/80 leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
             Advanced geological interpretation and resource modelling capabilities 
             supporting defensible mineral resource statements.
           </p>
@@ -242,7 +242,7 @@ export function Models3D() {
             <h3 className="font-display text-2xl md:text-3xl text-white">
               Transform Data Into <span className="text-gradient">Investment Decisions</span>
             </h3>
-            <p className="text-lg text-white/75 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/75 leading-relaxed">
               Our 3D modelling capabilities integrate seamlessly with resource estimation workflows, 
               providing visual validation of geological interpretations and grade distributions 
               for stakeholder presentations and technical review.
@@ -255,13 +255,13 @@ export function Models3D() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-5 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
+                  className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
-                    <feature.icon className="w-6 h-6 text-primary" />
+                  <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
+                    <feature.icon className="w-7 h-7 text-primary" />
                   </div>
-                  <h4 className="font-medium text-lg mb-2 text-white">{feature.title}</h4>
-                  <p className="text-sm text-white/60">{feature.description}</p>
+                  <h4 className="font-medium text-xl md:text-2xl mb-3 text-white">{feature.title}</h4>
+                  <p className="text-lg md:text-xl text-white/60 leading-relaxed">{feature.description}</p>
                 </motion.div>
               ))}
             </div>

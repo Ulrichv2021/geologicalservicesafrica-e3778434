@@ -49,29 +49,29 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <img src={gsaLogo} alt="GSA Logo" className="h-32 w-auto mb-6 rounded-2xl" />
-            <p className="text-white/60 mb-6 leading-relaxed">Investment-grade geological consulting across Africa. De-risking mineral investments through data integrity and technical excellence.</p>
-            <div className="space-y-3">
+            <p className="text-xl text-white/60 mb-6 leading-relaxed">Investment-grade geological consulting across Africa. De-risking mineral investments through data integrity and technical excellence.</p>
+            <div className="space-y-4">
               <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="flex items-center gap-3 text-white/60 hover:text-primary transition-colors">
-                <Mail className="w-4 h-4" />
-                <span className="text-sm">ulrichv@geologicalservicesafrica.co.za</span>
+                <Mail className="w-5 h-5" />
+                <span className="text-lg">ulrichv@geologicalservicesafrica.co.za</span>
               </a>
               <a href="tel:+27790450207" className="flex items-center gap-3 text-white/60 hover:text-primary transition-colors">
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">+27 79 045 0207</span>
+                <Phone className="w-5 h-5" />
+                <span className="text-lg">+27 79 045 0207</span>
               </a>
               <div className="flex items-center gap-3 text-white/60">
-                <MapPin className="w-4 h-4" />
-                <span className="text-sm">Durbanville, Cape Town, South Africa</span>
+                <MapPin className="w-5 h-5" />
+                <span className="text-lg">Durbanville, Cape Town, South Africa</span>
               </div>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-6 text-white">Services</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display text-lg font-semibold uppercase tracking-wider mb-6 text-white">Services</h4>
+            <ul className="space-y-4">
               {footerLinks.services.map(link => <li key={link.name}>
-                  <a href={link.href} className="text-white/60 hover:text-primary transition-colors">
+                  <a href={link.href} className="text-lg text-white/60 hover:text-primary transition-colors">
                     {link.name}
                   </a>
                 </li>)}
@@ -80,10 +80,10 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-6 text-white">Company</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display text-lg font-semibold uppercase tracking-wider mb-6 text-white">Company</h4>
+            <ul className="space-y-4">
               {footerLinks.company.map(link => <li key={link.name}>
-                  <a href={link.href} className="text-white/60 hover:text-primary transition-colors">
+                  <a href={link.href} className="text-lg text-white/60 hover:text-primary transition-colors">
                     {link.name}
                   </a>
                 </li>)}
@@ -92,16 +92,16 @@ export function Footer() {
 
           {/* Connect */}
           <div>
-            <h4 className="font-display text-sm font-semibold uppercase tracking-wider mb-6 text-white">Connect</h4>
-            <p className="text-white/60 mb-6">
+            <h4 className="font-display text-lg font-semibold uppercase tracking-wider mb-6 text-white">Connect</h4>
+            <p className="text-xl text-white/60 mb-6">
               Follow us for industry insights and project updates.
             </p>
-            <div className="flex items-center gap-3">
-              <a href="#" className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Linkedin className="w-5 h-5 text-white/70" />
+            <div className="flex items-center gap-4">
+              <a href="#" className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+                <Linkedin className="w-6 h-6 text-white/70" />
               </a>
-              <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
-                <Mail className="w-5 h-5 text-white/70" />
+              <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+                <Mail className="w-6 h-6 text-white/70" />
               </a>
             </div>
           </div>
@@ -109,11 +109,11 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-white/50">
+          <p className="text-lg text-white/50">
             © 2019 Geological Services Africa (Pty) Ltd. All rights reserved. Est. 2019.
           </p>
           <div className="flex items-center gap-6">
-            {footerLinks.compliance.map(link => <a key={link.name} href={link.href} className="text-xs text-white/50 hover:text-primary transition-colors">
+            {footerLinks.compliance.map(link => <a key={link.name} href={link.href} className="text-base text-white/50 hover:text-primary transition-colors">
                 {link.name}
               </a>)}
           </div>
