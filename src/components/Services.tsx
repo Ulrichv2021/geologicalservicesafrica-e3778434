@@ -445,18 +445,18 @@ export function Services() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: pkgIndex * 0.1 }}
-                            className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-xl p-8"
+                            className="bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 rounded-xl p-10"
                           >
-                            <div className="flex items-center gap-4 mb-6">
-                              <div className="w-14 h-14 rounded-xl bg-primary/30 flex items-center justify-center">
-                                <pkg.icon className="w-7 h-7 text-primary" />
+                            <div className="flex items-center gap-5 mb-8">
+                              <div className="w-16 h-16 rounded-xl bg-primary/30 flex items-center justify-center">
+                                <pkg.icon className="w-8 h-8 text-primary" />
                               </div>
-                              <h4 className="font-display text-xl text-white">{pkg.name}</h4>
+                              <h4 className="font-display text-xl md:text-2xl text-white">{pkg.name}</h4>
                             </div>
-                            <ul className="space-y-3">
+                            <ul className="space-y-4">
                               {pkg.includes?.map((item, i) => (
-                                <li key={i} className="flex items-center gap-3 text-xl text-white/70">
-                                  <ChevronRight className="w-5 h-5 text-primary" />
+                                <li key={i} className="flex items-center gap-3 text-xl md:text-2xl text-white/70">
+                                  <ChevronRight className="w-6 h-6 text-primary shrink-0" />
                                   <span>{item}</span>
                                 </li>
                               ))}
@@ -488,18 +488,18 @@ export function Services() {
                                   initial={{ opacity: 0, y: 10 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   transition={{ duration: 0.3, delay: modIndex * 0.05 }}
-                                  className="bg-slate-800/40 border border-white/10 rounded-xl p-8"
+                                  className="bg-slate-800/40 border border-white/10 rounded-xl p-10"
                                 >
-                                  <h5 className="font-medium text-xl text-white mb-4 flex items-center gap-3">
-                                    <span className="w-8 h-8 rounded-full bg-primary/30 text-primary text-lg flex items-center justify-center">
+                                  <h5 className="font-medium text-xl md:text-2xl text-white mb-5 flex items-center gap-4">
+                                    <span className="w-10 h-10 rounded-full bg-primary/30 text-primary text-xl flex items-center justify-center">
                                       {modIndex + 1}
                                     </span>
                                     {module.title}
                                   </h5>
-                                  <ul className="space-y-3">
+                                  <ul className="space-y-4">
                                     {module.topics?.map((topic, i) => (
-                                      <li key={i} className="flex items-start gap-3 text-lg text-white/60">
-                                        <ChevronRight className="w-4 h-4 text-primary mt-1.5 shrink-0" />
+                                      <li key={i} className="flex items-start gap-3 text-xl md:text-2xl text-white/60">
+                                        <ChevronRight className="w-6 h-6 text-primary mt-1 shrink-0" />
                                         <span>{topic}</span>
                                       </li>
                                     ))}
@@ -535,14 +535,14 @@ export function Services() {
                                   )}
                                 </div>
                                 {course.audience && (
-                                  <p className="text-lg text-primary/80 mb-3">Target Audience: {course.audience}</p>
+                                  <p className="text-xl md:text-2xl text-primary/80 mb-4">Target Audience: {course.audience}</p>
                                 )}
-                                <p className="text-xl text-white/70 mb-6 leading-relaxed">{course.overview}</p>
+                                <p className="text-xl md:text-2xl text-white/70 mb-8 leading-relaxed">{course.overview}</p>
                                 
-                                <div className="grid sm:grid-cols-2 gap-3">
+                                <div className="grid sm:grid-cols-2 gap-4">
                                   {course.topics?.map((topic, i) => (
-                                    <div key={i} className="flex items-start gap-3 text-lg text-white/60">
-                                      <ChevronRight className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                                    <div key={i} className="flex items-start gap-3 text-xl md:text-2xl text-white/60">
+                                      <ChevronRight className="w-6 h-6 text-primary mt-1 shrink-0" />
                                       <span>{topic}</span>
                                     </div>
                                   ))}
@@ -598,7 +598,7 @@ export function Services() {
                             {service.name}
                             <ChevronRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                           </h4>
-                          <p className="text-lg md:text-xl text-white/60 leading-relaxed">{service.description}</p>
+                          <p className="text-xl md:text-2xl text-white/60 leading-relaxed">{service.description}</p>
                         </div>
                       </motion.div>
                     ))}
