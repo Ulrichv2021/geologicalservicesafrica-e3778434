@@ -91,6 +91,11 @@
 }
 
 @layer components {
+  /* Full-width page padding (edge-to-edge layout) */
+  .page-x {
+    @apply w-full px-4 sm:px-6 lg:px-10 2xl:px-14;
+  }
+
   /* Glassmorphism Card - Light Theme */
   .glass-card {
     @apply relative overflow-hidden rounded-xl bg-card shadow-sm;

@@ -158,13 +158,13 @@ export function Models3D() {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-800/75 to-slate-900/95" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
+      <div className="page-x relative z-10" ref={ref}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto mb-20"
+          className="text-center w-full mb-20"
         >
           <span className="text-primary text-sm font-semibold uppercase tracking-widest">Geological Visualization</span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">

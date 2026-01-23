@@ -12,8 +12,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-800/70 to-slate-900/90" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-32 pb-16">
-        <div className="max-w-5xl mx-auto text-center">
+      <div className="page-x relative z-10 pt-32 pb-16">
+        <div className="w-full text-center">
           {/* Compliance Badge */}
           <motion.div initial={{
           opacity: 0,
@@ -54,7 +54,7 @@ export function Hero() {
         }} transition={{
           duration: 0.6,
           delay: 0.5
-        }} className="text-xl md:text-2xl lg:text-2xl text-white/85 max-w-3xl mx-auto leading-relaxed mb-12">De-risking mineral investments through rigorous data integrity, defensible resource estimation, and bankable feasibility studies across Africa's most prospective terranes.</motion.p>
+          }} className="text-xl md:text-2xl lg:text-2xl text-white/85 w-full leading-relaxed mb-12">De-risking mineral investments through rigorous data integrity, defensible resource estimation, and bankable feasibility studies across Africa's most prospective terranes.</motion.p>
 
           {/* CTAs */}
           <motion.div initial={{
@@ -95,7 +95,7 @@ export function Hero() {
         }} transition={{
           duration: 0.6,
           delay: 0.8
-        }} className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        }} className="grid md:grid-cols-3 gap-6 w-full">
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center">
               <FileCheck className="w-10 h-10 text-primary mx-auto mb-4" />
               <div className="text-xl md:text-2xl font-display font-semibold text-white mb-3">Bankable Studies</div>

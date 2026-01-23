@@ -36,7 +36,7 @@ export function Navigation() {
     duration: 0.6,
     ease: "easeOut"
   }} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-slate-900/95 backdrop-blur-md border-b border-white/10 py-3" : "bg-transparent py-6"}`}>
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="page-x">
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
@@ -80,7 +80,7 @@ export function Navigation() {
         opacity: 0,
         height: 0
       }} className="lg:hidden bg-slate-900/98 backdrop-blur-md border-t border-white/10 mt-2">
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+            <div className="page-x py-6 flex flex-col gap-4">
               {navLinks.map(link => <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-primary transition-colors">
                   {link.name}
                 </a>)}
