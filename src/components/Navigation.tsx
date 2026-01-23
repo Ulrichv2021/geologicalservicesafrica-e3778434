@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import gsaLogo from "@/assets/gsa-logo.png";
 const navLinks = [{
   name: "About",
@@ -11,9 +11,6 @@ const navLinks = [{
 }, {
   name: "Commodities",
   href: "#commodities"
-}, {
-  name: "3D Models",
-  href: "#3d-models"
 }, {
   name: "Contact",
   href: "#contact"
@@ -50,16 +47,6 @@ export function Navigation() {
               </a>)}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:+27790450207" className="flex items-center gap-2 text-base text-white/70 hover:text-white transition-colors">
-              <Phone className="w-5 h-5" />
-              <span>+27 79 045 0207</span>
-            </a>
-            <a href="#contact" className="btn-hero text-sm px-6 py-3">
-              Request Consultation
-            </a>
-          </div>
 
           {/* Mobile Menu Toggle */}
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden p-2 text-white" aria-label="Toggle menu">
@@ -84,15 +71,6 @@ export function Navigation() {
               {navLinks.map(link => <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-primary transition-colors">
                   {link.name}
                 </a>)}
-              <div className="pt-4 border-t border-white/10">
-                <a href="tel:+27790450207" className="flex items-center gap-2 text-white/70 mb-4">
-                  <Phone className="w-4 h-4" />
-                  <span>079 045 0207</span>
-                </a>
-                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="btn-hero text-center block">
-                  Request Consultation
-                </a>
-              </div>
             </div>
           </motion.div>}
       </AnimatePresence>

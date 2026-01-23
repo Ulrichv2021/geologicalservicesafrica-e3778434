@@ -70,7 +70,7 @@ export function About() {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
             Technical Excellence for <span className="text-gradient">Investment Decisions</span>
           </h2>
-          <p className="text-xl md:text-2xl text-white/80 leading-relaxed">Since 2019, Geological Services Africa has delivered cost-efficient, high-quality geological consulting across the continent — bridging rigorous field geology with advanced digital workflows to reduce risk and accelerate informed decision-making.</p>
+          <p className="text-lg md:text-xl text-white/70 leading-relaxed">Since 2019, Geological Services Africa has delivered cost-efficient, high-quality geological consulting across the continent — bridging rigorous field geology with advanced digital workflows to reduce risk and accelerate informed decision-making.</p>
         </motion.div>
 
         {/* Content Grid */}
@@ -126,7 +126,7 @@ export function About() {
             <h3 className="font-display text-3xl md:text-4xl text-white">
               Independent Technical Advisory
             </h3>
-            <div className="space-y-6 text-xl md:text-2xl text-white/75 leading-relaxed">
+            <div className="space-y-6 text-lg md:text-xl text-white/60 leading-relaxed">
               <p>
                 GSA provides independent geological consulting services to mining companies, 
                 investors, and financial institutions seeking defensible technical opinions 
@@ -173,8 +173,8 @@ export function About() {
                 <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors">
                   <item.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h4 className="font-display text-2xl mb-4 text-white">{item.title}</h4>
-                <p className="text-xl text-white/60 leading-relaxed">{item.description}</p>
+            <h4 className="font-display text-xl md:text-2xl mb-4 text-white">{item.title}</h4>
+                <p className="text-lg md:text-xl text-white/60 leading-relaxed">{item.description}</p>
               </motion.div>)}
           </div>
         </motion.div>
