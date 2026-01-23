@@ -66,7 +66,7 @@ export function Commodities() {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
             Strategic <span className="text-gradient">Mineral Focus</span>
           </h2>
-          <p className="text-xl md:text-2xl text-white/80 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/60 leading-relaxed">
             Deep technical expertise across high-value commodity groups, delivering 
             defensible resource assessments for critical and precious mineral projects.
           </p>
@@ -91,7 +91,7 @@ export function Commodities() {
               
               {/* Content */}
               <div className="p-8 space-y-6">
-                <p className="text-xl text-white/70 leading-relaxed">{commodity.description}</p>
+                <p className="text-lg md:text-xl text-white/60 leading-relaxed">{commodity.description}</p>
                 
                 <div>
                   <div className="text-base text-white/50 uppercase tracking-wider mb-4">Key Applications</div>
@@ -99,7 +99,7 @@ export function Commodities() {
                     {commodity.applications.map((app) => (
                       <span
                         key={app}
-                        className="px-4 py-2 rounded-full bg-white/10 text-white/80 text-lg"
+                        className="px-4 py-2 rounded-full bg-white/10 text-white/60 text-base md:text-lg"
                       >
                         {app}
                       </span>
@@ -126,8 +126,8 @@ export function Commodities() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <p className="text-white/60 text-xl md:text-2xl">
-            Additional expertise in <span className="text-white/80">PGMs</span>, <span className="text-white/80">Copper</span>, <span className="text-white/80">Lithium</span>, <span className="text-white/80">Manganese</span>, and <span className="text-white/80">Iron Ore</span>
+          <p className="text-white/60 text-lg md:text-xl">
+            Additional expertise in <span className="text-white/70">PGMs</span>, <span className="text-white/70">Copper</span>, <span className="text-white/70">Lithium</span>, <span className="text-white/70">Manganese</span>, and <span className="text-white/70">Iron Ore</span>
           </p>
         </motion.div>
       </div>
