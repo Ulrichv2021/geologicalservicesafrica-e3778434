@@ -44,7 +44,7 @@ const footerLinks = {
 };
 export function Footer() {
   return <footer className="relative py-20 border-t border-white/10 bg-slate-900">
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="page-x">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">

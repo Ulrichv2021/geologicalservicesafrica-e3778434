@@ -367,13 +367,13 @@ export function Services() {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/75 via-slate-800/65 to-slate-900/85" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10" ref={ref}>
+      <div className="page-x relative z-10" ref={ref}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto mb-20"
+          className="text-center w-full mb-20"
         >
           <span className="text-primary text-base font-semibold uppercase tracking-widest">Technical Capabilities</span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
@@ -420,7 +420,7 @@ export function Services() {
             {activeService.isTraining ? (
               // Training Content - Custom Layout
               <div className="space-y-12">
-                <p className="text-xl md:text-2xl text-white/75 leading-relaxed max-w-4xl mx-auto text-center mb-12">
+                <p className="text-xl md:text-2xl text-white/75 leading-relaxed w-full text-center mb-12">
                   {activeService.description}
                 </p>
                 
