@@ -30,7 +30,16 @@ import {
   Layers,
   Pickaxe,
   Settings,
-  BoxSelect
+  BoxSelect,
+  FlaskConical,
+  Atom,
+  Microscope,
+  Beaker,
+  Thermometer,
+  Container,
+  Cog,
+  Award,
+  CheckCircle2
 } from "lucide-react";
 import geophysicsSurvey from "@/assets/geophysics-survey.jpg";
 import drillingRig from "@/assets/drilling-rig.jpg";
@@ -109,6 +118,172 @@ const servicePillars = [
       { icon: Leaf, name: "Rehabilitation Monitoring", description: "Land restoration progress tracking and reporting" },
       { icon: Droplets, name: "Hydrogeological Studies", description: "Groundwater assessments and water management planning" },
     ],
+  },
+  {
+    id: "laboratory",
+    icon: FlaskConical,
+    title: "Laboratory",
+    tagline: "Analytical Excellence",
+    description: "We provide comprehensive laboratory, analytical, scientific, and laboratory engineering services to the mining, minerals exploration, metallurgical, geotechnical, and environmental sectors. Our laboratory has been involved in analytical programmes across nearly all commodity groups, including precious metals, base metals, critical minerals, rare earth elements, industrial minerals, and environmental materials.",
+    image: null,
+    isLaboratory: true,
+    laboratorySections: [
+      {
+        title: "Sample Preparation",
+        icon: Beaker,
+        intro: "End-to-end sample preparation services designed to ensure analytical accuracy and representativity.",
+        items: [
+          "Drying, screening, crushing, splitting, and pulverising",
+          "Mechanical particle size distribution (sieve analysis)",
+          "Particle size distribution by laser diffraction",
+          "Preparation of rocks, drill core, soils, sands, ores, slurries, and solutions",
+          "XRF sample preparation by pressed pellet and fused bead methods",
+          "Sample digestion using microwave, acid, and fusion techniques"
+        ]
+      },
+      {
+        title: "Analytical Services",
+        icon: Atom,
+        intro: "Chemical and elemental analysis using industry-standard instrumentation and methodologies, including:",
+        items: [
+          "X-ray Fluorescence (XRF)",
+          "Inductively Coupled Plasma (ICP-OES / ICP-MS)",
+          "Atomic Absorption Spectrometry (AAS)"
+        ],
+        note: "Analytical capabilities cover major elements, trace elements, ultra-trace elements, and ore-grade determinations."
+      },
+      {
+        title: "Heavy Mineral & Magnetic Separation",
+        icon: Layers,
+        intro: "Specialist separation services supporting mineral exploration, evaluation, and metallurgical characterisation.",
+        items: [
+          "Heavy liquid separation using heavy liquids",
+          "Magnetic and paramagnetic separation (LIMS, MIMS, WHIMS)",
+          "Mineral fractionation and concentrate preparation"
+        ],
+        note: "Applicable to diamond indicator sampling, heavy mineral sands projects, and process mineralogy studies."
+      },
+      {
+        title: "Commodity-Specific Scientific Services",
+        icon: Pickaxe,
+        isSubsections: true,
+        subsections: [
+          {
+            name: "Lithium (Trace and Ore Grade)",
+            description: "Analysis of lithium-bearing materials including pegmatites, spodumene, and lithium-rich brines. Associated elements such as Nb, Ta, and Sn are routinely determined. Methods include mineral acid and fusion digestion with ICP-OES finish, supplemented by XRF where appropriate."
+          },
+          {
+            name: "Lead & Zinc",
+            description: "Assay of Pb and Zn ores and high-grade concentrates using near-total digestion, ICP-OES, and fusion bead XRF techniques."
+          },
+          {
+            name: "Gold",
+            description: "Gold analysis using BLEG and mini-BLEG techniques, complemented by fire assay. Suitable for regional exploration, bulk sampling, and grade control applications."
+          },
+          {
+            name: "Uranium",
+            description: "Uranium analysis using XRF with full matrix corrections, supporting exploration and resource evaluation programmes."
+          },
+          {
+            name: "Copper",
+            description: "Copper analysis including acid-soluble, cyanide-soluble, and residual leach techniques."
+          },
+          {
+            name: "Phosphates",
+            description: "Analytical services for marine and on-shore phosphate projects, including grade determination and impurity profiling."
+          }
+        ]
+      },
+      {
+        title: "Multi-Element Analytical Packages",
+        icon: Database,
+        intro: "Custom analytical suites designed to meet specific project requirements, typically including:",
+        items: [
+          "Major elements",
+          "Trace metals",
+          "Base and precious metals",
+          "Rare Earth Elements (REEs)",
+          "Lithium and critical minerals"
+        ],
+        note: "Packages are configured to balance analytical resolution, turnaround time, and project objectives."
+      },
+      {
+        title: "Environmental & Water Analysis",
+        icon: Droplets,
+        intro: "Environmental testing services supporting baseline assessments, monitoring programmes, and compliance reporting.",
+        items: [
+          "Particle size distribution",
+          "Trace metals, including mercury",
+          "Total Organic Carbon (TOC)"
+        ],
+        subItems: {
+          title: "Non-potable water analysis:",
+          items: [
+            "pH, conductivity, and TDS",
+            "Hardness and alkalinity",
+            "Iron and turbidity"
+          ]
+        }
+      },
+      {
+        title: "Physical Property Testing",
+        icon: Thermometer,
+        items: [
+          "Specific gravity determination by gas pycnometer or wax displacement",
+          "Bulk density and porosity testing"
+        ]
+      },
+      {
+        title: "Mineral Characterisation & Metallurgical Testwork",
+        icon: Microscope,
+        intro: "Advanced mineralogical and metallurgical services, including:",
+        items: [
+          "Automated mineralogy (QEMSCAN)",
+          "X-ray Diffraction (XRD)",
+          "Optical and scanning microscopy",
+          "Bench-scale and pilot-scale metallurgical testwork",
+          "Magnetic, electrostatic, density, and size separation",
+          "Comminution, classification, flotation, and dewatering"
+        ]
+      },
+      {
+        title: "Process Evaluation & Engineering Support",
+        icon: Cog,
+        items: [
+          "Mass flow and recovery evaluation",
+          "Process sampling and testwork analysis",
+          "Equipment selection and sizing",
+          "Process flow diagrams (PFDs) and mass and water balances",
+          "Techno-economic assessments",
+          "Plant commissioning support and HAZOP studies"
+        ]
+      },
+      {
+        title: "Mobile & Containerised Laboratory Design and Construction",
+        icon: Container,
+        intro: "We design, engineer, construct, and commission fully integrated mobile and containerised laboratory facilities to support remote exploration, on-site testing, and operational laboratory requirements.",
+        items: [
+          "ISO-compliant laboratory layouts engineered to ISO/IEC 17025 and ISO 9001 requirements",
+          "Modular containerised laboratories for analytical, sample preparation, and metallurgical testwork",
+          "Integrated utilities including power distribution, HVAC, ventilation, dust control, and safety systems",
+          "Fit-for-purpose laboratory furniture, instrumentation layouts, and workflow optimisation",
+          "Deployment-ready solutions for exploration camps, mine sites, and marine or remote operations",
+          "Full commissioning, method verification, and operational handover"
+        ],
+        note: "These facilities provide rapid, reliable analytical capability while maintaining full quality assurance, data integrity, and regulatory compliance in field-based environments."
+      },
+      {
+        title: "Quality, Accreditation & Compliance",
+        icon: Award,
+        isAccreditation: true,
+        items: [
+          "Laboratory accredited to ISO/IEC 17025:2017",
+          "Quality management system certified to ISO 9001",
+          "Participation in external proficiency testing and round-robin programmes",
+          "Full chain-of-custody, data validation, and QA/QC procedures"
+        ]
+      }
+    ]
   },
   {
     id: "training",
@@ -417,7 +592,113 @@ export function Services() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
           >
-            {activeService.isTraining ? (
+            {activeService.isLaboratory ? (
+              // Laboratory Services Content
+              <div className="space-y-8">
+                {/* Introduction */}
+                <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 mb-8">
+                  <p className="text-lg md:text-xl text-white/60 leading-relaxed">
+                    {activeService.description}
+                  </p>
+                  <p className="text-lg md:text-xl text-white/60 leading-relaxed mt-4">
+                    All services are delivered under controlled laboratory conditions using validated methods, rigorous quality assurance procedures, and internationally recognised standards, ensuring technically defensible and auditable data.
+                  </p>
+                </div>
+
+                {/* Laboratory Sections */}
+                <div className="grid gap-8">
+                  {activeService.laboratorySections?.map((section, sectionIndex) => (
+                    <motion.div
+                      key={section.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: sectionIndex * 0.05 }}
+                      className={`bg-slate-800/60 backdrop-blur-md border rounded-xl p-8 ${
+                        section.isAccreditation 
+                          ? "border-primary/40 bg-gradient-to-br from-primary/10 to-transparent" 
+                          : "border-white/10"
+                      }`}
+                    >
+                      {/* Section Header */}
+                      <div className="flex items-start gap-5 mb-6">
+                        <div className={`w-14 h-14 rounded-xl flex items-center justify-center shrink-0 ${
+                          section.isAccreditation ? "bg-primary/30" : "bg-primary/20"
+                        }`}>
+                          <section.icon className="w-7 h-7 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-display text-xl md:text-2xl text-white mb-2">{section.title}</h3>
+                          {section.intro && (
+                            <p className="text-lg md:text-xl text-white/60 leading-relaxed">{section.intro}</p>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Subsections for Commodity-Specific */}
+                      {section.isSubsections && section.subsections ? (
+                        <div className="grid md:grid-cols-2 gap-6 ml-0 md:ml-19">
+                          {section.subsections.map((sub, subIndex) => (
+                            <motion.div
+                              key={sub.name}
+                              initial={{ opacity: 0, x: 10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: subIndex * 0.05 }}
+                              className="bg-slate-700/40 border border-white/5 rounded-lg p-6"
+                            >
+                              <h4 className="font-medium text-lg text-white mb-3 flex items-center gap-2">
+                                <ChevronRight className="w-5 h-5 text-primary shrink-0" />
+                                {sub.name}
+                              </h4>
+                              <p className="text-base md:text-lg text-white/60 leading-relaxed">{sub.description}</p>
+                            </motion.div>
+                          ))}
+                        </div>
+                      ) : (
+                        <>
+                          {/* Regular Items */}
+                          {section.items && (
+                            <ul className="space-y-3 ml-0 md:ml-19">
+                              {section.items.map((item, i) => (
+                                <li key={i} className="flex items-start gap-3 text-lg md:text-xl text-white/60">
+                                  {section.isAccreditation ? (
+                                    <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
+                                  ) : (
+                                    <ChevronRight className="w-5 h-5 text-primary mt-1 shrink-0" />
+                                  )}
+                                  <span className="leading-relaxed">{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+
+                          {/* Sub-items (for Environmental section) */}
+                          {section.subItems && (
+                            <div className="mt-6 ml-0 md:ml-19 bg-slate-700/30 border border-white/5 rounded-lg p-6">
+                              <h4 className="font-medium text-lg text-white mb-4">{section.subItems.title}</h4>
+                              <ul className="space-y-3">
+                                {section.subItems.items.map((item, i) => (
+                                  <li key={i} className="flex items-start gap-3 text-lg md:text-xl text-white/60">
+                                    <ChevronRight className="w-5 h-5 text-primary mt-1 shrink-0" />
+                                    <span className="leading-relaxed">{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {/* Note */}
+                          {section.note && (
+                            <p className="text-base md:text-lg text-white/50 italic mt-6 ml-0 md:ml-19 border-l-2 border-primary/30 pl-4">
+                              {section.note}
+                            </p>
+                          )}
+                        </>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            ) : activeService.isTraining ? (
               // Training Content - Custom Layout
               <div className="space-y-12">
               <p className="text-lg md:text-xl text-white/60 leading-relaxed w-full text-center mb-12">
