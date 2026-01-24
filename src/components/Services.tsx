@@ -39,7 +39,19 @@ import {
   Container,
   Cog,
   Award,
-  CheckCircle2
+  CheckCircle2,
+  ShoppingBag,
+  Scale,
+  FlaskRound,
+  Flame,
+  Eye,
+  Magnet,
+  HardHat,
+  Compass,
+  Package,
+  Camera,
+  Wrench,
+  Headphones
 } from "lucide-react";
 import geophysicsSurvey from "@/assets/geophysics-survey.jpg";
 import drillingRig from "@/assets/drilling-rig.jpg";
@@ -283,6 +295,156 @@ const servicePillars = [
           "Full chain-of-custody, data validation, and QA/QC procedures"
         ]
       }
+    ]
+  },
+  {
+    id: "sales",
+    icon: ShoppingBag,
+    title: "Sales",
+    tagline: "Equipment & Tools",
+    description: "Comprehensive range of laboratory equipment, field instruments, and technical tools for geological, geotechnical, environmental, and mining applications. From sample preparation to advanced analytical instruments.",
+    image: null,
+    isSales: true,
+    salesCategories: [
+      {
+        title: "Sample Preparation Equipment",
+        icon: Hammer,
+        description: "Essential tools for preparing geological, soil, and mineral samples. Includes rock crushers, jaw and roll crushers, core and trim saws, disc mills, pulverizers, ball mills, and rotary/riffle splitters. Ideal for breaking down samples to desired sizes for analysis."
+      },
+      {
+        title: "Weighing & Measuring",
+        icon: Scale,
+        description: "Precision measurement instruments for laboratory use. Includes analytical and top-loading balances, moisture balances, pipettes, burettes, volumetric flasks, and graduated cylinders. Perfect for accurate sample quantification and solution preparation."
+      },
+      {
+        title: "Glassware & Containers",
+        icon: FlaskRound,
+        description: "Standard laboratory containers and glassware. Beakers, test tubes, Erlenmeyer and volumetric flasks, funnels, watch glasses, crucibles, reagent bottles, and desiccators. Designed for sample storage, reactions, and lab experiments."
+      },
+      {
+        title: "Heating & Cooling Equipment",
+        icon: Flame,
+        description: "For temperature-sensitive experiments and sample treatment. Includes Bunsen burners, heating mantles, hot plates, water and oil baths, drying ovens, muffle furnaces, autoclaves, refrigerators, and deep freezers."
+      },
+      {
+        title: "Microscopy & Imaging",
+        icon: Eye,
+        description: "High-quality microscopes for detailed analysis. Compound, stereo, fluorescence, inverted, and digital microscopes. Includes camera attachments for documentation and imaging."
+      },
+      {
+        title: "Chemical Analysis & Spectrometry",
+        icon: Atom,
+        description: "Advanced analytical instruments for elemental and chemical characterization. Includes XRF spectrometers, atomic absorption spectrometers, ICP systems, and UV-Vis spectrophotometers."
+      },
+      {
+        title: "Thermal & Phase Analysis",
+        icon: Thermometer,
+        description: "Equipment to study material properties under heat. Includes differential thermal analyzers (DTA), thermogravimetric analyzers (TGA), heating ovens, and furnaces."
+      },
+      {
+        title: "Separation & Filtration",
+        icon: Layers,
+        description: "For isolating and classifying sample components. Centrifuges, mechanical and rotary sieves, shaking tables, hydrosizers, and sand classifiers."
+      },
+      {
+        title: "Safety & Protective Equipment",
+        icon: Shield,
+        description: "Protective gear for lab and field safety. Dust masks, ear protection, safety goggles, fire extinguishers, lab coats, gloves, and boots."
+      },
+      {
+        title: "Specialty Geological Tools",
+        icon: Compass,
+        description: "Field-ready equipment for geologists and mineral exploration. Core lifters, core trays and lids, roller logging tables, Brunton compasses, GPS units, protractors, goniometers, hammer sets, paint markers, aluminium tags, and field notebooks."
+      },
+      {
+        title: "General Lab Apparatus",
+        icon: Beaker,
+        description: "Additional laboratory essentials for sample handling and experiments. Mortar and pestles, magnetic and overhead stirrers, lab balances, dropper and reagent bottles, hot plates, crucibles, and watch glasses."
+      },
+      {
+        title: "Easy Scuba Water Quality Probes",
+        icon: Droplets,
+        description: "Budget-friendly water quality probes for EC, pH, DO, temperature, and turbidity. Portable and easy to use for fieldwork up to 50m depth. Optional sensors: depth, SDI-12, MODBUS.",
+        isMonitoring: true
+      },
+      {
+        title: "Diver Water Level Loggers",
+        icon: Waves,
+        description: "Accurate water level and temperature data loggers. Includes Micro-Diver, TD-Diver, Cera-Diver, CTD-Diver, and Baro-Diver models for long-term monitoring. Suitable for groundwater and environmental studies.",
+        isMonitoring: true
+      },
+      {
+        title: "HydraProbe Soil Sensors",
+        icon: Mountain,
+        description: "High-precision soil monitoring tools. Measure moisture, salinity (bulk EC), and temperature. Available as Standard (moisture/temperature) and Pro (moisture/salinity/temperature) versions. Compatible with SDI-12 loggers for field or telemetry data access.",
+        isMonitoring: true
+      },
+      {
+        title: "Soil Biological Analysis – SOLISCA",
+        icon: Leaf,
+        description: "Affordable tool to measure soil life health. Assesses bacterial, fungal, protozoa, and nematode populations for sustainable soil management.",
+        isMonitoring: true
+      },
+      {
+        title: "Soil & Water Analysis Kits",
+        icon: FlaskConical,
+        description: "Color charts, acidity, chloride, and hardness test kits for soil and water analysis.",
+        isCivil: true
+      },
+      {
+        title: "Particle Size & Compaction Equipment",
+        icon: Box,
+        description: "Pipette method kits, sand equivalent tests, cone and pocket penetrometers, Casagrande apparatus, liquid/plastic limits, Proctor test kits, CBR/ITT machines, plate bearing, Benkelman beam apparatus, and oedometers.",
+        isCivil: true
+      },
+      {
+        title: "Shear & Strength Testing Machines",
+        icon: Cog,
+        description: "Digital shear testing machines, triaxial cells, and data acquisition systems for geotechnical testing.",
+        isCivil: true
+      },
+      {
+        title: "Magnetic Susceptibility & Mineral Separation",
+        icon: Magnet,
+        description: "Magnetic susceptibility meter, magnetic surface scanning sensor, induced roll magnetic separators, gravity concentrators, barrel and grinding pots, electromagnetic sieve shakers, and test sieves.",
+        isCivil: true
+      },
+      {
+        title: "XRF & Mineral Analysis Instruments",
+        icon: Target,
+        description: "Handheld XRF, benchtop stands, sample cups, rare earth element analyzers, and mineral analysis setups including XRD.",
+        isHighValue: true
+      },
+      {
+        title: "Laboratory Automation & Mixers",
+        icon: Settings,
+        description: "Autoclaves, centrifuges, disk rotators, dry baths, hotplates, magnetic stirrers, microplate mixers, overhead stirrers, roller mixers, rotary evaporators, shakers, thermal cyclers, and vortex mixers.",
+        isHighValue: true
+      },
+      {
+        title: "Cameras & Imaging Accessories",
+        icon: Camera,
+        description: "Advanced Photographic Imaging System (Professional Grade) — An integrated, professional photographic solution designed for geological applications, capable of capturing ultra-high-resolution images of core samples. The system comprises precision camera kits and microscope imaging cameras, supported by high-performance data storage and control hardware, including SD memory solutions and dedicated tablets or ruggedized tablets. It further incorporates professional stylus input and purpose-built rugged tablet accessories, enabling accurate image capture, annotation, and data management in both laboratory and field environments.",
+        isHighValue: true
+      },
+      {
+        title: "Consumables",
+        icon: Package,
+        description: "Buckets, tools, adhesives, tape, gloves, protective gear, markers, storage bins, tubing, PPE, saw blades, scrapers, and miscellaneous lab and field consumables.",
+        isConsumables: true
+      },
+      {
+        title: "Personal Protective Equipment (PPE)",
+        icon: HardHat,
+        description: "Dust coats, boilersuits, gloves, boots, trousers, hard hats, and protective embroidery services.",
+        isConsumables: true
+      }
+    ],
+    salesServices: [
+      "Custom procurement and setup assistance",
+      "Installation of monitoring stations and laboratory fit-outs",
+      "Data acquisition, telemetry, and web portal access for soil and water monitoring",
+      "Smart monitoring services with full control room support for continuous observation and alerts"
     ]
   },
   {
@@ -836,6 +998,164 @@ export function Services() {
                     )}
                   </motion.div>
                 ))}
+              </div>
+            ) : activeService.isSales ? (
+              // Sales Content - Equipment & Tools
+              <div className="space-y-8">
+                {/* Introduction */}
+                <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 mb-8">
+                  <p className="text-lg md:text-xl text-white/60 leading-relaxed">
+                    {activeService.description}
+                  </p>
+                </div>
+
+                {/* Laboratory Equipment & Tools */}
+                <div className="space-y-6">
+                  <h3 className="font-display text-2xl md:text-3xl text-white border-b border-white/10 pb-4">
+                    Laboratory Equipment & Tools
+                  </h3>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {activeService.salesCategories?.filter(cat => !cat.isMonitoring && !cat.isCivil && !cat.isHighValue && !cat.isConsumables).map((category, index) => (
+                      <motion.div
+                        key={category.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+                            <category.icon className="w-6 h-6 text-primary" />
+                          </div>
+                          <h4 className="font-display text-lg text-white">{category.title}</h4>
+                        </div>
+                        <p className="text-base text-white/60 leading-relaxed">{category.description}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Water & Soil Monitoring Instruments */}
+                <div className="space-y-6">
+                  <h3 className="font-display text-2xl md:text-3xl text-white border-b border-white/10 pb-4">
+                    Water & Soil Monitoring Instruments
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {activeService.salesCategories?.filter(cat => cat.isMonitoring).map((category, index) => (
+                      <motion.div
+                        key={category.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="bg-slate-800/60 backdrop-blur-md border border-cyan-500/20 rounded-xl p-6 hover:bg-slate-800/80 hover:border-cyan-500/40 transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center shrink-0">
+                            <category.icon className="w-6 h-6 text-cyan-400" />
+                          </div>
+                          <h4 className="font-display text-lg text-white">{category.title}</h4>
+                        </div>
+                        <p className="text-base text-white/60 leading-relaxed">{category.description}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Civil & Geotechnical Testing Equipment */}
+                <div className="space-y-6">
+                  <h3 className="font-display text-2xl md:text-3xl text-white border-b border-white/10 pb-4">
+                    Civil & Geotechnical Testing Equipment
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {activeService.salesCategories?.filter(cat => cat.isCivil).map((category, index) => (
+                      <motion.div
+                        key={category.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="bg-slate-800/60 backdrop-blur-md border border-amber-500/20 rounded-xl p-6 hover:bg-slate-800/80 hover:border-amber-500/40 transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center shrink-0">
+                            <category.icon className="w-6 h-6 text-amber-400" />
+                          </div>
+                          <h4 className="font-display text-lg text-white">{category.title}</h4>
+                        </div>
+                        <p className="text-base text-white/60 leading-relaxed">{category.description}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* High-Value Analytical & Imaging Equipment */}
+                <div className="space-y-6">
+                  <h3 className="font-display text-2xl md:text-3xl text-white border-b border-white/10 pb-4">
+                    High-Value Analytical & Imaging Equipment
+                  </h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    {activeService.salesCategories?.filter(cat => cat.isHighValue).map((category, index) => (
+                      <motion.div
+                        key={category.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="bg-gradient-to-br from-primary/15 to-transparent border border-primary/30 rounded-xl p-6 hover:border-primary/50 transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center shrink-0">
+                            <category.icon className="w-6 h-6 text-primary" />
+                          </div>
+                          <h4 className="font-display text-lg text-white">{category.title}</h4>
+                        </div>
+                        <p className="text-base text-white/60 leading-relaxed">{category.description}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Consumables & Field Essentials */}
+                <div className="space-y-6">
+                  <h3 className="font-display text-2xl md:text-3xl text-white border-b border-white/10 pb-4">
+                    Consumables & Field Essentials
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {activeService.salesCategories?.filter(cat => cat.isConsumables).map((category, index) => (
+                      <motion.div
+                        key={category.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-6 hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300"
+                      >
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+                            <category.icon className="w-6 h-6 text-primary" />
+                          </div>
+                          <h4 className="font-display text-lg text-white">{category.title}</h4>
+                        </div>
+                        <p className="text-base text-white/60 leading-relaxed">{category.description}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Optional Services & Support */}
+                <div className="bg-gradient-to-br from-slate-800/80 to-slate-800/40 border border-primary/20 rounded-xl p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center">
+                      <Headphones className="w-7 h-7 text-primary" />
+                    </div>
+                    <h3 className="font-display text-2xl text-white">Optional Services & Support</h3>
+                  </div>
+                  <ul className="grid md:grid-cols-2 gap-4">
+                    {activeService.salesServices?.map((service, index) => (
+                      <li key={index} className="flex items-start gap-3 text-lg text-white/60">
+                        <CheckCircle2 className="w-5 h-5 text-primary mt-1 shrink-0" />
+                        <span className="leading-relaxed">{service}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ) : (
               // Standard Service Content
