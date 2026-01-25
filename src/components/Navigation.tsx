@@ -41,8 +41,8 @@ export function Navigation() {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map(link => <a key={link.name} href={link.href} className="text-base font-medium text-white/80 hover:text-primary transition-colors duration-300">
+          <div className="hidden lg:flex items-center justify-center flex-1 gap-12">
+            {navLinks.map(link => <a key={link.name} href={link.href} className="text-2xl font-medium text-white/80 hover:text-primary transition-colors duration-300">
                 {link.name}
               </a>)}
           </div>
