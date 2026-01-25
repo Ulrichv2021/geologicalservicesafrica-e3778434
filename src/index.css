@@ -91,9 +91,14 @@
 }
 
 @layer components {
-  /* Constrained-width centered layout - wider for modern SaaS feel */
+  /* Constrained-width centered layout - modern SaaS/consulting standard */
   .page-x {
-    @apply w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 xl:px-16;
+    @apply w-full max-w-[1320px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12;
+  }
+
+  /* Readable text width utility (~65-75 characters) */
+  .prose-width {
+    @apply max-w-[65ch];
   }
 
   /* Glassmorphism Card - Light Theme */
