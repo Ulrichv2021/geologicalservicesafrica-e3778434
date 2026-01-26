@@ -92,7 +92,8 @@ export function Footer() {
 
           {/* Connect */}
           <div>
-            <h4 className="font-display text-lg font-semibold uppercase tracking-wider mb-6 text-white">Connect</h4>
+            <h4 className="font-display text-lg font-semibold uppercase tracking-wider mb-6 text-white">
+          </h4>
             <p className="text-xl text-white/60 mb-6">
               Follow us for industry insights and project updates.
             </p>
