@@ -41,7 +41,7 @@ export function Hero() {
           delay: 0.3
         }} className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] text-balance text-white mb-8">
             <span className="block">Investment-Grade</span>
-            <span className="block text-gradient text-7xl">Geological Intelligence</span>
+            <span className="block text-gradient text-7xl py-[30px]">Geological Intelligence</span>
           </motion.h1>
 
           {/* Value Proposition */}
