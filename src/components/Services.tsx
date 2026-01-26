@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { Radio, Drill, Box, Laptop, Leaf, ChevronRight, Waves, Plane, Mountain, Zap, Droplets, Hammer, FileText, Database, BarChart3, Recycle, Target, Shield, GraduationCap, Map, Globe, Smartphone, LineChart, Code, BookOpen, Layers, Pickaxe, Settings, BoxSelect, FlaskConical, Atom, Microscope, Beaker, Thermometer, Container, Cog, Award, CheckCircle2, ShoppingBag, Scale, FlaskRound, Flame, Eye, Magnet, HardHat, Compass, Package, Camera, Wrench, Headphones } from "lucide-react";
-import geophysicsSurvey from "@/assets/geophysics-survey.jpg";
+import magneticEarth from "@/assets/magnetic-earth.jpg";
 import drillingRig from "@/assets/drilling-rig.jpg";
 import modeling3d from "@/assets/3d-modeling.jpg";
 import coreAnalysisVideo from "@/assets/core-analysis.mp4";
@@ -13,7 +13,7 @@ const servicePillars = [{
   title: "Geophysical Surveys",
   tagline: "Subsurface Characterization",
   description: "Non-invasive geophysical methods providing defensible structural and lithological interpretations for drill targeting and resource delineation.",
-  image: geophysicsSurvey,
+  image: magneticEarth,
   services: [{
     icon: Waves,
     name: "Ground Penetrating Radar (GPR)",
