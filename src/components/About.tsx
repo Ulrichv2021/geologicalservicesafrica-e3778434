@@ -6,7 +6,7 @@ import rockLayers from "@/assets/rock-layers.jpg";
 import coreAnalysisVideo from "@/assets/core-analysis.mp4";
 const differentiators = [{
   icon: Globe,
-  title: "Pan-African Expertise",
+  title: "Pan-African Expertise Coverage",
   description: "Comprehensive spatial database of metallogenic belts from the Birimian to the Kaapvaal Craton, with operational experience across 20+ countries."
 }, {
   icon: Shield,
