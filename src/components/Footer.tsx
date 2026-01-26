@@ -44,25 +44,16 @@ const footerLinks = {
 };
 export function Footer() {
   return <footer className="relative border-t border-white/10 bg-slate-900 py-[10px]">
-      <div className="page-x py-[5px]">
+      <div className="page-x py-px">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
             <img src={gsaLogo} alt="GSA Logo" className="h-32 w-auto mb-6 rounded-2xl" />
             <p className="text-xl text-white/60 mb-6 leading-relaxed">​</p>
             <div className="space-y-4">
-              <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="flex items-center gap-3 text-white/60 hover:text-primary transition-colors">
-                <Mail className="w-5 h-5" />
-                <span className="text-lg">​</span>
-              </a>
-              <a href="tel:+27790450207" className="flex items-center gap-3 text-white/60 hover:text-primary transition-colors">
-                <Phone className="w-5 h-5" />
-                <span className="text-lg">+27 79 045 0207</span>
-              </a>
-              <div className="flex items-center gap-3 text-white/60">
-                <MapPin className="w-5 h-5" />
-                <span className="text-lg">​</span>
-              </div>
+              
+              
+              
             </div>
           </div>
 
@@ -94,7 +85,7 @@ export function Footer() {
           <div>
             <h4 className="font-display text-lg font-semibold uppercase tracking-wider mb-6 text-white">
           </h4>
-            <p className="text-xl text-white/60 mb-6">
+            <p className="text-white/60 mb-6 text-lg">
               Follow us for industry insights and project updates.
             </p>
             <div className="flex items-center gap-4">
