@@ -7,6 +7,7 @@ import drillingRig from "@/assets/drilling-rig.jpg";
 import modeling3d from "@/assets/3d-modeling.jpg";
 import coreAnalysisVideo from "@/assets/core-analysis.mp4";
 import tabletDataEntry from "@/assets/tablet-data-entry.jpg";
+import environmentalImg from "@/assets/environmental.jpg";
 const servicePillars = [{
   id: "geophysics",
   icon: Radio,
@@ -113,7 +114,7 @@ const servicePillars = [{
   title: "Environmental & Closure",
   tagline: "ESG Compliance",
   description: "Environmental management and mine closure planning aligned with regulatory requirements and ESG expectations.",
-  image: null,
+  image: environmentalImg,
   services: [{
     icon: FileText,
     name: "Environmental Management Plans",
