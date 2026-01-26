@@ -66,7 +66,7 @@ export function About() {
       } : {}} transition={{
         duration: 0.6
       }} className="text-center w-full mb-20">
-          <span className="text-primary text-sm font-semibold uppercase tracking-widest">About GSA</span>
+          <span className="text-primary font-semibold uppercase tracking-widest text-5xl py-[15px]">About GSA</span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
             Technical Excellence for <span className="text-gradient">Investment Decisions</span>
           </h2>
