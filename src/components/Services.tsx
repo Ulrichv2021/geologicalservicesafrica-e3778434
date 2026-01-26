@@ -477,7 +477,7 @@ export function Services() {
       } : {}} transition={{
         duration: 0.6
       }} className="text-center w-full mb-20">
-          <span className="text-primary font-semibold uppercase tracking-widest text-3xl">Technical Capabilities</span>
+          <span className="text-primary font-semibold uppercase tracking-widest text-5xl">Technical Capabilities</span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-6 mb-8 text-white">
             Full Lifecycle <span className="text-gradient">Technical Support</span>
           </h2>
