@@ -84,7 +84,7 @@ export function Process() {
                 <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-10 h-full flex flex-col hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300">
                   {/* Phase Badge */}
                   <div className="inline-flex items-center gap-2 bg-primary/20 rounded-full px-5 py-2 mb-6 w-fit">
-                    <span className="text-base font-semibold text-primary uppercase tracking-wider">{phase.phase}</span>
+                    <span className="font-semibold text-primary uppercase tracking-wider text-xl">{phase.phase}</span>
                   </div>
                   
                   {/* Icon */}
