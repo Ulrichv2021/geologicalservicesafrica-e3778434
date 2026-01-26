@@ -76,12 +76,16 @@ ${data.message}
           </p>
         </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 0.6,
+        delay: 0.2
+      }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Contact Cards */}
           <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5">
             <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
@@ -89,8 +93,8 @@ ${data.message}
             </div>
             <div>
               <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Head Office</h4>
-              <p className="text-xl text-white/60">Durbanville Cape Town</p>
-              <p className="text-xl text-white/60">South Africa</p>
+              <p className="text-white/60 text-base">Durbanville Cape Town</p>
+              <p className="text-white/60 text-base">South Africa</p>
             </div>
           </div>
 
@@ -100,7 +104,7 @@ ${data.message}
             </div>
             <div>
               <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Telephone</h4>
-              <p className="text-white/60 text-xl">079 045 0207</p>
+              <p className="text-white/60 text-base">079 045 0207</p>
             </div>
           </div>
 
@@ -110,7 +114,7 @@ ${data.message}
             </div>
             <div>
               <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Email</h4>
-              <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="text-primary hover:text-primary/80 transition-colors text-xl">
+              <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="text-primary hover:text-primary/80 transition-colors text-base">
                 ulrichv@geologicalservicesafrica.co.za
               </a>
             </div>
