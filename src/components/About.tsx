@@ -7,7 +7,7 @@ import coreAnalysisVideo from "@/assets/core-analysis.mp4";
 const differentiators = [{
   icon: Globe,
   title: "Pan-African Expertise Coverage",
-  description: "Comprehensive spatial database of metallogenic belts from the Birimian to the Kaapvaal Craton, with operational experience across 20+ countries."
+  description: "Integrated geophysical, drilling, laboratory, and environmental capabilities with operational delivery across Africa's key mineral provinces."
 }, {
   icon: Shield,
   title: "JORC & SAMREC Compliance",
