@@ -43,8 +43,8 @@ const footerLinks = {
   }]
 };
 export function Footer() {
-  return <footer className="relative py-20 border-t border-white/10 bg-slate-900">
-      <div className="page-x">
+  return <footer className="relative border-t border-white/10 bg-slate-900 py-[10px]">
+      <div className="page-x py-[5px]">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
