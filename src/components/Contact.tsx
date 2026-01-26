@@ -76,151 +76,69 @@ ${data.message}
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
-          {/* Contact Info */}
-          <motion.div initial={{
-          opacity: 0,
-          x: -30
-        }} animate={isInView ? {
-          opacity: 1,
-          x: 0
-        } : {}} transition={{
-          duration: 0.6,
-          delay: 0.2
-        }} className="space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {/* Contact Cards */}
+          <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5">
+            <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+              <MapPin className="w-8 h-8 text-primary" />
+            </div>
             <div>
-              <h3 className="font-display text-2xl md:text-3xl mb-8 text-white">Contact Details</h3>
-              
-              <div className="space-y-6">
-                <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5">
-                  <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-                    <MapPin className="w-8 h-8 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Head Office</h4>
-                    <p className="text-xl text-white/60">Durbanville Cape Town</p>
-                    <p className="text-xl text-white/60">South Africa</p>
-                  </div>
-                </div>
+              <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Head Office</h4>
+              <p className="text-xl text-white/60">Durbanville Cape Town</p>
+              <p className="text-xl text-white/60">South Africa</p>
+            </div>
+          </div>
 
-                <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5">
-                  <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-                    <Phone className="w-8 h-8 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Telephone</h4>
-                    <p className="text-white/60 text-xl">079 045 0207</p>
-                  </div>
-                </div>
+          <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5">
+            <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+              <Phone className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Telephone</h4>
+              <p className="text-white/60 text-xl">079 045 0207</p>
+            </div>
+          </div>
 
-                <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5">
-                  <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-                    <Mail className="w-8 h-8 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Email</h4>
-                    <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="text-primary hover:text-primary/80 transition-colors text-xl">
-                      ulrichv@geologicalservicesafrica.co.za
-                    </a>
-                  </div>
-                </div>
+          <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5">
+            <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+              <Mail className="w-8 h-8 text-primary" />
+            </div>
+            <div>
+              <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Email</h4>
+              <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="text-primary hover:text-primary/80 transition-colors text-xl">
+                ulrichv@geologicalservicesafrica.co.za
+              </a>
+            </div>
+          </div>
+
+          {/* Compliance Badges - spans full width on larger screens */}
+          <div className="md:col-span-2 lg:col-span-3 bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8">
+            <h4 className="font-display text-xl md:text-2xl mb-6 text-white">Accreditation & Compliance</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="flex items-center gap-3 bg-primary/10 rounded-lg p-4">
+                <Shield className="w-6 h-6 text-primary" />
+                <span className="text-lg text-white font-medium">JORC (2012)</span>
+              </div>
+              <div className="flex items-center gap-3 bg-primary/10 rounded-lg p-4">
+                <Shield className="w-6 h-6 text-primary" />
+                <span className="text-lg text-white font-medium">SAMREC (2016)</span>
+              </div>
+              <div className="flex items-center gap-3 bg-primary/10 rounded-lg p-4">
+                <Award className="w-6 h-6 text-primary" />
+                <span className="text-lg text-white font-medium">SACNASP</span>
+              </div>
+              <div className="flex items-center gap-3 bg-primary/10 rounded-lg p-4">
+                <FileCheck className="w-6 h-6 text-primary" />
+                <span className="text-lg text-white font-medium">ISO 9001:2015</span>
               </div>
             </div>
-
-            {/* Compliance Badges */}
-            <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8">
-              <h4 className="font-display text-xl md:text-2xl mb-6 text-white">Accreditation & Compliance</h4>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center gap-3 bg-primary/10 rounded-lg p-4">
-                  <Shield className="w-6 h-6 text-primary" />
-                  <span className="text-lg text-white font-medium">JORC (2012)</span>
-                </div>
-                <div className="flex items-center gap-3 bg-primary/10 rounded-lg p-4">
-                  <Shield className="w-6 h-6 text-primary" />
-                  <span className="text-lg text-white font-medium">SAMREC (2016)</span>
-                </div>
-                <div className="flex items-center gap-3 bg-primary/10 rounded-lg p-4">
-                  <Award className="w-6 h-6 text-primary" />
-                  <span className="text-lg text-white font-medium">SACNASP</span>
-                </div>
-                <div className="flex items-center gap-3 bg-primary/10 rounded-lg p-4">
-                  <FileCheck className="w-6 h-6 text-primary" />
-                  <span className="text-lg text-white font-medium">ISO 9001:2015</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div initial={{
-          opacity: 0,
-          x: 30
-        }} animate={isInView ? {
-          opacity: 1,
-          x: 0
-        } : {}} transition={{
-          duration: 0.6,
-          delay: 0.3
-        }}>
-            <div className="bg-slate-800/70 backdrop-blur-md border border-white/10 rounded-2xl p-10 lg:p-12">
-              <h3 className="font-display text-2xl md:text-3xl mb-8 text-white">Request Technical Consultation</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="text-lg text-white/70 mb-3 block">Full Name *</label>
-                    <Input name="name" placeholder="Your name" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-14 text-lg" required />
-                  </div>
-                  <div>
-                    <label className="text-lg text-white/70 mb-3 block">Company</label>
-                    <Input name="company" placeholder="Company name" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-14 text-lg" />
-                  </div>
-                </div>
-                
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="text-lg text-white/70 mb-3 block">Email *</label>
-                    <Input name="email" type="email" placeholder="your@email.com" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-14 text-lg" required />
-                  </div>
-                  <div>
-                    <label className="text-lg text-white/70 mb-3 block">Phone</label>
-                    <Input name="phone" type="tel" placeholder="+27 ..." className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-14 text-lg" />
-                  </div>
-                </div>
-                
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="text-lg text-white/70 mb-3 block">Project Type</label>
-                    <Input name="projectType" placeholder="e.g., Resource Estimation, BFS" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-14 text-lg" />
-                  </div>
-                  <div>
-                    <label className="text-lg text-white/70 mb-3 block">Project Location</label>
-                    <Input name="location" placeholder="Country / Region" className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary h-14 text-lg" />
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="text-lg text-white/70 mb-3 block">Project Details *</label>
-                  <Textarea name="message" placeholder="Please describe your project requirements, current stage, and any specific technical needs..." rows={5} className="bg-slate-900/50 border-white/10 text-white placeholder:text-white/40 focus:border-primary resize-none text-lg" required />
-                </div>
-                
-                <Button type="submit" className="w-full btn-hero h-16 text-xl" disabled={isSubmitted || isSubmitting}>
-                  {isSubmitted ? <>
-                      <CheckCircle className="mr-2 h-6 w-6" />
-                      Request Sent
-                    </> : <>
-                      <Send className="mr-2 h-6 w-6" />
-                      Submit Consultation Request
-                    </>}
-                </Button>
-                
-                <p className="text-base text-white/50 text-center">
-                  Your information will be handled confidentially in accordance with our privacy policy.
-                </p>
-              </form>
-            </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>;
 }
