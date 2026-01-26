@@ -24,7 +24,7 @@ const phases = [{
   icon: FileCheck,
   phase: "Phase 4",
   title: "Feasibility & Investment Decision",
-  description: "Technical and economic studies supporting PFS, BFS, and project financing requirements.",
+  description: "Technical and economic studies supporting Pre-Feasibility, Bankable Feasibility Studies, and project financing requirements.",
   deliverables: ["Feasibility studies", "CPR documents", "Due diligence support"]
 }];
 export function Process() {
