@@ -54,7 +54,7 @@ export function Hero() {
         }} transition={{
           duration: 0.6,
           delay: 0.5
-          }} className="text-xl md:text-2xl lg:text-2xl text-white/85 w-full leading-relaxed mb-12">De-risking mineral investments through rigorous data integrity, defensible resource estimation, and bankable feasibility studies across Africa's most prospective terranes.</motion.p>
+        }} className="text-xl md:text-2xl lg:text-2xl text-white/85 w-full leading-relaxed mb-12">We deliver end-to-end geological and technical services that de-risk mineral investments through defensible data, rigorous analysis, and decision-ready reporting</motion.p>
 
           {/* CTAs */}
           <motion.div initial={{
