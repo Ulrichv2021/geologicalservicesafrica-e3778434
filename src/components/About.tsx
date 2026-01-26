@@ -26,7 +26,7 @@ const differentiators = [{
   description: "Rigorous QA/QC protocols ensuring investment decisions are backed by defensible, auditable geological data."
 }, {
   icon: Leaf,
-  title: "ESG Alignment",
+  title: "Responsible Project Execution",
   description: "Sustainable exploration practices with integrated environmental monitoring and stakeholder management."
 }];
 const credentials = [{
