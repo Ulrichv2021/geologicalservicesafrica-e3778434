@@ -53,7 +53,7 @@ export function Footer() {
             <div className="space-y-4">
               <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="flex items-center gap-3 text-white/60 hover:text-primary transition-colors">
                 <Mail className="w-5 h-5" />
-                <span className="text-lg">ulrichv@geologicalservicesafrica.co.za</span>
+                <span className="text-lg">​</span>
               </a>
               <a href="tel:+27790450207" className="flex items-center gap-3 text-white/60 hover:text-primary transition-colors">
                 <Phone className="w-5 h-5" />
@@ -61,7 +61,7 @@ export function Footer() {
               </a>
               <div className="flex items-center gap-3 text-white/60">
                 <MapPin className="w-5 h-5" />
-                <span className="text-lg">Durbanville, Cape Town, South Africa</span>
+                <span className="text-lg">​</span>
               </div>
             </div>
           </div>
