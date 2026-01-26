@@ -93,7 +93,7 @@ ${data.message}
             </div>
             <div>
               <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Head Office</h4>
-              <p className="text-white/60 text-base">Durbanville Cape Town</p>
+              <p className="text-white/60 text-base">Cape Town</p>
               <p className="text-white/60 text-base">South Africa</p>
             </div>
           </div>
