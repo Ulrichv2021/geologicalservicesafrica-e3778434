@@ -137,7 +137,7 @@ export function About() {
             <div className="pt-4">
               <div className="flex items-center gap-4">
                 <div className="h-px flex-1 bg-gradient-to-r from-white/20 to-transparent" />
-                <span className="text-primary text-sm font-medium uppercase tracking-wider">Trusted by Industry Leaders</span>
+                <span className="text-primary font-medium uppercase tracking-wider text-lg">Trusted by Industry Leaders</span>
                 <div className="h-px flex-1 bg-gradient-to-l from-white/20 to-transparent" />
               </div>
             </div>
