@@ -19,7 +19,7 @@ const differentiators = [{
 }, {
   icon: Building2,
   title: "Full Lifecycle Support",
-  description: "From early-stage reconnaissance through to Bankable Feasibility Studies—complete technical oversight under one roof."
+  description: "From early-stage reconnaissance through to Bankable Feasibility Studies - complete technical oversight under one roof."
 }, {
   icon: Target,
   title: "Data Integrity Assurance",
