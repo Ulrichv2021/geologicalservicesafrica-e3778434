@@ -155,7 +155,7 @@ export function About() {
         duration: 0.8,
         delay: 0.4
       }}>
-          <h3 className="font-display text-2xl md:text-3xl text-center mb-12 text-white">
+          <h3 className="font-display text-2xl text-center mb-12 text-white md:text-5xl">
             Why Choose <span className="text-gradient">GSA</span>
           </h3>
           
@@ -169,7 +169,7 @@ export function About() {
           } : {}} transition={{
             duration: 0.5,
             delay: 0.5 + index * 0.1
-           }} className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-2xl p-10 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+          }} className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-2xl p-10 group hover:bg-slate-800/80 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
                 <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors">
                   <item.icon className="w-8 h-8 text-primary" />
                 </div>
