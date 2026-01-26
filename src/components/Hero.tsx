@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, FileCheck, Shield, TrendingUp } from "lucide-react";
+import { FileCheck, Shield, TrendingUp } from "lucide-react";
 import miningVideo from "@/assets/mining-operations.mp4";
 export function Hero() {
   return <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -73,7 +73,7 @@ export function Hero() {
             scale: 0.98
           }} className="btn-hero group text-base px-10 py-5">
               <span>Request Consultation</span>
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              
             </motion.a>
             
             <motion.a href="#services" whileHover={{
