@@ -59,6 +59,16 @@ const servicePillars = [{
     icon: Target,
     name: "Downhole Surveys",
     description: "Gyroscopic and magnetic deviation surveys for hole trajectory verification"
+  }, {
+    icon: Waves,
+    name: "Sonic Drilling",
+    description: "High-frequency vibratory drilling delivering continuous, high-recovery core in unconsolidated to semi-consolidated formations—ideal for heavy mineral sands, alluvials, clays, and coastal sediments",
+    expandedDetails: [
+      { title: "Exceptional Sample Recovery", desc: "Near-100% core recovery with minimal loss or contamination, ensuring representative samples for grade estimation and metallurgical testing." },
+      { title: "Undisturbed Core Quality", desc: "Preserves in-situ sedimentary structures, moisture content, and stratigraphy—critical for accurate geological interpretation and bulk density determinations." },
+      { title: "Rapid Penetration & Reduced Drill Consumables", desc: "Faster drilling rates in soft formations with limited need for drilling fluids, reducing operational costs and environmental impact." },
+      { title: "QAQC-Compliant Sampling", desc: "Ideal for primary sample collection, twinned holes, and validation drilling to support compliant Mineral Resource reporting." }
+    ]
   }]
 }, {
   id: "modeling",
