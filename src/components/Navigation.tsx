@@ -12,6 +12,9 @@ const navLinks = [{
   name: "Commodities",
   href: "#commodities"
 }, {
+  name: "FAQ",
+  href: "#faq"
+}, {
   name: "Contact",
   href: "#contact"
 }];
