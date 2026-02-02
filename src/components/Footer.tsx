@@ -28,6 +28,9 @@ const footerLinks = {
     name: "Commodity Expertise",
     href: "#commodities"
   }, {
+    name: "FAQ",
+    href: "#faq"
+  }, {
     name: "Contact Us",
     href: "#contact"
   }],
