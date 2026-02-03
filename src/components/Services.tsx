@@ -1,7 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { Radio, Drill, Box, Laptop, Leaf, ChevronRight, Waves, Plane, Mountain, Zap, Droplets, Hammer, FileText, Database, BarChart3, Recycle, Target, Shield, GraduationCap, Map, Globe, Smartphone, LineChart, Code, BookOpen, Layers, Pickaxe, Settings, BoxSelect, FlaskConical, Atom, Microscope, Beaker, Thermometer, Container, Cog, Award, CheckCircle2, ShoppingBag, Scale, FlaskRound, Flame, Eye, Magnet, HardHat, Compass, Package, Camera, Wrench, Headphones } from "lucide-react";
+import { useActiveServiceStore } from "@/hooks/useActiveService";
 import magneticEarth from "@/assets/magnetic-earth.jpg";
 import drillingRig from "@/assets/drilling-rig.jpg";
 import modeling3d from "@/assets/3d-modeling.jpg";
@@ -463,10 +464,26 @@ const servicePillars = [{
 export function Services() {
   const [activeService, setActiveService] = useState(servicePillars[0]);
   const ref = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-100px"
   });
+  
+  // Listen for navigation service selection
+  const pendingServiceId = useActiveServiceStore((state) => state.pendingServiceId);
+  const clearPendingServiceId = useActiveServiceStore((state) => state.clearPendingServiceId);
+  
+  useEffect(() => {
+    if (pendingServiceId) {
+      const targetService = servicePillars.find(s => s.id === pendingServiceId);
+      if (targetService) {
+        setActiveService(targetService);
+        // Clear after setting
+        clearPendingServiceId();
+      }
+    }
+  }, [pendingServiceId, clearPendingServiceId]);
   return <section id="services" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Video Background with Dark Overlay */}
       <div className="absolute inset-0">
