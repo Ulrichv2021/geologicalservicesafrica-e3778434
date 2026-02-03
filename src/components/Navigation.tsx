@@ -13,7 +13,8 @@ const navLinks = [
 const servicesSubMenu = [
   { name: "Geophysical Surveys", href: "#services" },
   { name: "Drilling & Sampling", href: "#services" },
-  { name: "Digital Solutions, Resource Estimation & BFS", href: "#services" },
+  { name: "Digital Solutions", href: "#services" },
+  { name: "Resource Estimation & BFS", href: "#services" },
   { name: "Environmental & Closure", href: "#services" },
   { name: "Laboratory", href: "#services" },
   { name: "Sales", href: "#services" },
