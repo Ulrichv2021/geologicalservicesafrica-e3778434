@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import miningVideo from "@/assets/mining-operations.mp4";
+import { trackFormSubmission, trackPhoneClick, trackEmailClick } from "@/lib/analytics";
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -40,10 +41,27 @@ Location: ${data.location}
 Message:
 ${data.message}
     `.trim();
+    // Track form submission with lead quality parameters
+    trackFormSubmission('contact-consultation-form', 'Consultation Request Form', {
+      service_type: data.projectType as string || 'not_specified',
+      geographic_region: data.location as string || 'not_specified',
+      company_type: 'not_specified',
+      project_stage: 'not_specified',
+      commodity_sector: 'not_specified',
+    });
+
     window.location.href = `mailto:ulrichvanderheyde90@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setIsSubmitting(false);
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
+  };
+
+  const handlePhoneClick = () => {
+    trackPhoneClick('+27790450207', 'Telephone Contact Card', 'contact_section');
+  };
+
+  const handleEmailClick = () => {
+    trackEmailClick('ulrichv@geologicalservicesafrica.co.za', 'Email Contact Card', 'contact_section');
   };
   return <section id="contact" className="relative py-28 lg:py-36 overflow-hidden">
       {/* Video Background with Subtle Motion */}
@@ -98,7 +116,11 @@ ${data.message}
             </div>
           </div>
 
-          <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5">
+          <a 
+            href="tel:+27790450207" 
+            onClick={handlePhoneClick}
+            className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5 hover:bg-slate-800/80 transition-colors cursor-pointer"
+          >
             <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
               <Phone className="w-8 h-8 text-primary" />
             </div>
@@ -106,19 +128,23 @@ ${data.message}
               <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Telephone</h4>
               <p className="text-white/60 text-base">079 045 0207</p>
             </div>
-          </div>
+          </a>
 
-          <div className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5">
+          <a 
+            href="mailto:ulrichv@geologicalservicesafrica.co.za"
+            onClick={handleEmailClick}
+            className="bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8 flex items-start gap-5 hover:bg-slate-800/80 transition-colors cursor-pointer"
+          >
             <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
               <Mail className="w-8 h-8 text-primary" />
             </div>
             <div>
               <h4 className="font-medium text-xl md:text-2xl mb-2 text-white">Email</h4>
-              <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="text-primary hover:text-primary/80 transition-colors text-base">
+              <span className="text-primary hover:text-primary/80 transition-colors text-base">
                 ulrichv@geologicalservicesafrica.co.za
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
 
           {/* Compliance Badges - spans full width on larger screens */}
           <div className="md:col-span-2 lg:col-span-3 bg-slate-800/60 backdrop-blur-md border border-white/10 rounded-xl p-8">
