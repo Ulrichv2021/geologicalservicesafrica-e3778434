@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import gsaLogo from "@/assets/gsa-logo.png";
+import { useActiveServiceStore, serviceIdMap } from "@/hooks/useActiveService";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -13,8 +14,8 @@ const navLinks = [
 const servicesSubMenu = [
   { name: "Geophysical Surveys", href: "#services" },
   { name: "Drilling & Sampling", href: "#services" },
-  { name: "Digital Solutions", href: "#services" },
   { name: "Resource Estimation & BFS", href: "#services" },
+  { name: "Digital Solutions", href: "#services" },
   { name: "Environmental & Closure", href: "#services" },
   { name: "Laboratory", href: "#services" },
   { name: "Sales", href: "#services" },
@@ -27,6 +28,7 @@ export function Navigation() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const setPendingServiceId = useActiveServiceStore((state) => state.setPendingServiceId);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +54,22 @@ export function Navigation() {
     setIsMobileServicesOpen(false);
   };
 
+  const handleServiceClick = (serviceName: string) => {
+    const serviceId = serviceIdMap[serviceName];
+    if (serviceId) {
+      setPendingServiceId(serviceId);
+    }
+    setIsServicesOpen(false);
+  };
+
+  const handleMobileServiceClick = (serviceName: string) => {
+    const serviceId = serviceIdMap[serviceName];
+    if (serviceId) {
+      setPendingServiceId(serviceId);
+    }
+    handleMobileMenuClose();
+  };
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -66,11 +84,11 @@ export function Navigation() {
       <div className="page-x">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a href="#" className="flex items-center gap-3 group shrink-0">
             <img
               src={gsaLogo}
               alt="Geological Services Africa"
-              className="h-20 md:h-24 lg:h-40 w-auto transition-transform duration-300 group-hover:scale-105 rounded-2xl"
+              className="h-16 sm:h-20 md:h-24 lg:h-40 w-auto transition-transform duration-300 group-hover:scale-105 rounded-2xl"
             />
           </a>
 
@@ -104,7 +122,7 @@ export function Navigation() {
                           <a
                             key={subItem.name}
                             href={subItem.href}
-                            onClick={() => setIsServicesOpen(false)}
+                            onClick={() => handleServiceClick(subItem.name)}
                             className={`block px-6 py-4 text-base font-medium text-white/80 hover:text-primary hover:bg-white/5 transition-colors duration-200 ${
                               index !== servicesSubMenu.length - 1
                                 ? "border-b border-white/5"
@@ -178,7 +196,7 @@ export function Navigation() {
                             <a
                               key={subItem.name}
                               href={subItem.href}
-                              onClick={handleMobileMenuClose}
+                              onClick={() => handleMobileServiceClick(subItem.name)}
                               className="min-h-[48px] flex items-center px-4 py-3 text-base font-medium text-white/70 hover:text-primary transition-colors rounded-lg hover:bg-white/5"
                             >
                               {subItem.name}
