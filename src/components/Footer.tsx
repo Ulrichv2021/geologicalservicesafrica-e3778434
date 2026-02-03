@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import gsaLogo from "@/assets/gsa-logo.png";
+import { CookieSettingsButton } from "@/components/CookieConsent";
+import { trackEmailClick } from "@/lib/analytics";
 const footerLinks = {
   services: [{
     name: "Geophysical Surveys",
@@ -95,7 +97,11 @@ export function Footer() {
               <a href="#" className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
                 <Linkedin className="w-6 h-6 text-white/70" />
               </a>
-              <a href="mailto:ulrichv@geologicalservicesafrica.co.za" className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+              <a 
+                href="mailto:ulrichv@geologicalservicesafrica.co.za" 
+                onClick={() => trackEmailClick('ulrichv@geologicalservicesafrica.co.za', 'Footer Email Icon', 'footer')}
+                className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+              >
                 <Mail className="w-6 h-6 text-white/70" />
               </a>
             </div>
@@ -111,6 +117,7 @@ export function Footer() {
             {footerLinks.compliance.map(link => <a key={link.name} href={link.href} className="text-base text-white/50 hover:text-primary transition-colors">
                 {link.name}
               </a>)}
+            <CookieSettingsButton />
           </div>
         </div>
       </div>
