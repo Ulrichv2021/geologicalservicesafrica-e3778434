@@ -62,21 +62,19 @@ export function Navigation() {
     setIsServicesOpen(false);
   };
 
-  const handleMobileServiceClick = (e: React.MouseEvent | React.TouchEvent, serviceName: string) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleMobileServiceClick = (serviceName: string) => {
     const serviceId = serviceIdMap[serviceName];
     if (serviceId) {
       setPendingServiceId(serviceId);
     }
-    // Small delay to ensure state is set before navigation
-    setTimeout(() => {
-      handleMobileMenuClose();
+    handleMobileMenuClose();
+    // Scroll after menu closes
+    requestAnimationFrame(() => {
       const servicesSection = document.getElementById('services');
       if (servicesSection) {
         servicesSection.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 50);
+    });
   };
 
   return (
