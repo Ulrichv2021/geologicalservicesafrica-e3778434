@@ -62,21 +62,19 @@ export function Navigation() {
     setIsServicesOpen(false);
   };
 
-  const handleMobileServiceClick = (e: React.MouseEvent | React.TouchEvent, serviceName: string) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleMobileServiceClick = (serviceName: string) => {
     const serviceId = serviceIdMap[serviceName];
     if (serviceId) {
       setPendingServiceId(serviceId);
     }
-    // Small delay to ensure state is set before navigation
-    setTimeout(() => {
-      handleMobileMenuClose();
+    handleMobileMenuClose();
+    // Scroll after menu closes
+    requestAnimationFrame(() => {
       const servicesSection = document.getElementById('services');
       if (servicesSection) {
         servicesSection.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 50);
+    });
   };
 
   return (
@@ -182,8 +180,12 @@ export function Navigation() {
                 link.hasDropdown ? (
                   <div key={link.name} className="flex flex-col">
                     <button
-                      onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                      className="flex items-center justify-between min-h-[48px] px-4 py-3 text-lg font-medium text-white/80 hover:text-primary transition-colors rounded-lg hover:bg-white/5"
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsMobileServicesOpen(!isMobileServicesOpen);
+                      }}
+                      className="flex items-center justify-between min-h-[48px] px-4 py-3 text-lg font-medium text-white/80 hover:text-primary transition-colors rounded-lg hover:bg-white/5 touch-manipulation"
                     >
                       {link.name}
                       <ChevronDown
@@ -199,15 +201,19 @@ export function Navigation() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="flex flex-col ml-4 border-l-2 border-primary/30 pl-4 mt-2 mb-2"
+                          className="flex flex-col ml-4 border-l-2 border-primary/30 pl-4 mt-2 mb-2 relative z-50"
                         >
                           {servicesSubMenu.map((subItem) => (
                             <button
                               key={subItem.name}
                               type="button"
-                              onClick={(e) => handleMobileServiceClick(e, subItem.name)}
-                              onTouchEnd={(e) => handleMobileServiceClick(e, subItem.name)}
-                              className="min-h-[48px] w-full text-left flex items-center px-4 py-3 text-base font-medium text-white/70 hover:text-primary active:text-primary transition-colors rounded-lg hover:bg-white/5 active:bg-white/10 touch-manipulation"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                handleMobileServiceClick(subItem.name);
+                              }}
+                              className="min-h-[48px] w-full text-left flex items-center px-4 py-3 text-base font-medium text-white/70 hover:text-primary active:text-primary transition-colors rounded-lg hover:bg-white/5 active:bg-white/10 touch-manipulation cursor-pointer select-none"
+                              style={{ WebkitTapHighlightColor: 'transparent' }}
                             >
                               {subItem.name}
                             </button>
