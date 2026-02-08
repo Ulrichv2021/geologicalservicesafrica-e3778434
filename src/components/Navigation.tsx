@@ -62,12 +62,21 @@ export function Navigation() {
     setIsServicesOpen(false);
   };
 
-  const handleMobileServiceClick = (serviceName: string) => {
+  const handleMobileServiceClick = (e: React.MouseEvent | React.TouchEvent, serviceName: string) => {
+    e.preventDefault();
+    e.stopPropagation();
     const serviceId = serviceIdMap[serviceName];
     if (serviceId) {
       setPendingServiceId(serviceId);
     }
-    handleMobileMenuClose();
+    // Small delay to ensure state is set before navigation
+    setTimeout(() => {
+      handleMobileMenuClose();
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
   };
 
   return (
@@ -193,14 +202,15 @@ export function Navigation() {
                           className="flex flex-col ml-4 border-l-2 border-primary/30 pl-4 mt-2 mb-2"
                         >
                           {servicesSubMenu.map((subItem) => (
-                            <a
+                            <button
                               key={subItem.name}
-                              href={subItem.href}
-                              onClick={() => handleMobileServiceClick(subItem.name)}
-                              className="min-h-[48px] flex items-center px-4 py-3 text-base font-medium text-white/70 hover:text-primary transition-colors rounded-lg hover:bg-white/5"
+                              type="button"
+                              onClick={(e) => handleMobileServiceClick(e, subItem.name)}
+                              onTouchEnd={(e) => handleMobileServiceClick(e, subItem.name)}
+                              className="min-h-[48px] w-full text-left flex items-center px-4 py-3 text-base font-medium text-white/70 hover:text-primary active:text-primary transition-colors rounded-lg hover:bg-white/5 active:bg-white/10 touch-manipulation"
                             >
                               {subItem.name}
-                            </a>
+                            </button>
                           ))}
                         </motion.div>
                       )}
