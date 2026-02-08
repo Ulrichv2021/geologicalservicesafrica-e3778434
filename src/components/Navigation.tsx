@@ -67,14 +67,15 @@ export function Navigation() {
     if (serviceId) {
       setPendingServiceId(serviceId);
     }
-    handleMobileMenuClose();
-    // Scroll after menu closes
-    requestAnimationFrame(() => {
-      const servicesSection = document.getElementById('services');
+
+    // Small delay to ensure state is set before navigation + scroll (prevents mobile tap race conditions)
+    setTimeout(() => {
+      handleMobileMenuClose();
+      const servicesSection = document.getElementById("services");
       if (servicesSection) {
-        servicesSection.scrollIntoView({ behavior: 'smooth' });
+        servicesSection.scrollIntoView({ behavior: "smooth" });
       }
-    });
+    }, 50);
   };
 
   return (
