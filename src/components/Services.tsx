@@ -1,8 +1,28 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { Radio, Drill, Box, Laptop, Leaf, ChevronRight, Waves, Plane, Mountain, Zap, Droplets, Hammer, FileText, Database, BarChart3, Recycle, Target, Shield, GraduationCap, Map, Globe, Smartphone, LineChart, Code, BookOpen, Layers, Pickaxe, Settings, BoxSelect, FlaskConical, Atom, Microscope, Beaker, Thermometer, Container, Cog, Award, CheckCircle2, ShoppingBag, Scale, FlaskRound, Flame, Eye, Magnet, HardHat, Compass, Package, Camera, Wrench, Headphones } from "lucide-react";
+import { Radio, Drill, Box, Laptop, Leaf, ChevronRight, Waves, Plane, Mountain, Zap, Droplets, Hammer, FileText, Database, BarChart3, Recycle, Target, Shield, GraduationCap, Map, Globe, Smartphone, LineChart, Code, BookOpen, Layers, Pickaxe, Settings, BoxSelect, FlaskConical, Atom, Microscope, Beaker, Thermometer, Container, Cog, Award, CheckCircle2, ShoppingBag, Scale, FlaskRound, Flame, Eye, Magnet, HardHat, Compass, Package, Camera, Wrench, Headphones, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useActiveServiceStore } from "@/hooks/useActiveService";
+
+const serviceSlugMap: Record<string, string> = {
+  geophysics: "/services/geophysical-surveys",
+  drilling: "/services/drilling-sampling",
+  modeling: "/services/resource-estimation",
+  digital: "/services/digital-solutions",
+  environmental: "/services/environmental-closure",
+  laboratory: "/services/laboratory",
+  sales: "/services/sales",
+  training: "/services/training",
+};
+
+const geophysicalSlugMap: Record<string, string> = {
+  "Ground Penetrating Radar (GPR)": "/services/geophysical/gpr-surveys",
+  "Airborne & UAV Magnetics": "/services/geophysical/uav-magnetics",
+  "LiDAR & Topographic Surveys": "/services/geophysical/lidar-surveys",
+  "Induced Polarization (IP/Res)": "/services/geophysical/ip-resistivity",
+  "Gravity & Ground Magnetics": "/services/geophysical/gravity-magnetics",
+};
 import magneticEarth from "@/assets/magnetic-earth.jpg";
 import drillingRig from "@/assets/drilling-rig.jpg";
 import modeling3d from "@/assets/3d-modeling.jpg";
@@ -627,6 +647,12 @@ export function Services() {
                         </>}
                     </motion.div>)}
                 </div>
+                {/* Learn More Button */}
+                <div className="pt-6 text-center">
+                  <Link to={serviceSlugMap[activeService.id]} className="btn-hero inline-flex items-center gap-2 text-base px-10 py-5">
+                    Learn More <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </div>
               </div> : activeService.isTraining ?
           // Training Content - Custom Layout
           <div className="space-y-12">
@@ -753,7 +779,13 @@ export function Services() {
                             </div>
                           </motion.div>)}
                       </div>}
-                  </motion.div>)}
+                   </motion.div>)}
+                {/* Learn More Button */}
+                <div className="pt-6 text-center">
+                  <Link to={serviceSlugMap[activeService.id]} className="btn-hero inline-flex items-center gap-2 text-base px-10 py-5">
+                    Learn More <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </div>
               </div> : activeService.isSales ?
           // Sales Content - Equipment & Tools
           <div className="space-y-8">
@@ -914,6 +946,12 @@ export function Services() {
                       </li>)}
                   </ul>
                 </div>
+                {/* Learn More Button */}
+                <div className="pt-6 text-center">
+                  <Link to={serviceSlugMap[activeService.id]} className="btn-hero inline-flex items-center gap-2 text-base px-10 py-5">
+                    Learn More <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </div>
               </div> :
           // Standard Service Content
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -955,9 +993,27 @@ export function Services() {
                             <ChevronRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                           </h4>
                           <p className="text-lg md:text-xl text-white/60 leading-relaxed">{service.description}</p>
+                          {/* Clickable link for geophysical sub-services */}
+                          {activeService.id === "geophysics" && geophysicalSlugMap[service.name] && (
+                            <Link to={geophysicalSlugMap[service.name]} className="inline-flex items-center gap-2 text-primary text-base font-medium mt-3 hover:gap-3 transition-all">
+                              View Details <ArrowRight className="w-4 h-4" />
+                            </Link>
+                          )}
                         </div>
                       </motion.div>)}
                   </div>
+
+                  {/* Learn More Button */}
+                  {serviceSlugMap[activeService.id] && (
+                    <div className="pt-6">
+                      <Link
+                        to={serviceSlugMap[activeService.id]}
+                        className="btn-hero inline-flex items-center gap-2 text-base px-10 py-5"
+                      >
+                        Learn More <ArrowRight className="w-5 h-5" />
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>}
           </motion.div>

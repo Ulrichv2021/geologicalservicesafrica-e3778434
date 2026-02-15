@@ -1,34 +1,43 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import gsaLogo from "@/assets/gsa-logo.png";
 import { useActiveServiceStore, serviceIdMap } from "@/hooks/useActiveService";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services", hasDropdown: true },
-  { name: "Commodities", href: "#commodities" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "#about", isHash: true },
+  { name: "Services", href: "#services", hasDropdown: true, isHash: true },
+  { name: "Commodities", href: "#commodities", hasDropdown: true, isHash: true },
+  { name: "Contact", href: "#contact", isHash: true },
 ];
 
 const servicesSubMenu = [
-  { name: "Geophysical Surveys", href: "#services" },
-  { name: "Drilling & Sampling", href: "#services" },
-  { name: "Resource Estimation & BFS", href: "#services" },
-  { name: "Digital Solutions", href: "#services" },
-  { name: "Environmental & Closure", href: "#services" },
-  { name: "Laboratory", href: "#services" },
-  { name: "Sales", href: "#services" },
-  { name: "Training", href: "#services" },
+  { name: "Geophysical Surveys", href: "/services/geophysical-surveys" },
+  { name: "Drilling & Sampling", href: "/services/drilling-sampling" },
+  { name: "Resource Estimation & BFS", href: "/services/resource-estimation" },
+  { name: "Digital Solutions", href: "/services/digital-solutions" },
+  { name: "Environmental & Closure", href: "/services/environmental-closure" },
+  { name: "Laboratory", href: "/services/laboratory" },
+  { name: "Sales", href: "/services/sales" },
+  { name: "Training", href: "/services/training" },
+];
+
+const commoditiesSubMenu = [
+  { name: "Gold Exploration", href: "/commodities/gold-exploration" },
+  { name: "Diamonds", href: "/commodities/diamonds" },
+  { name: "Rare Earth Elements", href: "/commodities/rare-earth-elements" },
 ];
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const setPendingServiceId = useActiveServiceStore((state) => state.setPendingServiceId);
+  const commoditiesDropdownRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,11 +47,13 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsServicesOpen(false);
+      if (
+        dropdownRef.current && !dropdownRef.current.contains(event.target as Node) &&
+        commoditiesDropdownRef.current && !commoditiesDropdownRef.current.contains(event.target as Node)
+      ) {
+        setOpenDropdown(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -51,31 +62,19 @@ export function Navigation() {
 
   const handleMobileMenuClose = () => {
     setIsMobileMenuOpen(false);
-    setIsMobileServicesOpen(false);
+    setMobileOpenDropdown(null);
   };
 
-  const handleServiceClick = (serviceName: string) => {
-    const serviceId = serviceIdMap[serviceName];
-    if (serviceId) {
-      setPendingServiceId(serviceId);
-    }
-    setIsServicesOpen(false);
+  const getSubMenu = (name: string) => {
+    if (name === "Services") return servicesSubMenu;
+    if (name === "Commodities") return commoditiesSubMenu;
+    return [];
   };
 
-  const handleMobileServiceClick = (serviceName: string) => {
-    const serviceId = serviceIdMap[serviceName];
-    if (serviceId) {
-      setPendingServiceId(serviceId);
-    }
-
-    // Small delay to ensure state is set before navigation + scroll (prevents mobile tap race conditions)
-    setTimeout(() => {
-      handleMobileMenuClose();
-      const servicesSection = document.getElementById("services");
-      if (servicesSection) {
-        servicesSection.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 50);
+  const getDropdownRef = (name: string) => {
+    if (name === "Services") return dropdownRef;
+    if (name === "Commodities") return commoditiesDropdownRef;
+    return null;
   };
 
   return (
@@ -92,33 +91,33 @@ export function Navigation() {
       <div className="page-x">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group shrink-0">
+          <Link to="/" className="flex items-center gap-3 group shrink-0">
             <img
               src={gsaLogo}
               alt="Geological Services Africa"
               className="h-16 sm:h-20 md:h-24 lg:h-40 w-auto transition-transform duration-300 group-hover:scale-105 rounded-2xl"
             />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center flex-1 gap-12">
             {navLinks.map((link) =>
               link.hasDropdown ? (
-                <div key={link.name} className="relative" ref={dropdownRef}>
+                <div key={link.name} className="relative" ref={getDropdownRef(link.name)}>
                   <button
-                    onClick={() => setIsServicesOpen(!isServicesOpen)}
+                    onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
                     className="flex items-center gap-2 text-2xl font-medium text-white/80 hover:text-primary transition-colors duration-300"
                   >
                     {link.name}
                     <ChevronDown
                       size={20}
                       className={`transition-transform duration-200 ${
-                        isServicesOpen ? "rotate-180" : ""
+                        openDropdown === link.name ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                   <AnimatePresence>
-                    {isServicesOpen && (
+                    {openDropdown === link.name && (
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -126,32 +125,42 @@ export function Navigation() {
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-0 mt-4 w-80 bg-slate-900 border border-white/10 rounded-xl shadow-2xl overflow-hidden z-50"
                       >
-                        {servicesSubMenu.map((subItem, index) => (
-                          <a
+                        {getSubMenu(link.name).map((subItem, index) => (
+                          <Link
                             key={subItem.name}
-                            href={subItem.href}
-                            onClick={() => handleServiceClick(subItem.name)}
+                            to={subItem.href}
+                            onClick={() => setOpenDropdown(null)}
                             className={`block px-6 py-4 text-base font-medium text-white/80 hover:text-primary hover:bg-white/5 transition-colors duration-200 ${
-                              index !== servicesSubMenu.length - 1
+                              index !== getSubMenu(link.name).length - 1
                                 ? "border-b border-white/5"
                                 : ""
                             }`}
                           >
                             {subItem.name}
-                          </a>
+                          </Link>
                         ))}
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
               ) : (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-2xl font-medium text-white/80 hover:text-primary transition-colors duration-300"
-                >
-                  {link.name}
-                </a>
+                isHomePage ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="text-2xl font-medium text-white/80 hover:text-primary transition-colors duration-300"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={`/${link.href}`}
+                    className="text-2xl font-medium text-white/80 hover:text-primary transition-colors duration-300"
+                  >
+                    {link.name}
+                  </Link>
+                )
               )
             )}
           </div>
@@ -184,7 +193,7 @@ export function Navigation() {
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        setIsMobileServicesOpen(!isMobileServicesOpen);
+                        setMobileOpenDropdown(mobileOpenDropdown === link.name ? null : link.name);
                       }}
                       className="flex items-center justify-between min-h-[48px] px-4 py-3 text-lg font-medium text-white/80 hover:text-primary transition-colors rounded-lg hover:bg-white/5 touch-manipulation"
                     >
@@ -192,45 +201,52 @@ export function Navigation() {
                       <ChevronDown
                         size={20}
                         className={`transition-transform duration-200 ${
-                          isMobileServicesOpen ? "rotate-180" : ""
+                          mobileOpenDropdown === link.name ? "rotate-180" : ""
                         }`}
                       />
                     </button>
                     <AnimatePresence>
-                      {isMobileServicesOpen && (
+                      {mobileOpenDropdown === link.name && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           className="flex flex-col ml-4 border-l-2 border-primary/30 pl-4 mt-2 mb-2 relative z-50"
                         >
-                          {servicesSubMenu.map((subItem) => (
-                            <a
+                          {getSubMenu(link.name).map((subItem) => (
+                            <Link
                               key={subItem.name}
-                              href={subItem.href}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                handleMobileServiceClick(subItem.name);
-                              }}
-                              className="min-h-[48px] w-full text-left flex items-center px-4 py-3 text-base font-medium text-white/70 hover:text-primary active:text-primary transition-colors rounded-lg hover:bg-white/5 active:bg-white/10 touch-manipulation cursor-pointer select-none pointer-events-auto"
+                              to={subItem.href}
+                              onClick={handleMobileMenuClose}
+                              className="min-h-[48px] w-full text-left flex items-center px-4 py-3 text-base font-medium text-white/70 hover:text-primary active:text-primary transition-colors rounded-lg hover:bg-white/5 active:bg-white/10 touch-manipulation cursor-pointer select-none"
                             >
                               {subItem.name}
-                            </a>
+                            </Link>
                           ))}
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
                 ) : (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={handleMobileMenuClose}
-                    className="min-h-[48px] flex items-center px-4 py-3 text-lg font-medium text-white/80 hover:text-primary transition-colors rounded-lg hover:bg-white/5"
-                  >
-                    {link.name}
-                  </a>
+                  isHomePage ? (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={handleMobileMenuClose}
+                      className="min-h-[48px] flex items-center px-4 py-3 text-lg font-medium text-white/80 hover:text-primary transition-colors rounded-lg hover:bg-white/5"
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.name}
+                      to={`/${link.href}`}
+                      onClick={handleMobileMenuClose}
+                      className="min-h-[48px] flex items-center px-4 py-3 text-lg font-medium text-white/80 hover:text-primary transition-colors rounded-lg hover:bg-white/5"
+                    >
+                      {link.name}
+                    </Link>
+                  )
                 )
               )}
             </div>

@@ -1,7 +1,14 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Gem, Sparkles, CircleDot, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import miningVideo from "@/assets/mining-operations.mp4";
+const commoditySlugMap: Record<string, string> = {
+  ree: "/commodities/rare-earth-elements",
+  diamonds: "/commodities/diamonds",
+  gold: "/commodities/gold-exploration",
+};
+
 const commodities = [{
   id: "ree",
   name: "Rare Earth Elements",
@@ -96,10 +103,16 @@ export function Commodities() {
                   </div>
                 </div>
                 
-                <a href="#contact" className="inline-flex items-center gap-2 text-primary text-xl font-medium group-hover:gap-3 transition-all">
-                  <span>Discuss Your Project</span>
-                  <ArrowRight className="w-5 h-5" />
-                </a>
+                <div className="flex flex-wrap items-center gap-6">
+                  <Link to={commoditySlugMap[commodity.id] || "#"} className="inline-flex items-center gap-2 text-primary text-xl font-medium group-hover:gap-3 transition-all">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <a href="#contact" className="inline-flex items-center gap-2 text-white/50 text-base font-medium hover:text-primary transition-colors">
+                    <span>Discuss Your Project</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             </motion.div>)}
         </div>
