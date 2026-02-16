@@ -26,6 +26,9 @@ const LiDARSurveys = lazy(() => import("./pages/services/geophysical/LiDARSurvey
 const IPResistivity = lazy(() => import("./pages/services/geophysical/IPResistivity"));
 const GravityMagnetics = lazy(() => import("./pages/services/geophysical/GravityMagnetics"));
 
+// Team page
+const Team = lazy(() => import("./pages/Team"));
+
 // Commodity pages
 const GoldExploration = lazy(() => import("./pages/commodities/GoldExploration"));
 const DiamondsExploration = lazy(() => import("./pages/commodities/DiamondsExploration"));
@@ -71,6 +74,9 @@ const App = () => (
               <Route path="/services/geophysical/lidar-surveys" element={<LiDARSurveys />} />
               <Route path="/services/geophysical/ip-resistivity" element={<IPResistivity />} />
               <Route path="/services/geophysical/gravity-magnetics" element={<GravityMagnetics />} />
+              
+              {/* Team */}
+              <Route path="/team" element={<Team />} />
               
               {/* Commodity Pages */}
               <Route path="/commodities/gold-exploration" element={<GoldExploration />} />
