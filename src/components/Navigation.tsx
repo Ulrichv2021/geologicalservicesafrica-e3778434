@@ -9,6 +9,7 @@ const navLinks = [
   { name: "About", href: "#about", isHash: true },
   { name: "Services", href: "#services", hasDropdown: true, isHash: true },
   { name: "Commodities", href: "#commodities", hasDropdown: true, isHash: true },
+  { name: "Team", href: "/team", isHash: false },
   { name: "Contact", href: "#contact", isHash: true },
 ];
 
@@ -143,7 +144,7 @@ export function Navigation() {
                     )}
                   </AnimatePresence>
                 </div>
-              ) : (
+              ) : link.isHash ? (
                 isHomePage ? (
                   <a
                     key={link.name}
@@ -161,6 +162,14 @@ export function Navigation() {
                     {link.name}
                   </Link>
                 )
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-2xl font-medium text-white/80 hover:text-primary transition-colors duration-300"
+                >
+                  {link.name}
+                </Link>
               )
             )}
           </div>
@@ -227,7 +236,7 @@ export function Navigation() {
                       )}
                     </AnimatePresence>
                   </div>
-                ) : (
+                ) : link.isHash ? (
                   isHomePage ? (
                     <a
                       key={link.name}
@@ -247,6 +256,15 @@ export function Navigation() {
                       {link.name}
                     </Link>
                   )
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={handleMobileMenuClose}
+                    className="min-h-[48px] flex items-center px-4 py-3 text-lg font-medium text-white/80 hover:text-primary transition-colors rounded-lg hover:bg-white/5"
+                  >
+                    {link.name}
+                  </Link>
                 )
               )}
             </div>
