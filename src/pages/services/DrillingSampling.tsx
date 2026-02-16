@@ -4,7 +4,9 @@ import { Drill, Gauge, Ruler, Shield, Target, Layers, ArrowRight, Download, Chev
 import { PageLayout } from "@/components/PageLayout";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import drillingRig from "@/assets/drilling-rig.jpg";
-import coreSamples from "@/assets/core-samples.jpg";
+import wirelineDrilling from "@/assets/wireline-drilling.jpg";
+import deepCoring from "@/assets/deep-coring.jpg";
+import siteCompliance from "@/assets/site-compliance.jpg";
 
 const kpis = [
   { icon: Gauge, label: "Drill Capacity", value: "3,000m NQ" },
@@ -19,24 +21,24 @@ const methodologies = [
     title: "Wireline Diamond Drilling",
     description:
       "Our Wireline Diamond Drilling utilises NQ and HQ diameter bits to achieve depths of 3,000m, ensuring near-100% core recovery in even the most fractured formations. The wireline system retrieves core samples without removing the entire drill string, dramatically reducing trip times and maximising metres per shift.",
-    image: coreSamples,
-    imageAlt: "Diamond drill core trays with geological samples",
+    image: wirelineDrilling,
+    imageAlt: "Wireline diamond drilling rig with operators on site",
   },
   {
     icon: Mountain,
     title: "Deep Hole NQ/HQ Coring",
     description:
       "Purpose-designed for deep-seated ore body definition, our rigs are rated to 3,000m NQ depth. HQ diameter coring delivers larger-diameter core for detailed structural and geotechnical logging, while NQ provides cost-effective coverage at extreme depths. All core is oriented where required for structural interpretation.",
-    image: drillingRig,
-    imageAlt: "Diamond drilling rig in operation",
+    image: deepCoring,
+    imageAlt: "Deep hole NQ/HQ core samples in trays at drill site",
   },
   {
     icon: Shield,
     title: "Site Management & Compliance",
     description:
       "We operate on a standard 30m × 30m drill pad, designed to house the rig, rod rack, and sumps while maintaining strict safety perimeters and environmental compliance. All sites include fluid containment, emergency response plans, and daily safety inspections aligned to ISO 45001 standards.",
-    image: drillingRig,
-    imageAlt: "Drilling site with safety perimeters at night",
+    image: siteCompliance,
+    imageAlt: "Safety signage and compliance at drilling site entrance",
   },
 ];
 
