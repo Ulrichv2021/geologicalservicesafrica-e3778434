@@ -4,7 +4,7 @@ import { Waves, Gauge, Ruler, Shield, Target, Layers, ArrowRight, ChevronRight, 
 import { PageLayout } from "@/components/PageLayout";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
-// VITE IMPORTS: Using relative paths to ensure visibility
+// VITE IMPORTS: Relative paths match your src/assets folder
 import sonicHero from "../assets/Drilling.JPG";
 import sampleIntegrityImg from "../assets/Sample_Integrety.JPG"; 
 import drillStringImg from "../assets/Drill String.JPG";
@@ -59,10 +59,15 @@ export default function SonicDrilling() {
 
   return (
     <PageLayout breadcrumbs={[{ label: "Services", href: "/#services" }, { label: "Sonic Drilling" }]}>
-      {/* Hero */}
-      <section className="relative py-20 lg:py-28 overflow-hidden">
+      {/* Hero with Object-Center for Large Backgrounds */}
+      <section className="relative py-20 lg:py-28 overflow-hidden min-h-[60vh] flex items-center">
         <div className="absolute inset-0">
-          <img src={sonicHero} alt="Sonic drilling operations" className="w-full h-full object-cover" />
+          <img 
+            src={sonicHero} 
+            alt="Sonic drilling operations" 
+            className="w-full h-full object-cover object-center"
+            loading="eager" 
+          />
           <div className="absolute inset-0 bg-slate-900/85" />
         </div>
         <div className="page-x relative z-10">
@@ -103,7 +108,7 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Methodology Section */}
+      {/* Methodology Section - Enhanced for Large Images */}
       <section className="py-20 lg:py-28 bg-slate-900">
         <div className="page-x">
           <motion.div {...fadeUp} transition={{ duration: 0.5 }}>
@@ -119,8 +124,13 @@ export default function SonicDrilling() {
               {whyChoose.map((item, i) => (
                 <motion.div key={item.title} {...fadeUp} transition={{ duration: 0.4, delay: i * 0.12 }} className="bg-slate-800/60 border border-white/10 rounded-xl overflow-hidden">
                   <div className="md:flex">
-                    <div className="md:w-2/5 shrink-0">
-                      <img src={item.image} alt={item.title} className="w-full h-56 md:h-full object-cover" loading="lazy" />
+                    <div className="md:w-2/5 shrink-0 bg-slate-800">
+                      <img 
+                        src={item.image} 
+                        alt={item.title} 
+                        className="w-full h-56 md:h-full object-cover object-center transition-opacity duration-500" 
+                        loading="lazy" 
+                      />
                     </div>
                     <div className="p-8 flex flex-col justify-center">
                       <div className="flex items-center gap-3 mb-4">
@@ -157,7 +167,7 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Sample Integrity Highlight */}
+      {/* Technical Highlight - Large Image Handling */}
       <section className="py-16 bg-slate-800/50 border-y border-white/10">
         <div className="page-x">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -174,7 +184,14 @@ export default function SonicDrilling() {
               </div>
             </motion.div>
             <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.15 }}>
-              <img src={sampleIntegrityImg} alt="High-recovery sonic core samples" className="w-full h-72 object-cover rounded-xl border border-white/10" />
+              <div className="rounded-xl border border-white/10 overflow-hidden bg-slate-800">
+                <img 
+                  src={sampleIntegrityImg} 
+                  alt="High-recovery sonic core samples" 
+                  className="w-full h-auto max-h-[400px] object-cover object-center" 
+                  loading="lazy"
+                />
+              </div>
               <p className="text-sm text-white/40 mt-3 text-center">Exceptional core recovery in unconsolidated formations</p>
             </motion.div>
           </div>
