@@ -12,6 +12,7 @@ import { useAnalytics } from "@/hooks/useAnalytics";
 // Service pages
 const GeophysicalSurveys = lazy(() => import("./pages/services/GeophysicalSurveys"));
 const DrillingSampling = lazy(() => import("./pages/services/DrillingSampling"));
+const SonicDrilling = lazy(() => import("./pages/services/SonicDrilling"));
 const ResourceEstimation = lazy(() => import("./pages/services/ResourceEstimation"));
 const DigitalSolutions = lazy(() => import("./pages/services/DigitalSolutions"));
 const EnvironmentalClosure = lazy(() => import("./pages/services/EnvironmentalClosure"));
@@ -61,6 +62,8 @@ const App = () => (
               {/* Service Pages */}
               <Route path="/services/geophysical-surveys" element={<GeophysicalSurveys />} />
               <Route path="/services/drilling-sampling" element={<DrillingSampling />} />
+              <Route path="/services/diamond-drilling" element={<DrillingSampling />} />
+              <Route path="/services/sonic-drilling" element={<SonicDrilling />} />
               <Route path="/services/resource-estimation" element={<ResourceEstimation />} />
               <Route path="/services/digital-solutions" element={<DigitalSolutions />} />
               <Route path="/services/environmental-closure" element={<EnvironmentalClosure />} />

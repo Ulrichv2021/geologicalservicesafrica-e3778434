@@ -7,7 +7,7 @@ import { useActiveServiceStore } from "@/hooks/useActiveService";
 
 const serviceSlugMap: Record<string, string> = {
   geophysics: "/services/geophysical-surveys",
-  drilling: "/services/drilling-sampling",
+  drilling: "/services/diamond-drilling",
   modeling: "/services/resource-estimation",
   digital: "/services/digital-solutions",
   environmental: "/services/environmental-closure",
@@ -22,6 +22,11 @@ const geophysicalSlugMap: Record<string, string> = {
   "LiDAR & Topographic Surveys": "/services/geophysical/lidar-surveys",
   "Induced Polarization (IP/Res)": "/services/geophysical/ip-resistivity",
   "Gravity & Ground Magnetics": "/services/geophysical/gravity-magnetics",
+};
+
+const drillingSlugMap: Record<string, string> = {
+  "Diamond Core Drilling": "/services/diamond-drilling",
+  "Sonic Drilling": "/services/sonic-drilling",
 };
 import magneticEarth from "@/assets/magnetic-earth.jpg";
 import drillingRig from "@/assets/drilling-rig.jpg";
@@ -996,6 +1001,12 @@ export function Services() {
                           {/* Clickable link for geophysical sub-services */}
                           {activeService.id === "geophysics" && geophysicalSlugMap[service.name] && (
                             <Link to={geophysicalSlugMap[service.name]} className="inline-flex items-center gap-2 text-primary text-base font-medium mt-3 hover:gap-3 transition-all">
+                              View Details <ArrowRight className="w-4 h-4" />
+                            </Link>
+                          )}
+                          {/* Clickable link for drilling sub-services */}
+                          {activeService.id === "drilling" && drillingSlugMap[service.name] && (
+                            <Link to={drillingSlugMap[service.name]} className="inline-flex items-center gap-2 text-primary text-base font-medium mt-3 hover:gap-3 transition-all">
                               View Details <ArrowRight className="w-4 h-4" />
                             </Link>
                           )}
