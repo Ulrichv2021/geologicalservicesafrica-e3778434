@@ -8,7 +8,8 @@ import { trackEmailClick } from "@/lib/analytics";
 const footerLinks = {
   services: [
     { name: "Geophysical Surveys", href: "/services/geophysical-surveys" },
-    { name: "Drilling & Sampling", href: "/services/drilling-sampling" },
+    { name: "Diamond Drilling", href: "/services/diamond-drilling" },
+    { name: "Sonic Drilling", href: "/services/sonic-drilling" },
     { name: "Resource Estimation", href: "/services/resource-estimation" },
     { name: "Digital Solutions", href: "/services/digital-solutions" },
     { name: "Laboratory", href: "/services/laboratory" },

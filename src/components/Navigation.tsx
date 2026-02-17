@@ -15,7 +15,8 @@ const navLinks = [
 
 const servicesSubMenu = [
   { name: "Geophysical Surveys", href: "/services/geophysical-surveys" },
-  { name: "Drilling & Sampling", href: "/services/drilling-sampling" },
+  { name: "Diamond Drilling", href: "/services/diamond-drilling" },
+  { name: "Sonic Drilling", href: "/services/sonic-drilling" },
   { name: "Resource Estimation & BFS", href: "/services/resource-estimation" },
   { name: "Digital Solutions", href: "/services/digital-solutions" },
   { name: "Environmental & Closure", href: "/services/environmental-closure" },
