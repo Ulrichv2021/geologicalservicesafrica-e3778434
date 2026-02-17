@@ -4,12 +4,12 @@ import { Waves, Gauge, Ruler, Shield, Target, Layers, ArrowRight, ChevronRight, 
 import { PageLayout } from "@/components/PageLayout";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
-// New Sonic Assets - Corrected paths and Case Sensitivity
-import sonicHero from "@/assets/Drilling.JPG";
-import sampleIntegrityImg from "@/assets/Sample_Integrety.JPG";
-import drillStringImg from "@/assets/Drill String.JPG";
-import coreRecoveryImg from "@/assets/Core_recovery.JPG";
-import environmentalImg from "@/assets/Enviromental.JPG";
+// VITE IMPORTS: Using relative paths to ensure visibility
+import sonicHero from "../assets/Drilling.JPG";
+import sampleIntegrityImg from "../assets/Sample_Integrety.JPG"; 
+import drillStringImg from "../assets/Drill String.JPG";
+import coreRecoveryImg from "../assets/Core_recovery.JPG";
+import environmentalImg from "../assets/Enviromental.JPG";
 
 const kpis = [
   { icon: Gauge, label: "Core Recovery", value: "95–100%" },
@@ -103,7 +103,7 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Main Methodology Grid (Diamond Page Style) */}
+      {/* Methodology Section */}
       <section className="py-20 lg:py-28 bg-slate-900">
         <div className="page-x">
           <motion.div {...fadeUp} transition={{ duration: 0.5 }}>
@@ -114,7 +114,6 @@ export default function SonicDrilling() {
           </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-10">
-            {/* Left/Main Column: Why Choose Cards with Images */}
             <div className="lg:col-span-2 space-y-8">
               <h3 className="font-display text-2xl text-white mb-2">Technical Advantages</h3>
               {whyChoose.map((item, i) => (
@@ -137,7 +136,7 @@ export default function SonicDrilling() {
               ))}
             </div>
 
-            {/* Right Sidebar: Applications */}
+            {/* Sidebar */}
             <motion.aside {...fadeUp} transition={{ duration: 0.5, delay: 0.3 }} className="lg:col-span-1">
               <div className="bg-slate-800/60 border border-white/10 rounded-xl p-8 sticky top-32">
                 <h3 className="font-display text-xl text-white mb-6 flex items-center gap-3">
@@ -158,7 +157,7 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Featured Technical Highlight: Sample Integrity */}
+      {/* Sample Integrity Highlight */}
       <section className="py-16 bg-slate-800/50 border-y border-white/10">
         <div className="page-x">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -166,8 +165,7 @@ export default function SonicDrilling() {
               <h2 className="font-display text-2xl md:text-3xl text-white mb-4">Sample Integrity</h2>
               <p className="text-lg text-white/60 leading-relaxed mb-6">
                 Large diameter cores that maintain the original stratigraphy. Near-100% recovery with minimal 
-                contamination ensures representative samples for grade estimation and metallurgical testing. 
-                Preserving in-situ structures is critical for accurate geological interpretation.
+                contamination ensures representative samples for grade estimation and metallurgical testing.
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium border border-primary/20">JORC Compliant</span>
