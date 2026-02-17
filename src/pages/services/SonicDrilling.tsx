@@ -4,7 +4,7 @@ import { Waves, Gauge, Ruler, Shield, Target, Layers, ArrowRight, ChevronRight, 
 import { PageLayout } from "@/components/PageLayout";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
-// VITE IMPORTS
+// VITE IMPORTS: These must match your GitHub folder 'src/assets/' exactly
 import sonicHero from "../assets/Drilling.JPG";
 import sampleIntegrityImg from "../assets/Sample_Integrety.JPG"; 
 import drillStringImg from "../assets/Drill String.JPG";
@@ -125,7 +125,6 @@ export default function SonicDrilling() {
                 <motion.div key={item.title} {...fadeUp} transition={{ duration: 0.4, delay: i * 0.12 }} className="bg-slate-800/60 border border-white/10 rounded-xl overflow-hidden group">
                   <div className="md:flex">
                     <div className="md:w-2/5 shrink-0 bg-slate-800 overflow-hidden">
-                      {/* ZOOM FEATURE ADDED: group-hover:scale-110 */}
                       <img 
                         src={item.image} 
                         alt={item.title} 
@@ -147,7 +146,6 @@ export default function SonicDrilling() {
               ))}
             </div>
 
-            {/* Sidebar */}
             <motion.aside {...fadeUp} transition={{ duration: 0.5, delay: 0.3 }} className="lg:col-span-1">
               <div className="bg-slate-800/60 border border-white/10 rounded-xl p-8 sticky top-32">
                 <h3 className="font-display text-xl text-white mb-6 flex items-center gap-3">
@@ -168,7 +166,7 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Technical Highlight */}
+      {/* Sample Integrity - REFIXED IMAGE REFERENCE */}
       <section className="py-16 bg-slate-800/50 border-y border-white/10">
         <div className="page-x">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -186,7 +184,6 @@ export default function SonicDrilling() {
             </motion.div>
             <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.15 }}>
               <div className="rounded-xl border border-white/10 overflow-hidden bg-slate-800 group cursor-zoom-in">
-                {/* ZOOM FEATURE ADDED: group-hover:scale-125 */}
                 <img 
                   src={sampleIntegrityImg} 
                   alt="High-recovery sonic core samples" 
@@ -200,7 +197,7 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* NEW PRO-TIP BOX */}
+      {/* PRO-TIP SECTION */}
       <section className="py-10 bg-slate-900">
         <div className="page-x">
           <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto">
