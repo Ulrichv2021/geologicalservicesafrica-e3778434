@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Waves, Gauge, Ruler, Shield, Target, Layers, ArrowRight, ChevronRight, Clock, Zap, Leaf, Crosshair, Mountain } from "lucide-react";
+import { Waves, Gauge, Ruler, Shield, Target, Layers, ArrowRight, ChevronRight, Clock, Zap, Leaf, Crosshair, Mountain, Info } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
-// VITE IMPORTS: Relative paths match your src/assets folder
+// VITE IMPORTS
 import sonicHero from "../assets/Drilling.JPG";
 import sampleIntegrityImg from "../assets/Sample_Integrety.JPG"; 
 import drillStringImg from "../assets/Drill String.JPG";
@@ -59,7 +59,7 @@ export default function SonicDrilling() {
 
   return (
     <PageLayout breadcrumbs={[{ label: "Services", href: "/#services" }, { label: "Sonic Drilling" }]}>
-      {/* Hero with Object-Center for Large Backgrounds */}
+      {/* Hero */}
       <section className="relative py-20 lg:py-28 overflow-hidden min-h-[60vh] flex items-center">
         <div className="absolute inset-0">
           <img 
@@ -108,7 +108,7 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Methodology Section - Enhanced for Large Images */}
+      {/* Methodology Section */}
       <section className="py-20 lg:py-28 bg-slate-900">
         <div className="page-x">
           <motion.div {...fadeUp} transition={{ duration: 0.5 }}>
@@ -122,13 +122,14 @@ export default function SonicDrilling() {
             <div className="lg:col-span-2 space-y-8">
               <h3 className="font-display text-2xl text-white mb-2">Technical Advantages</h3>
               {whyChoose.map((item, i) => (
-                <motion.div key={item.title} {...fadeUp} transition={{ duration: 0.4, delay: i * 0.12 }} className="bg-slate-800/60 border border-white/10 rounded-xl overflow-hidden">
+                <motion.div key={item.title} {...fadeUp} transition={{ duration: 0.4, delay: i * 0.12 }} className="bg-slate-800/60 border border-white/10 rounded-xl overflow-hidden group">
                   <div className="md:flex">
-                    <div className="md:w-2/5 shrink-0 bg-slate-800">
+                    <div className="md:w-2/5 shrink-0 bg-slate-800 overflow-hidden">
+                      {/* ZOOM FEATURE ADDED: group-hover:scale-110 */}
                       <img 
                         src={item.image} 
                         alt={item.title} 
-                        className="w-full h-56 md:h-full object-cover object-center transition-opacity duration-500" 
+                        className="w-full h-56 md:h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" 
                         loading="lazy" 
                       />
                     </div>
@@ -167,7 +168,7 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Technical Highlight - Large Image Handling */}
+      {/* Technical Highlight */}
       <section className="py-16 bg-slate-800/50 border-y border-white/10">
         <div className="page-x">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -184,22 +185,39 @@ export default function SonicDrilling() {
               </div>
             </motion.div>
             <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.15 }}>
-              <div className="rounded-xl border border-white/10 overflow-hidden bg-slate-800">
+              <div className="rounded-xl border border-white/10 overflow-hidden bg-slate-800 group cursor-zoom-in">
+                {/* ZOOM FEATURE ADDED: group-hover:scale-125 */}
                 <img 
                   src={sampleIntegrityImg} 
                   alt="High-recovery sonic core samples" 
-                  className="w-full h-auto max-h-[400px] object-cover object-center" 
+                  className="w-full h-auto max-h-[400px] object-cover object-center transition-transform duration-1000 group-hover:scale-125" 
                   loading="lazy"
                 />
               </div>
-              <p className="text-sm text-white/40 mt-3 text-center">Exceptional core recovery in unconsolidated formations</p>
+              <p className="text-sm text-white/40 mt-3 text-center">Hover to examine core details</p>
             </motion.div>
           </div>
         </div>
       </section>
 
+      {/* NEW PRO-TIP BOX */}
+      <section className="py-10 bg-slate-900">
+        <div className="page-x">
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto">
+            <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+              <Info className="w-6 h-6 text-primary" />
+            </div>
+            <div className="text-center md:text-left">
+              <p className="text-white/80 text-sm md:text-base leading-relaxed">
+                <strong className="text-primary">One final tip:</strong> If you are using a tool like GitHub to upload these, ensure the file sizes are ideally <span className="text-white font-semibold underline underline-offset-4 decoration-primary/40">under 1MB</span> to keep the site snappy for mobile users!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20 bg-slate-900 border-t border-white/5">
         <div className="page-x text-center">
           <motion.div {...fadeUp} transition={{ duration: 0.5 }}>
             <h2 className="font-display text-2xl md:text-3xl text-white mb-4">Plan Your Sonic Drilling Programme</h2>
