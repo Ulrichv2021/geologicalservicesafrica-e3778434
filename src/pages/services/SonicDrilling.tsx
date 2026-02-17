@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import { Waves, Gauge, Ruler, Shield, Target, Layers, ArrowRight, ChevronRight, Clock, Zap, Leaf, Crosshair, Mountain } from "lucide-react";
 import { PageLayout } from "@/components/PageLayout";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
-import drillingRig from "@/assets/drilling-rig.jpg";
-import coreSamples from "@/assets/core-samples.jpg";
+
+// New Sonic Assets - Corrected paths and Case Sensitivity
+import sonicHero from "@/assets/Drilling.JPG";
+import sampleIntegrityImg from "@/assets/Sample_Integrety.JPG";
+import drillStringImg from "@/assets/Drill String.JPG";
+import coreRecoveryImg from "@/assets/Core_recovery.JPG";
+import environmentalImg from "@/assets/Enviromental.JPG";
 
 const kpis = [
   { icon: Gauge, label: "Core Recovery", value: "95–100%" },
@@ -17,26 +22,20 @@ const whyChoose = [
   {
     icon: Target,
     title: "Superior Core Recovery",
-    description:
-      "Achieve 95-100% recovery even in difficult loose soil conditions where standard rigs fail. Our Sonic technology captures near-perfect representative samples of the subsurface.",
+    description: "Achieve 95-100% recovery even in difficult loose soil conditions. Our Sonic technology captures near-perfect representative samples.",
+    image: coreRecoveryImg,
   },
   {
     icon: Zap,
     title: "Speed & Efficiency",
-    description:
-      "Up to 2–3× faster than conventional drilling in specific formations. High-frequency vibrations enable rapid penetration through unconsolidated materials with minimal downtime.",
+    description: "Up to 2–3× faster than conventional drilling. High-frequency vibrations enable rapid penetration with minimal downtime.",
+    image: drillStringImg,
   },
   {
     icon: Leaf,
     title: "Reduced Waste",
-    description:
-      "Produces up to 80% less drill cuttings, making it the most environmentally friendly choice for sensitive sites. Minimal use of drilling fluids reduces containment requirements.",
-  },
-  {
-    icon: Crosshair,
-    title: "Vertical Accuracy",
-    description:
-      "Minimal hole deviation ensures precise data for resource estimation. Consistent core alignment supports accurate stratigraphic and grade control interpretations.",
+    description: "Produces up to 80% less drill cuttings. Minimal use of drilling fluids reduces containment requirements and site impact.",
+    image: environmentalImg,
   },
 ];
 
@@ -54,8 +53,7 @@ const fadeUp = { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 } }
 export default function SonicDrilling() {
   useDocumentMeta({
     title: "Sonic Drilling Services Africa | High-Recovery Core | GSA",
-    description:
-      "Advanced Sonic Drilling delivering 95–100% core recovery in unconsolidated formations. Ideal for mineral sands, alluvials, and environmental sampling across Africa.",
+    description: "Advanced Sonic Drilling delivering 95–100% core recovery in unconsolidated formations across Africa.",
     canonical: "https://geologicalservicesafrica.co.za/services/sonic-drilling",
   });
 
@@ -64,7 +62,7 @@ export default function SonicDrilling() {
       {/* Hero */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={drillingRig} alt="Sonic drilling operations" className="w-full h-full object-cover" />
+          <img src={sonicHero} alt="Sonic drilling operations" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-slate-900/85" />
         </div>
         <div className="page-x relative z-10">
@@ -86,7 +84,7 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Quick Specs KPI Bar */}
+      {/* KPI Bar */}
       <section className="bg-slate-800 border-y border-white/10">
         <div className="page-x py-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -105,41 +103,41 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Service Overview */}
+      {/* Main Methodology Grid (Diamond Page Style) */}
       <section className="py-20 lg:py-28 bg-slate-900">
         <div className="page-x">
           <motion.div {...fadeUp} transition={{ duration: 0.5 }}>
             <h2 className="font-display text-3xl md:text-4xl text-white mb-6">Service Overview</h2>
-            <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-[75ch] mb-16">
-              Our Sonic Drilling technology utilises high-frequency mechanical vibrations to take continuous, relatively
-              undisturbed core samples. Unlike traditional methods, Sonic drilling excels in loose soil, sands, and silts,
-              providing a near-perfect representative sample of the subsurface without the use of excessive fluids.
+            <p className="text-lg text-white/60 mb-16 max-w-[75ch]">
+              Our Sonic technology excels in loose soil, sands, and silts, providing a near-perfect representative sample of the subsurface.
             </p>
           </motion.div>
 
-          {/* Why Choose Grid + Applications Sidebar */}
           <div className="grid lg:grid-cols-3 gap-10">
+            {/* Left/Main Column: Why Choose Cards with Images */}
             <div className="lg:col-span-2 space-y-8">
-              <h3 className="font-display text-2xl text-white mb-2">Why Choose Sonic Drilling?</h3>
+              <h3 className="font-display text-2xl text-white mb-2">Technical Advantages</h3>
               {whyChoose.map((item, i) => (
-                <motion.div
-                  key={item.title}
-                  {...fadeUp}
-                  transition={{ duration: 0.4, delay: i * 0.12 }}
-                  className="bg-slate-800/60 border border-white/10 rounded-xl p-8 flex items-start gap-5"
-                >
-                  <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-                    <item.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-xl text-white mb-3">{item.title}</h4>
-                    <p className="text-base text-white/60 leading-relaxed">{item.description}</p>
+                <motion.div key={item.title} {...fadeUp} transition={{ duration: 0.4, delay: i * 0.12 }} className="bg-slate-800/60 border border-white/10 rounded-xl overflow-hidden">
+                  <div className="md:flex">
+                    <div className="md:w-2/5 shrink-0">
+                      <img src={item.image} alt={item.title} className="w-full h-56 md:h-full object-cover" loading="lazy" />
+                    </div>
+                    <div className="p-8 flex flex-col justify-center">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-11 h-11 rounded-lg bg-primary/20 flex items-center justify-center">
+                          <item.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <h4 className="font-display text-xl text-white">{item.title}</h4>
+                      </div>
+                      <p className="text-base text-white/60 leading-relaxed">{item.description}</p>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* Applications Sidebar */}
+            {/* Right Sidebar: Applications */}
             <motion.aside {...fadeUp} transition={{ duration: 0.5, delay: 0.3 }} className="lg:col-span-1">
               <div className="bg-slate-800/60 border border-white/10 rounded-xl p-8 sticky top-32">
                 <h3 className="font-display text-xl text-white mb-6 flex items-center gap-3">
@@ -160,37 +158,25 @@ export default function SonicDrilling() {
         </div>
       </section>
 
-      {/* Technical Capabilities */}
+      {/* Featured Technical Highlight: Sample Integrity */}
       <section className="py-16 bg-slate-800/50 border-y border-white/10">
         <div className="page-x">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeUp} transition={{ duration: 0.5 }}>
               <h2 className="font-display text-2xl md:text-3xl text-white mb-4">Sample Integrity</h2>
               <p className="text-lg text-white/60 leading-relaxed mb-6">
-                Large diameter cores that maintain the original stratigraphy of the soil. Near-100% core recovery
-                with minimal loss or contamination ensures representative samples for grade estimation and
-                metallurgical testing. The preserved in-situ sedimentary structures, moisture content, and stratigraphy
-                are critical for accurate geological interpretation and bulk density determinations.
+                Large diameter cores that maintain the original stratigraphy. Near-100% recovery with minimal 
+                contamination ensures representative samples for grade estimation and metallurgical testing. 
+                Preserving in-situ structures is critical for accurate geological interpretation.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium border border-primary/20">
-                  JORC Compliant
-                </span>
-                <span className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium border border-primary/20">
-                  SAMREC Compliant
-                </span>
-                <span className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium border border-primary/20">
-                  QAQC Validated
-                </span>
+                <span className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium border border-primary/20">JORC Compliant</span>
+                <span className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium border border-primary/20">SAMREC Compliant</span>
+                <span className="px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium border border-primary/20">QAQC Validated</span>
               </div>
             </motion.div>
             <motion.div {...fadeUp} transition={{ duration: 0.5, delay: 0.15 }}>
-              <img
-                src={coreSamples}
-                alt="High-recovery sonic core samples showing undisturbed stratigraphy"
-                className="w-full h-72 object-cover rounded-xl border border-white/10"
-                loading="lazy"
-              />
+              <img src={sampleIntegrityImg} alt="High-recovery sonic core samples" className="w-full h-72 object-cover rounded-xl border border-white/10" />
               <p className="text-sm text-white/40 mt-3 text-center">Exceptional core recovery in unconsolidated formations</p>
             </motion.div>
           </div>
@@ -203,13 +189,11 @@ export default function SonicDrilling() {
           <motion.div {...fadeUp} transition={{ duration: 0.5 }}>
             <h2 className="font-display text-2xl md:text-3xl text-white mb-4">Plan Your Sonic Drilling Programme</h2>
             <p className="text-lg text-white/60 mb-10 max-w-[55ch] mx-auto">
-              Expert programme design for mineral sands, alluvials, environmental sampling, and unconsolidated formation exploration.
+              Expert programme design for mineral sands, alluvials, and environmental sampling.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/#contact" className="btn-hero inline-flex items-center gap-2 text-base px-10 py-5">
-                Consult a Drilling Expert <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
+            <Link to="/#contact" className="btn-hero inline-flex items-center gap-2 text-base px-10 py-5">
+              Consult a Drilling Expert <ArrowRight className="w-5 h-5" />
+            </Link>
           </motion.div>
         </div>
       </section>
